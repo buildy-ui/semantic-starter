@@ -1,0 +1,32 @@
+{
+  "name": "app-starter",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "author": {
+    "name": "buildy-ui",
+    "url": "https://github.com/buildy-ui/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildy-ui/app-starter.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+      "devDependencies": {
+      "@types/node": "^22.15.30",
+      "@types/react": "^19.1.2",
+      "@types/react-dom": "^19.1.2",
+      "@vitejs/plugin-react-swc": "^3.10.2",
+      "typescript": "~5.8.3",
+      "vite": "^6.3.5"
+    }
+} 
