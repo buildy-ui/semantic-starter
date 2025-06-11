@@ -7,7 +7,10 @@ export default defineConfig({
   root: './',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      '@/lib': path.resolve(__dirname, './src/app/ui/lib/'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@ui8kit': path.resolve(__dirname, './src/app/ui/index.tsx')
     }
   },
   build: {

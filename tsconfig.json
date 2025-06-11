@@ -18,9 +18,13 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/lib/*": ["src/app/ui/lib/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@ui8kit": ["src/app/ui/index.tsx"]
     }
   },
-  "include": ["src/**/*", "*.ts", "*.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 } 
