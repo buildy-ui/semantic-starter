@@ -4,7 +4,7 @@
 }
 
 .card-header {
-  @apply @container/card-header grid-rows-[auto_auto] grid auto-rows-min items-start gap-1.5 mt-4 px-6 has-[data-slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6;
+  @apply gap-1.5 mt-4 px-6;
 }
 
 .card-title {
@@ -19,19 +19,19 @@
   @apply col-start-2 row-span-2 row-start-1 self-start justify-self-end;
 }
 
-.article-meta {
+.card-meta {
   @apply flex flex-wrap items-center gap-3 text-sm text-muted-foreground;
 }
 
-.article-figure {
+.card-figure {
   @apply overflow-hidden;
 }
 
-.article-image {
+.card-image {
   @apply aspect-video w-full object-cover rounded-t-md;
 }
 
-.article-figcaption {
+.card-figcaption {
   @apply mt-2 text-center text-sm text-muted-foreground;
 }
 

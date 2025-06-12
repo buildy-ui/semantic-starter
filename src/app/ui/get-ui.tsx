@@ -1,4 +1,4 @@
-// ui8kit/dynamic.tsx
+// ui8kit/get-ui.tsx
 import React, { Suspense, lazy } from 'react';
 
 const getMode = () => {

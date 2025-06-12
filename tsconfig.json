@@ -21,7 +21,9 @@
       "@/*": ["src/*"],
       "@/lib/*": ["src/app/ui/lib/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@ui8kit": ["src/app/ui/index.tsx"]
+      "@ui8kit/ui": ["src/app/ui/get-ui.tsx"],
+      "@ui8kit/components": ["src/app/ui/get-components.tsx"],
+      "@ui8kit/blocks": ["src/app/ui/get-blocks.tsx"]
     }
   },
   "include": ["src/**/*"],

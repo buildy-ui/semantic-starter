@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "./semantic/button.css";
 @import "./semantic/card.css";
+@import "./semantic/section.css";
+@import "./semantic/article.css";
+@import "./semantic/markup.css";
 
 @custom-variant dark (&:is(.dark *));
 

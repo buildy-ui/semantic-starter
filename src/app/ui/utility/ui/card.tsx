@@ -19,7 +19,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "@container/card-header grid-rows-[auto_auto] grid auto-rows-min items-start gap-1.5 mt-4 px-6 has-[data-slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        "gap-1.5 mt-4 px-6",
         className
       )}
       {...props}
@@ -98,7 +98,7 @@ function CardImage({
 }: React.ComponentProps<"img">) {
   return (
     <img
-      data-slot="card-image"
+      data-slot="card-image" 
       className={cn(
         "aspect-video w-full object-cover rounded-t-md",
         className

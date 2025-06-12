@@ -10,7 +10,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@/lib': path.resolve(__dirname, './src/app/ui/lib/'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
-      '@ui8kit': path.resolve(__dirname, './src/app/ui/index.tsx')
+      '@ui8kit/ui': path.resolve(__dirname, './src/app/ui/get-ui.tsx'),
+      '@ui8kit/components': path.resolve(__dirname, './src/app/ui/get-components.tsx'),
+      '@ui8kit/blocks': path.resolve(__dirname, './src/app/ui/get-blocks.tsx')
     }
   },
   build: {
