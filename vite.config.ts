@@ -8,9 +8,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@/lib': path.resolve(__dirname, './src/app/ui/lib/'),
-      '@hooks': path.resolve(__dirname, './src/hooks'),
-      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/index.tsx')
+      '@/lib': path.resolve(__dirname, './src/lib/'),
+      '@/hooks': path.resolve(__dirname, './src/hooks/'),
+      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/index.tsx'),
+      '@hooks': path.resolve(__dirname, './src/app/ui8kit/hooks')
     }
   },
   build: {
