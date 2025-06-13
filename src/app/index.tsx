@@ -1,7 +1,6 @@
 import { useThemeMode } from '@hooks/useThemeMode'
 import { DarkMode } from './components/DarkMode';
-import components from '@ui8kit/components';
-import ui from '@ui8kit/ui';
+import { components, ui } from '@ui8kit';
 
 export const { Button } = ui.button;
 export const { Card, CardHeader, CardContent, CardFooter, CardImage, CardTitle, CardDescription } = ui.card;
