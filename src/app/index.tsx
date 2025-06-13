@@ -1,6 +1,7 @@
 import { useThemeMode } from '@hooks/useThemeMode'
-import ui from '@ui8kit/ui';
+import { DarkMode } from './components/DarkMode';
 import components from '@ui8kit/components';
+import ui from '@ui8kit/ui';
 
 export const { Button } = ui.button;
 export const { Card, CardHeader, CardContent, CardFooter, CardImage, CardTitle, CardDescription } = ui.card;
@@ -66,9 +67,12 @@ function App() {
             <Card className="col-span-3 sm:col-span-1" >
               <CardContent className="flex flex-col justify-center items-center py-6">
                 <p className="text-lg pb-6">Current mode: <span className="font-bold">{mode}</span></p>
-                <Button title="See Dev Tools" className={`${mode === 'semantic' ? '!bg-teal-500 text-white' : 'bg-primary text-white'}`} variant="default" size="lg" onClick={toggleMode}>
-                  Switch to {mode === 'utility' ? 'semantic' : 'utility'}
-                </Button>
+                <div className="flex justify-center items-center gap-2">
+                  <Button title="See Dev Tools" className={`${mode === 'semantic' ? '!bg-teal-500 text-white' : 'bg-primary text-white'}`} variant="default" size="lg" onClick={toggleMode}>
+                    Switch to {mode === 'utility' ? 'semantic' : 'utility'}
+                  </Button>
+                  <DarkMode />
+                </div>
               </CardContent>
             </Card>
           </div>
