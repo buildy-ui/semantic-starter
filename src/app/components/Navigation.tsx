@@ -1,34 +1,40 @@
 import { Link } from 'react-router-dom';
+import { components, ui } from '@ui8kit';
+import { useThemeMode } from '@hooks/useThemeMode'
+import { DarkMode } from './DarkMode';
+import { SiteLogo } from './SiteLogo';
+
+export const { Nav, NavItem, NavLink, NavList, NavGroupButtons, NavBar } = components.nav;
+export const { Button } = ui.button;
 
 export function Navigation() {
+  const { mode, toggleMode } = useThemeMode();
+
   return (
-    <nav className="bg-background border-b border-border mb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
-            >
-              Buildy UI
-            </Link>
-            <div className="flex space-x-4">
-              <Link 
-                to="/" 
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link 
-                to="/about" 
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                About
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+
+    <NavBar>
+    <SiteLogo />
+    <Nav>
+      <NavList>
+        <Link to="/">
+          <NavItem>
+            <NavLink>Home</NavLink>
+          </NavItem>
+        </Link>
+        <Link to="/about">
+          <NavItem>
+            <NavLink>About</NavLink>
+          </NavItem>
+        </Link>
+      </NavList>
+    </Nav>
+
+    <NavGroupButtons>
+      <Button className={`${mode === 'semantic' ? '!bg-teal-500 text-white' : 'bg-primary text-white'}`} variant="default" size="lg" onClick={toggleMode}>
+        Switch to {mode === 'utility' ? 'semantic' : 'utility'}
+      </Button>
+      <DarkMode />
+    </NavGroupButtons>
+  </NavBar>
   );
 } 

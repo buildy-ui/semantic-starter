@@ -1,5 +1,4 @@
 import { useThemeMode } from '@hooks/useThemeMode'
-import { DarkMode } from '../components/DarkMode';
 import { Navigation } from '../components/Navigation';
 import { components, ui } from '@ui8kit';
 
@@ -72,7 +71,6 @@ function App() {
                     <Button className={`${mode === 'semantic' ? '!bg-teal-500 text-white' : 'bg-primary text-white'}`} variant="default" size="lg" onClick={toggleMode}>
                       Switch to {mode === 'utility' ? 'semantic' : 'utility'}
                     </Button>
-                    <DarkMode />
                   </div>
                 </CardContent>
               </Card>

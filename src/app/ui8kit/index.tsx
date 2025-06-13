@@ -43,7 +43,7 @@ function createProxy(directory: 'ui' | 'components' | 'blocks') {
                 );
                 
                 componentTarget[componentName] = React.forwardRef((props: any, ref: any) => (
-                  <Suspense fallback={<div>Loading {directory}.{prop}.{componentName}...</div>}>
+                  <Suspense>
                     <LazyComponent {...props} ref={ref} />
                   </Suspense>
                 ));
