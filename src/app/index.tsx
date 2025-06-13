@@ -61,10 +61,10 @@ function App() {
         </SectionHeader>
         <SectionContent className="w-full py-12 px-6 bg-muted rounded-md mb-12">
           <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
+            <div className="col-span-3 md:col-span-2">
               <p className="py-6 text-secondary-foreground">{page.content}</p>
             </div>
-            <Card className="col-span-3 sm:col-span-1" >
+            <Card className="col-span-3 md:col-span-1">
               <CardContent className="flex flex-col justify-center items-center py-6">
                 <p className="text-lg pb-6">Current mode: <span className="font-bold">{mode}</span></p>
                 <div className="flex justify-center items-center gap-2">
