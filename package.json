@@ -14,7 +14,11 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:utility": "VITE_UI8KIT_MODE=utility vite",
+    "dev:semantic": "VITE_UI8KIT_MODE=semantic vite",
     "build": "tsc && vite build",
+    "build:utility": "VITE_UI8KIT_MODE=utility tsc && vite build",
+    "build:semantic": "VITE_UI8KIT_MODE=semantic tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

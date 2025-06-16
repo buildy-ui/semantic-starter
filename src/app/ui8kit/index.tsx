@@ -1,12 +1,20 @@
 import React from 'react';
 
+// Check the constant from the environment variables
+const FIXED_MODE = import.meta.env.VITE_UI8KIT_MODE as 'utility' | 'semantic' | undefined;
+
 // Global state of the mode
 let currentMode: 'utility' | 'semantic' = 'utility';
 const listeners = new Set<(mode: 'utility' | 'semantic') => void>();
 
-// Initialization of the mode from localStorage
+// Initialization of the mode from localStorage or fixed mode
 const initializeMode = () => {
   if (typeof window === 'undefined') return 'utility';
+  
+  // If a constant is set - use it and ignore localStorage
+  if (FIXED_MODE && (FIXED_MODE === 'utility' || FIXED_MODE === 'semantic')) {
+    return FIXED_MODE;
+  }
   
   const savedMode = localStorage.getItem('ui8kit-theme-mode') as 'utility' | 'semantic';
   return (savedMode === 'semantic' || savedMode === 'utility') ? savedMode : 'utility';
@@ -14,6 +22,12 @@ const initializeMode = () => {
 
 // Function to update the mode
 export const updateUIMode = (newMode: 'utility' | 'semantic') => {
+  // If a constant is set - block changes
+  if (FIXED_MODE) {
+    console.warn(`UI8Kit mode is fixed to "${FIXED_MODE}" and cannot be changed`);
+    return;
+  }
+  
   currentMode = newMode;
   listeners.forEach(listener => listener(newMode));
 };
@@ -21,15 +35,20 @@ export const updateUIMode = (newMode: 'utility' | 'semantic') => {
 // Function to get the current mode
 const getMode = () => currentMode;
 
+// Function to check if mode is fixed
+export const isModeFixed = () => !!FIXED_MODE;
+
 // Initialize the mode on load
 if (typeof window !== 'undefined') {
   currentMode = initializeMode();
   
-  // Listen for mode changes
-  window.addEventListener('themeMode', (e: Event) => {
-    const customEvent = e as CustomEvent;
-    updateUIMode(customEvent.detail);
-  });
+  // Listen for mode changes only if mode is not fixed
+  if (!FIXED_MODE) {
+    window.addEventListener('themeMode', (e: Event) => {
+      const customEvent = e as CustomEvent;
+      updateUIMode(customEvent.detail);
+    });
+  }
 }
 
 // Simple module cache

@@ -1,12 +1,27 @@
 import { useState, useEffect } from 'react';
+import { isModeFixed } from '../index';
 
 const THEME_MODE_KEY = 'ui8kit-theme-mode';
 
 export function useThemeMode() {
   const [mode, setMode] = useState<'utility' | 'semantic'>('utility');
+  const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
-    // Read from localStorage on initialization
+    // Check if the mode is fixed
+    const fixed = isModeFixed();
+    setIsFixed(fixed);
+    
+    if (fixed) {
+      // If the mode is fixed, read from the environment variable
+      const fixedMode = import.meta.env.VITE_UI8KIT_MODE as 'utility' | 'semantic';
+      if (fixedMode) {
+        setMode(fixedMode);
+      }
+      return;
+    }
+
+    // Normal logic for unfixed mode
     const savedMode = localStorage.getItem(THEME_MODE_KEY) as 'utility' | 'semantic';
     
     if (savedMode && (savedMode === 'utility' || savedMode === 'semantic')) {
@@ -18,6 +33,11 @@ export function useThemeMode() {
   }, []);
 
   const switchMode = (newMode: 'utility' | 'semantic') => {
+    if (isFixed) {
+      console.warn('Theme mode is fixed and cannot be changed');
+      return;
+    }
+    
     setMode(newMode);
     localStorage.setItem(THEME_MODE_KEY, newMode);
     
@@ -26,6 +46,11 @@ export function useThemeMode() {
   };
 
   const toggleMode = () => {
+    if (isFixed) {
+      console.warn('Theme mode is fixed and cannot be changed');
+      return;
+    }
+    
     const newMode = mode === 'utility' ? 'semantic' : 'utility';
     switchMode(newMode);
   };
@@ -46,5 +71,10 @@ export function useThemeMode() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  return { mode, toggleMode, switchMode };
+  return { 
+    mode, 
+    toggleMode, 
+    switchMode, 
+    isFixed // Return information about whether the mode is fixed
+  };
 }
