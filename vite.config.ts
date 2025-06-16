@@ -15,7 +15,18 @@ export default defineConfig({
       '@data': path.resolve(__dirname, './src/app/data/index.ts')
     }
   },
+  server: {
+    fs: {
+      strict: false
+    },
+    middlewareMode: false
+  },
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 }) 
