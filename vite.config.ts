@@ -28,5 +28,9 @@ export default defineConfig({
         manualChunks: undefined
       }
     }
+  },
+  preview: {
+    port: 4173,
+    strictPort: true
   }
 }) 
