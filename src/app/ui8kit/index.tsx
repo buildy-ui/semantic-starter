@@ -1,60 +1,102 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 
-const getMode = () => {
+// Global state of the mode
+let currentMode: 'utility' | 'semantic' = 'utility';
+const listeners = new Set<(mode: 'utility' | 'semantic') => void>();
+
+// Initialization of the mode from localStorage
+const initializeMode = () => {
   if (typeof window === 'undefined') return 'utility';
-  return new URLSearchParams(window.location.search).get('ui8kit') || 'utility';
+  
+  const savedMode = localStorage.getItem('ui8kit-theme-mode') as 'utility' | 'semantic';
+  return (savedMode === 'semantic' || savedMode === 'utility') ? savedMode : 'utility';
 };
 
-// Cache for loaded modules
-const moduleCache = new Map();
+// Function to update the mode
+export const updateUIMode = (newMode: 'utility' | 'semantic') => {
+  currentMode = newMode;
+  listeners.forEach(listener => listener(newMode));
+};
 
-// Create a function to load files from different directories
-function loadFile(directory: 'ui' | 'components' | 'blocks', fileName: string) {
-  const mode = getMode();
-  const cacheKey = `${mode}-${directory}-${fileName}`;
+// Function to get the current mode
+const getMode = () => currentMode;
+
+// Initialize the mode on load
+if (typeof window !== 'undefined') {
+  currentMode = initializeMode();
   
-  if (!moduleCache.has(cacheKey)) {
-    const modulePromise = import(`./${mode}/${directory}/${fileName}.tsx`)
-      .catch(() => {
-        console.warn(`${directory}/${fileName} not found in ${mode} mode`);
-        return { default: () => <div>{directory}/{fileName} not found</div> };
-      });
-    
-    moduleCache.set(cacheKey, modulePromise);
-  }
-  
-  return moduleCache.get(cacheKey);
+  // Listen for mode changes
+  window.addEventListener('themeMode', (e: Event) => {
+    const customEvent = e as CustomEvent;
+    updateUIMode(customEvent.detail);
+  });
 }
 
-// Create proxy factory
+// Simple module cache
+const moduleCache = new Map();
+
+// Synchronous loading of components
+function getComponent(directory: 'ui' | 'components' | 'blocks', fileName: string, componentName: string) {
+  const mode = getMode();
+  const cacheKey = `${mode}-${directory}-${fileName}-${componentName}`;
+  
+  if (moduleCache.has(cacheKey)) {
+    return moduleCache.get(cacheKey);
+  }
+  
+  // Create a component wrapper
+  const Component = React.forwardRef((props: any, ref: any) => {
+    const [, forceUpdate] = React.useState({});
+    
+    React.useEffect(() => {
+      const listener = () => forceUpdate({});
+      listeners.add(listener);
+      return () => {
+        listeners.delete(listener);
+      };
+    }, []);
+    
+    // Dynamic import of the module
+    const [ModuleComponent, setModuleComponent] = React.useState<any>(null);
+    
+    React.useEffect(() => {
+      const currentMode = getMode();
+      
+      import(`./${currentMode}/${directory}/${fileName}.tsx`)
+        .then((module: any) => {
+          const comp = module[componentName] || module.default;
+          setModuleComponent(() => comp || (() => <div>{directory}.{fileName}.{componentName} not found</div>));
+        })
+        .catch(() => {
+          setModuleComponent(() => () => <div>{directory}.{fileName}.{componentName} not found</div>);
+        });
+    }, [getMode()]);
+    
+    if (!ModuleComponent) {
+      return null; // Or a simple loader
+    }
+    
+    return <ModuleComponent {...props} ref={ref} />;
+  });
+  
+  Component.displayName = `${directory}.${fileName}.${componentName}`;
+  moduleCache.set(cacheKey, Component);
+  
+  return Component;
+}
+
+// Simplified proxy
 function createProxy(directory: 'ui' | 'components' | 'blocks') {
   return new Proxy({}, {
-    get(target: any, prop: string) {
-      if (typeof prop === 'string' && prop !== 'default' && !prop.startsWith('_')) {
-        if (!target[prop]) {
-          target[prop] = new Proxy({}, {
-            get(componentTarget: any, componentName: string) {
-              if (!componentTarget[componentName]) {
-                const LazyComponent = lazy(() => 
-                  loadFile(directory, prop).then((module: any) => ({
-                    default: module[componentName] || module.default || 
-                      (() => <div>{directory}.{prop}.{componentName} not found</div>)
-                  }))
-                );
-                
-                componentTarget[componentName] = React.forwardRef((props: any, ref: any) => (
-                  <Suspense>
-                    <LazyComponent {...props} ref={ref} />
-                  </Suspense>
-                ));
-              }
-              return componentTarget[componentName];
-            }
-          });
-        }
-        return target[prop];
+    get(_target: any, fileName: string) {
+      if (typeof fileName === 'string' && fileName !== 'default' && !fileName.startsWith('_')) {
+        return new Proxy({}, {
+          get(_componentTarget: any, componentName: string) {
+            return getComponent(directory, fileName, componentName);
+          }
+        });
       }
-      return target[prop];
+      return undefined;
     }
   });
 }

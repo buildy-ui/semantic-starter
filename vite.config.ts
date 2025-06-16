@@ -11,7 +11,8 @@ export default defineConfig({
       '@/lib': path.resolve(__dirname, './src/lib/'),
       '@/hooks': path.resolve(__dirname, './src/hooks/'),
       '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/index.tsx'),
-      '@hooks': path.resolve(__dirname, './src/app/ui8kit/hooks')
+      '@hooks': path.resolve(__dirname, './src/app/ui8kit/hooks'),
+      '@data': path.resolve(__dirname, './src/app/data/index.ts')
     }
   },
   build: {

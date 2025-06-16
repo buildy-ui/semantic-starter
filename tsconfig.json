@@ -22,7 +22,8 @@
       "@/lib/*": ["src/lib/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@ui8kit": ["src/app/ui8kit/index.tsx"],
-      "@hooks/*": ["src/app/ui8kit/hooks/*"]
+      "@hooks/*": ["src/app/ui8kit/hooks/*"],
+      "@data": ["src/app/data/index.ts"]
     }
   },
   "include": ["src/**/*"],

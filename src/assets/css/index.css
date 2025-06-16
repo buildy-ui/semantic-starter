@@ -1,12 +1,16 @@
 @import "tailwindcss";
+/*@import "./source/fonts.css";*/
+@import "./source/latty.css";
+
 @import "./semantic/button.css";
 @import "./semantic/card.css";
 @import "./semantic/section.css";
 @import "./semantic/article.css";
 @import "./semantic/markup.css";
 @import "./semantic/nav.css";
+@import "./semantic/main.css";
+@import "./semantic/sheet.css";
 
-@import "./source/latty.css";
 @import "./source/shadcn4.css";
 
 @layer base {
@@ -15,6 +19,7 @@
   }
   body {
       @apply bg-background text-foreground;
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
   }
   button,
   .button {
