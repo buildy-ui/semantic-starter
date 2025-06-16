@@ -1,5 +1,5 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components } from '@ui8kit';
+import { components } from '@/app/ui8kit/loader';
 
 export const { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption, ArticleTags, ArticleTag } = components.article;
 export const { H1, P } = components.markup;

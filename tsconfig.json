@@ -21,7 +21,7 @@
       "@/*": ["src/*"],
       "@/lib/*": ["src/lib/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@ui8kit": ["src/app/ui8kit/index.tsx"],
+      "@ui8kit": ["src/app/ui8kit/loader.tsx"],
       "@hooks/*": ["src/app/ui8kit/hooks/*"],
       "@data": ["src/app/data/index.ts"]
     }

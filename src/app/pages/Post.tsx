@@ -1,5 +1,5 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components } from '@ui8kit';
+import { components } from '@/app/ui8kit/loader';
 import { renderContext } from '@data';
 import { useParams } from 'react-router-dom';
 

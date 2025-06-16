@@ -1,4 +1,4 @@
-import { ui } from '@ui8kit';
+import { ui } from '@/app/ui8kit/loader';
 import { useEffect, useState } from 'react';
 export const { Button } = ui.button;
 

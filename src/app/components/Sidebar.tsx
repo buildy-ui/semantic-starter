@@ -1,4 +1,4 @@
-import { components, ui } from '@ui8kit';
+import { components, ui } from '@/app/ui8kit/loader';
 import { renderContext } from '@data';
 
 export const { site } = renderContext;

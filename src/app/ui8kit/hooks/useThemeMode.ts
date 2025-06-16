@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { isModeFixed } from '../index';
+import { isModeFixed } from '../loader';
 
 const THEME_MODE_KEY = 'ui8kit-theme-mode';
 

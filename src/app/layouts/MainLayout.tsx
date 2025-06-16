@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Helmet } from 'react-helmet-async';
-import { components } from '@ui8kit';
+import { components } from '@/app/ui8kit/loader';
 import { Navigation } from "@/app/components/Navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { SiteLogo } from "@/app/components/SiteLogo";
