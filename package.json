@@ -15,11 +15,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "preview": "vite preview",
+    "build:analyze": "tsc && vite build --mode analyze",
+    "optimize:images": "tsx scripts/optimize-images.ts",
     "dev:utility": "VITE_UI8KIT_MODE=utility vite",
     "dev:semantic": "VITE_UI8KIT_MODE=semantic vite",
     "build:utility": "VITE_UI8KIT_MODE=utility tsc && vite build",
     "build:semantic": "VITE_UI8KIT_MODE=semantic tsc && vite build",
-    "preview": "vite preview"
+    "images:clean": "find src/assets/images -name '*-*w.webp' -delete && find src/assets/images -name '*-fallback.jpg' -delete"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -36,10 +39,15 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.10.2",
+    "glob": "^11.0.3",
     "postcss": "^8.5.4",
+    "sharp": "^0.33.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.9",
+    "tsx": "^4.0.0",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-bundle-analyzer": "^0.7.0",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/*@import "./source/fonts.css";*/
+@import "../font/Nunito/nunito.css";
 @import "./source/latty.css";
 
 @import "./semantic/button.css";

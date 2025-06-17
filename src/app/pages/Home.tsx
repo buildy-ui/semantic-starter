@@ -2,6 +2,8 @@ import { MainLayout } from '@/app/layouts/MainLayout';
 import { components, ui } from '@/app/ui8kit/loader';
 import { renderContext } from '@data';
 
+import { OptimizedImage } from '@/app/components/Image';
+
 export const { page, features } = renderContext.home;
 export const { Button } = ui.button;
 export const { Main } = components.main;
@@ -25,7 +27,15 @@ function App() {
           <Grid>
             {features.map((feature) => (
               <Card key={feature.id}>
-                <CardImage src={feature.featuredImage.url} alt={feature.featuredImage.alt} caption={feature.featuredImage.caption} />
+                {/*<CardImage src={feature.featuredImage.url} alt={feature.featuredImage.alt} caption={feature.featuredImage.caption} />*/}
+                  <OptimizedImage
+                    src="programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism"
+                    alt="Clean workspace illustration"
+                    width={320}
+                    height={240}
+                    maxWidth={320}
+                    className="aspect-video object-cover rounded-t-md"
+                  />
                 <CardContent>
                   <CardTitle>{feature.title}</CardTitle>
                   <p className="text-sm">{feature.excerpt}</p>

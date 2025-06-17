@@ -1,6 +1,8 @@
 import { components, ui } from '@/app/ui8kit/loader';
 import { renderContext } from '@data';
 
+import { OptimizedImage } from '@/app/components/Image';
+
 export const { site } = renderContext;
 export const { features } = renderContext.home;
 
@@ -13,7 +15,7 @@ export type SidebarProps = {
 export function Sidebar({ className }: SidebarProps) {
   const { Aside } = components.aside;
   const { P } = components.markup;
-  const { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFigure, CardImage, CardFigcaption } = ui.card;
+  const { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFigure, CardFigcaption } = ui.card;
 
   return (
     <Aside className={className}>
@@ -21,9 +23,15 @@ export function Sidebar({ className }: SidebarProps) {
         <Card>
           {widget.featuredImage && (
             <CardFigure>
-              <CardImage
-                src={widget.featuredImage.url}
-                alt={widget.featuredImage.alt}
+              <OptimizedImage
+                src="programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu"
+                alt="Clean workspace illustration"
+                width={320}
+                height={240}
+                maxWidth={320}
+                //priority={true}
+                aboveFold={true}
+                className="aspect-video object-cover rounded-t-md"
               />
               {widget.featuredImage.caption && (
                 <CardFigcaption>{widget.featuredImage.caption}</CardFigcaption>

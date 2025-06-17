@@ -4,8 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buildy App Starter</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzN2I5ZjMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1wYWNrYWdlLWljb24gbHVjaWRlLXBhY2thZ2UiPjxwYXRoIGQ9Ik0xMSAyMS43M2EyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZWOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczeiIvPjxwYXRoIGQ9Ik0xMiAyMlYxMiIvPjxwb2x5bGluZSBwb2ludHM9IjMuMjkgNyAxMiAxMiAyMC43MSA3Ii8+PHBhdGggZD0ibTcuNSA0LjI3IDkgNS4xNSIvPjwvc3ZnPg==" />
-    <script>!function(){try{const e="dark"===localStorage.getItem("darkmode")||!("darkmode"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",e)}catch(e){console.error("Failed to set initial theme:",e)}}();</script>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,
+    PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVp
+    Z2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzN2I5
+    ZjMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGlu
+    ZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1wYWNrYWdlLWljb24gbHVjaWRl
+    LXBhY2thZ2UiPjxwYXRoIGQ9Ik0xMSAyMS43M2EyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAw
+    IDAgMjEgMTZWOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIg
+    MiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczeiIvPjxwYXRoIGQ9Ik0xMiAyMlYxMiIv
+    Pjxwb2x5bGluZSBwb2ludHM9IjMuMjkgNyAxMiAxMiAyMC43MSA3Ii8
+    +PHBhdGggZD0ibTcuNSA0LjI3IDkgNS4xNSIvPjwvc3ZnPg==" />
+    
+    <link 
+    rel="preload" 
+    as="image" 
+    href="/images/programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-320w.webp"
+    media="(max-width: 320px)"
+  >
+    
+    <!-- Theme script optimized -->
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem("darkmode") === "dark" || 
+                       (!localStorage.getItem("darkmode") && 
+                        window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", theme);
+        } catch (e) {
+          console.error("Theme initialization failed:", e);
+        }
+      })();
+    </script>
   </head>
   <body class="bg-background text-foreground">
     <div id="app"></div>
