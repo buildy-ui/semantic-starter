@@ -21,8 +21,50 @@
       @apply bg-background text-foreground;
       font-family: 'Nunito', system-ui, -apple-system, sans-serif;
   }
+  .main-layout {
+    @apply grid grid-cols-3 gap-6;
+  }
+  .main-content {
+    @apply col-span-3 md:col-span-2;
+  }
+  .sidebar {
+    @apply col-span-3 md:col-span-1;
+  }
+  .text-center-py-4 {
+    @apply text-center py-4;
+  }
+  .text-sm {
+    @apply text-sm;
+  }
   button,
   .button {
-      @apply cursor-pointer;
+      @apply cursor-pointer; 
   }
+}
+
+
+
+/* Blur to focus animation */
+@keyframes blurToFocus {
+  0% {
+    filter: blur(4px);
+    opacity: 0;
+    transform: scale(0.95);
+    min-height: 2rem;
+  }
+  50% {
+    filter: blur(2px);
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+    min-height: auto;
+  }
+}
+
+.animate-blur-in {
+  animation: blurToFocus 0.1s ease-out forwards;
 }

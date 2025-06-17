@@ -34,18 +34,18 @@ export const MainLayout = ({ title, description, children }: RootLayoutProps) =>
         <Navigation />
 
         <Section>
-          <Container className="grid grid-cols-3 gap-6">
-            <Main className="col-span-3 md:col-span-2">
+          <Container className="main-layout">
+            <Main className="main-content">
               {children}
             </Main>
-            <Sidebar className="col-span-3 md:col-span-1" />
+            <Sidebar className="sidebar" />
           </Container>
         </Section>
 
         <SectionFooter>
           <Container>
-            <P className="text-center py-4">&copy; {new Date().getFullYear()} {site.title}</P>
-            <a href="https://github.com/buildy-ui/ui" className="text-sm py-4">buildy/ui</a>
+            <P className="text-center-py-4">&copy; {new Date().getFullYear()} {site.title}</P>
+            <a href="https://github.com/buildy-ui/ui" className="text-sm text-center-py-4">buildy/ui</a>
           </Container>
         </SectionFooter>
 

@@ -132,58 +132,36 @@ function createDynamicComponent(
   
   // Create new dynamic component
   const DynamicComponent = React.forwardRef<any, any>((props, ref) => {
-    // Force re-render when mode changes
-    const [, forceUpdate] = React.useState({});
-    
-    // Subscribe to mode changes
-    React.useEffect(() => {
-      const listener = () => forceUpdate({});
-      listeners.add(listener);
-      
-      return () => {
-        listeners.delete(listener);
-      };
-    }, []);
-    
-    // Component state
     const [LoadedComponent, setLoadedComponent] = React.useState<React.ComponentType<any> | null>(null);
+    const [isLoading, setIsLoading] = React.useState(true);
     
-    // Load component when mode changes
     React.useEffect(() => {
       const currentMode = getMode();
       
-      // Dynamic import based on current mode
       import(`./${currentMode}/${directory}/${fileName}.tsx`)
         .then((module: any) => {
           const component = module[componentName] || module.default;
-          
-          if (component) {
-            setLoadedComponent(() => component);
-          } else {
-            // Fallback component for missing exports
-            setLoadedComponent(() => () => (
-              <div style={{ color: 'red', padding: '8px', border: '1px solid red' }}>
-                {directory}.{fileName}.{componentName} not found
-              </div>
-            ));
-          }
+          setLoadedComponent(() => component);
+          setIsLoading(false);
         })
         .catch(() => {
-          // Fallback component for missing files
-          setLoadedComponent(() => () => (
-            <div style={{ color: 'red', padding: '8px', border: '1px solid red' }}>
-              {directory}/{fileName}.tsx not found in {currentMode} mode
-            </div>
-          ));
+          setIsLoading(false);
         });
     }, [getMode()]);
     
-    // Show nothing while loading
-    if (!LoadedComponent) {
-      return null;
+    // Show skeleton while loading
+    if (isLoading || !LoadedComponent) {
+      return <ComponentSkeleton {...props} ref={ref} />;
     }
     
-    return <LoadedComponent {...props} ref={ref} />;
+    // Show loaded component with blur-to-focus and scale animation
+    return (
+        <LoadedComponent 
+        className="animate-blur-in"
+        style={{
+          animation: 'blurToFocus 0.2s ease-out forwards'
+        }} {...props} ref={ref} />
+    );
   });
   
   // Set display name for debugging
@@ -193,6 +171,24 @@ function createDynamicComponent(
   componentCache.set(cacheKey, DynamicComponent);
   
   return DynamicComponent;
+}
+
+/**
+ * Skeleton component with proper dimensions and dark mode support
+ * @param className - Additional CSS classes
+ * @param children - Child elements (rendered invisibly to maintain layout)
+ * @param props - Additional props
+ */
+function ComponentSkeleton({ className, children, ...props }: any) {
+  return (
+    <div 
+      className={`animate-pulse bg-gray-200 dark:bg-gray-800 rounded-md transition-all duration-75 ${className}`}
+      style={{ minHeight: '2rem' }}
+      {...props}
+    >
+      {children && <div className="invisible">{children}</div>}
+    </div>
+  );
 }
 
 // ==========================================

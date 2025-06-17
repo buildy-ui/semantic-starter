@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buildy App Starter</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buildy App Starter</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,
     PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVp
     Z2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzN2I5
     ZjMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGlu
@@ -15,30 +16,25 @@
     MiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczeiIvPjxwYXRoIGQ9Ik0xMiAyMlYxMiIv
     Pjxwb2x5bGluZSBwb2ludHM9IjMuMjkgNyAxMiAxMiAyMC43MSA3Ii8
     +PHBhdGggZD0ibTcuNSA0LjI3IDkgNS4xNSIvPjwvc3ZnPg==" />
-    
-    <link 
-    rel="preload" 
-    as="image" 
-    href="/images/programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-320w.webp"
-    media="(max-width: 320px)"
-  >
-    
-    <!-- Theme script optimized -->
-    <script>
-      (function() {
-        try {
-          const theme = localStorage.getItem("darkmode") === "dark" || 
-                       (!localStorage.getItem("darkmode") && 
-                        window.matchMedia("(prefers-color-scheme: dark)").matches);
-          document.documentElement.classList.toggle("dark", theme);
-        } catch (e) {
-          console.error("Theme initialization failed:", e);
-        }
-      })();
-    </script>
-  </head>
-  <body class="bg-background text-foreground">
-    <div id="app"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html> 
+
+  <!-- Theme script optimized -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("darkmode") === "dark" ||
+          (!localStorage.getItem("darkmode") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", theme);
+      } catch (e) {
+        console.error("Theme initialization failed:", e);
+      }
+    })();
+  </script>
+</head>
+
+<body class="bg-background text-foreground">
+  <div id="app"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
