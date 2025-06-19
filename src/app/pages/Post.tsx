@@ -1,12 +1,10 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components } from '@/app/ui8kit/loader';
-import { renderContext } from '@data';
+import { renderContext } from '@/data';
+import { Article, ArticleHeader, ArticleContent, ArticleFigure, ArticleImage, ArticleFigcaption, ArticleMeta, ArticleTime, ArticleFooter, ArticleTags, ArticleTag } from '@ui8kit/components/article';
+import { H1, P } from '@ui8kit/components/markup';
 import { useParams } from 'react-router-dom';
 
 export const { posts } = renderContext.posts;
-
-export const { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption, ArticleTags, ArticleTag } = components.article;
-export const { H1, P } = components.markup;
 
 export const NotFound = {
   title: 'Post Not Found',
@@ -27,7 +25,7 @@ export function Post() {
             <H1>{NotFound.title}</H1>
           </ArticleHeader>
           <ArticleContent>
-            <p>{NotFound.content}</p>
+            <P>{NotFound.content}</P>
             <a href={NotFound.link}>{NotFound.linkText}</a>
           </ArticleContent>
         </Article>
@@ -45,8 +43,8 @@ export function Post() {
               src={post.featuredImage.url}
               alt={post.featuredImage.alt}
             />
-            {post.featuredImage.caption && (
-              <ArticleFigcaption>{post.featuredImage.caption}</ArticleFigcaption>
+            {post.featuredImage.alt && (
+              <ArticleFigcaption>{post.featuredImage.alt}</ArticleFigcaption>
             )}
           </ArticleFigure>
         )}

@@ -1,6 +1,5 @@
-import { ui } from '@/app/ui8kit/loader';
+import { Button } from '@ui8kit/ui/button';
 import { useEffect, useState } from 'react';
-export const { Button } = ui.button;
 
 export function DarkMode() {
   const [isDark, setIsDark] = useState(false);

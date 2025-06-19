@@ -1,14 +1,12 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components, ui } from '@/app/ui8kit/loader';
-import { renderContext } from '@data';
+import { renderContext } from '@/data';
+import { Button } from '@ui8kit/ui/button';
+import { Card, CardContent, CardFooter, CardTitle } from '@ui8kit/ui/card';
+import { Section, Grid, SectionHeader, SectionContent, SectionTitle, SectionDescription } from '@ui8kit/components/section';
 
 import { OptimizedImage } from '@/app/components/Image';
 
 export const { page, features } = renderContext.home;
-export const { Button } = ui.button;
-export const { Main } = components.main;
-export const { Card, CardHeader, CardContent, CardFooter, CardImage, CardTitle, CardDescription } = ui.card;
-export const { Section, Grid, SectionHeader, SectionFooter, SectionContent, SectionTitle, SectionDescription } = components.section;
 
 function App() {
 
@@ -19,8 +17,8 @@ function App() {
           <SectionTitle>{page.title}</SectionTitle>
           <SectionDescription>{page.excerpt}</SectionDescription>
         </SectionHeader>
-        <SectionContent className="w-full py-12 px-6 bg-muted rounded-md mb-12">
-          <p className="py-6 text-secondary-foreground">{page.content}</p>
+        <SectionContent className="section-content__muted">
+          <p className="text-secondary-foreground">{page.content}</p>
         </SectionContent>
 
         <SectionContent>
@@ -34,7 +32,6 @@ function App() {
                     width={320}
                     height={240}
                     maxWidth={320}
-                    className="aspect-video object-cover rounded-t-md"
                   />
                 <CardContent>
                   <CardTitle>{feature.title}</CardTitle>

@@ -27,6 +27,9 @@
   .main-content {
     @apply col-span-3 md:col-span-2;
   }
+  .section-content__muted {
+    @apply w-full py-12 px-6 bg-muted rounded-md mb-12;
+  }
   .sidebar {
     @apply col-span-3 md:col-span-1;
   }
@@ -40,31 +43,19 @@
   .button {
       @apply cursor-pointer; 
   }
-}
-
-
-
-/* Blur to focus animation */
-@keyframes blurToFocus {
-  0% {
-    filter: blur(4px);
-    opacity: 0;
-    transform: scale(0.95);
-    min-height: 2rem;
+  .site-logo {
+    @apply inline-block;
   }
-  50% {
-    filter: blur(2px);
-    opacity: 0.7;
-    transform: scale(0.98);
+  
+  .site-logo__container {
+    @apply flex items-center gap-2;
   }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-    transform: scale(1);
-    min-height: auto;
+  
+  .site-logo__icon {
+    @apply text-teal-500;
   }
-}
-
-.animate-blur-in {
-  animation: blurToFocus 0.1s ease-out forwards;
+  
+  .site-logo__text {
+    @apply text-lg font-bold;
+  }
 }

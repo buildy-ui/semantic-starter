@@ -1,7 +1,7 @@
 {
   "name": "app-starter",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "author": {
     "name": "buildy-ui",
@@ -17,12 +17,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "build:analyze": "tsc && vite build --mode analyze",
-    "optimize:images": "tsx scripts/optimize-images.ts",
-    "dev:utility": "VITE_UI8KIT_MODE=utility vite",
-    "dev:semantic": "VITE_UI8KIT_MODE=semantic vite",
-    "build:utility": "VITE_UI8KIT_MODE=utility tsc && vite build",
-    "build:semantic": "VITE_UI8KIT_MODE=semantic tsc && vite build",
-    "images:clean": "find src/assets/images -name '*-*w.webp' -delete && find src/assets/images -name '*-fallback.jpg' -delete"
+    "optimize:images": "tsx scripts/optimize-images.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

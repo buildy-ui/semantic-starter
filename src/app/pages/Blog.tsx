@@ -1,14 +1,12 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components, ui } from '@/app/ui8kit/loader';
-import { renderContext } from '@data';
+import { renderContext } from '@/data';
+import { Button } from '@ui8kit/ui/button';
+import { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption } from '@ui8kit/components/article';
+import { Grid, SectionHeader, SectionContent, SectionTitle, SectionDescription } from '@ui8kit/components/section';
+import { P } from '@ui8kit/components/markup';
 
 export const { page } = renderContext.blog;
 export const { posts } = renderContext.posts;
-
-export const { Section, Grid, SectionHeader, SectionFooter, SectionContent, SectionTitle, SectionDescription } = components.section;
-export const { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption } = components.article;
-export const { Button } = ui.button;
-export const { P } = components.markup;
 
 export function Blog() {
   return (
@@ -33,9 +31,7 @@ export function Blog() {
                     src={post.featuredImage.url}
                     alt={post.featuredImage.alt}
                   />
-                  {post.featuredImage.caption && (
-                    <ArticleFigcaption>{post.featuredImage.caption}</ArticleFigcaption>
-                  )}
+                  <ArticleFigcaption>{post.featuredImage.alt}</ArticleFigcaption>
                 </ArticleFigure>
               )}
               <ArticleHeader>

@@ -1,12 +1,10 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { components, ui } from '@/app/ui8kit/loader';
-import { renderContext } from '@data';
+import { renderContext } from '@/data';
+import { Button } from '@ui8kit/ui/button';
+import { Card, CardContent, CardFooter, CardImage, CardFigure, CardFigcaption, CardTitle } from '@ui8kit/ui/card';
+import { Section, Grid, SectionHeader, SectionContent, SectionTitle, SectionDescription } from '@ui8kit/components/section';
 
-export const { page, features } = renderContext.about;
-export const { Button } = ui.button;
-export const { Main } = ui.main;
-export const { Card, CardHeader, CardContent, CardFooter, CardImage, CardTitle, CardDescription } = ui.card;
-export const { Section, Grid, SectionHeader, SectionFooter, SectionContent, SectionTitle, SectionDescription } = components.section;
+export const { page, features } = renderContext.about;  
 
 function App() {
 
@@ -17,15 +15,18 @@ function App() {
           <SectionTitle>{page.title}</SectionTitle>
           <SectionDescription>{page.excerpt}</SectionDescription>
         </SectionHeader>
-        <SectionContent className="w-full py-12 px-6 bg-muted rounded-md mb-12">
-          <p className="py-6 text-secondary-foreground">{page.content}</p>
+        <SectionContent className="section-content__muted">
+          <p className="text-secondary-foreground">{page.content}</p>
         </SectionContent>
 
         <SectionContent>
           <Grid>
             {features.map((feature) => (
               <Card key={feature.id}>
-                <CardImage src={feature.featuredImage.url} alt={feature.featuredImage.alt} caption={feature.featuredImage.caption} />
+                <CardFigure>
+                  <CardImage src={feature.featuredImage.url} alt={feature.featuredImage.alt} />
+                  <CardFigcaption>{feature.featuredImage.caption}</CardFigcaption>
+                </CardFigure>
                 <CardContent>
                   <CardTitle>{feature.title}</CardTitle>
                   <p className="text-sm">{feature.excerpt}</p>

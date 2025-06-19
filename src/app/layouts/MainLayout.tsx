@@ -1,18 +1,17 @@
 import { ReactNode } from "react";
 import { Helmet } from 'react-helmet-async';
-import { components } from '@/app/ui8kit/loader';
 import { Navigation } from "@/app/components/Navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { SiteLogo } from "@/app/components/SiteLogo";
-import { renderContext } from '@data';
+import { renderContext } from '@/data';
 
 export const { site, menu } = renderContext;
 
-export const { Main } = components.main;
-export const { P } = components.markup;
-export const { Nav, NavItem, NavLink, NavList, NavGroupButtons, NavBar, NavMobileList, NavMobileItem, NavMobileLink } = components.nav;
-export const { Section, Container, Grid, SectionHeader, SectionFooter, SectionContent, SectionTitle, SectionDescription } = components.section;
-export const { SheetLayout, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetBody, SheetOverlay } = components.sheet;
+import { Main } from '@ui8kit/components/main';
+import { P } from '@ui8kit/components/markup';
+import { Section, Container, SectionFooter } from '@ui8kit/components/section';
+import { SheetLayout, SheetOverlay, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetBody } from '@ui8kit/components/sheet';
+import { NavMobileList, NavMobileItem, NavMobileLink } from '@ui8kit/components/nav';
 
 interface RootLayoutProps {
   title: string;

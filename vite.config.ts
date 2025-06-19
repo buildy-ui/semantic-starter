@@ -19,12 +19,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@/lib': path.resolve(__dirname, './src/lib/'),
-      '@/hooks': path.resolve(__dirname, './src/hooks/'),
-      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/loader.tsx'),
-      '@hooks': path.resolve(__dirname, './src/app/ui8kit/hooks'),
-      '@data': path.resolve(__dirname, './src/app/data/index.ts'),
-      '@images': path.resolve(__dirname, './src/assets/images')
+      '@/lib': path.resolve(__dirname, './src/lib'),
+      '@/hooks': path.resolve(__dirname, './src/hooks'),
+      '@/data': path.resolve(__dirname, './src/data/index.ts'),
+      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/semantic')
     }
   },
   server: {
