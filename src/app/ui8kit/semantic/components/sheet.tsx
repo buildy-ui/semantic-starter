@@ -34,7 +34,7 @@ interface SheetLayoutProps {
 function SheetLayout({ trigger, children, className }: SheetLayoutProps) {
   return (
     <div className={cn("relative", className)}>
-      <input type="checkbox" id="sheet-toggle" className="peer sr-only" aria-hidden="true" />
+      <input type="checkbox" id="sheet-toggle" className="peer sr-only" />
       {trigger}
       {children}
     </div>);
@@ -66,11 +66,17 @@ function SheetTrigger({ children, className, ...props }: SheetTriggerProps) {
 // For LEFT: use 'inset-y-0 left-0 border-r transform -translate-x-full peer-checked:translate-x-0'
 // For RIGHT: use 'inset-y-0 right-0 border-l transform translate-x-full peer-checked:translate-x-0'
 function SheetContent({ children, className, ...props }: SheetContentProps) {
-  // Example usage (choose one line):
-  // LEFT PANEL:  className={cn("fixed inset-y-0 left-0 z-50 w-full max-w-sm bg-background shadow-lg border-r transform -translate-x-full transition-transform duration-300 ease-out peer-checked:translate-x-0 flex flex-col overflow-hidden", className)}
-  // RIGHT PANEL: className={cn("fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-background shadow-lg border-l transform translate-x-full transition-transform duration-300 ease-out peer-checked:translate-x-0 flex flex-col overflow-hidden", className)}
+  // Generate unique ID for aria-labelledby
+  const titleId = React.useId();
+  
   return (
-    <div role="dialog" aria-modal="true" className={cn("sheet-content", className)} {...props}>
+    <div 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby={titleId}
+      className={cn("sheet-content", className)} 
+      {...props}
+    >
       {/* Close button */}
       <div className="absolute top-4 right-4 z-10">
         <label htmlFor="sheet-toggle" className={cn("rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 inline-flex h-6 w-6 items-center justify-center bg-background/80 backdrop-blur-sm cursor-pointer")}>
@@ -78,7 +84,10 @@ function SheetContent({ children, className, ...props }: SheetContentProps) {
           <span className="sr-only">Close</span>
         </label>
       </div>
-      {children}
+      {/* Pass titleId to children via React context */}
+      <SheetTitleContext.Provider value={titleId}>
+        {children}
+      </SheetTitleContext.Provider>
     </div>);
 
 }
@@ -140,6 +149,9 @@ function SheetFooter({ children, className, ...props }: SheetFooterProps) {
 
 }
 
+// Create context for title ID
+const SheetTitleContext = React.createContext<string>('');
+
 // Title component
 interface SheetTitleProps {
   children: React.ReactNode;
@@ -147,8 +159,10 @@ interface SheetTitleProps {
 }
 
 function SheetTitle({ children, className, ...props }: SheetTitleProps) {
+  const titleId = React.useContext(SheetTitleContext);
+  
   return (
-    <h2 className={cn("sheet-title", className)} {...props}>
+    <h2 id={titleId} className={cn("sheet-title", className)} {...props}>
       {children}
     </h2>);
 
