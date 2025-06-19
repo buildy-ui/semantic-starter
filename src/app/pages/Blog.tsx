@@ -1,8 +1,8 @@
 import { MainLayout } from '@/app/layouts/MainLayout';
 import { renderContext } from '@/data';
 import { Button } from '@ui8kit/ui/button';
-import { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption } from '@ui8kit/components/article';
 import { Grid, SectionHeader, SectionContent, SectionTitle, SectionDescription } from '@ui8kit/components/section';
+import { Article, ArticleHeader, ArticleTitle, ArticleMeta, ArticleTime, ArticleContent, ArticleFooter, ArticleFigure, ArticleImage, ArticleFigcaption } from '@ui8kit/components/article';
 import { P } from '@ui8kit/components/markup';
 
 export const { page } = renderContext.blog;

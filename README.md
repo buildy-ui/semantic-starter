@@ -1,109 +1,95 @@
-# Buildy UI App Starter
+# Buildy UI Semantic Starter
 
-## 🎯 What Makes This Special?
+## 🎯 Pure HTML5 Semantic Architecture
 
-**Switch between CSS methodologies instantly** - Experience the same React components with different styling approaches without changing a single line of component code.
+**Experience the future of frontend development** - Build with clean, semantic HTML5 structure that transforms Tailwind CSS utilities into production-ready semantic classes.
 
-### ⚡ Dual Mode System
-- **Utility Mode**: Components styled with Tailwind CSS utility classes
-- **Semantic Mode**: Components using semantic HTML structure and CSS classes
-- **Live Switching**: Toggle between modes in real-time during development
-- **Fixed Mode**: Lock to one mode for production builds
+### ✨ What Makes This Special
 
-### 🔄 Dynamic Component Loading
+- **Semantic HTML5 First**: Every element serves a meaningful purpose
+- **Clean Architecture**: BEM-inspired class naming with semantic structure
+- **Accessibility Ready**: Screen readers and SEO-friendly markup
+- **Framework Agnostic**: Semantic HTML works everywhere
+- **Production Optimized**: Clean, maintainable code that scales
+
+### 🏗️ Semantic Component System
 ```typescript
-// Same API, different implementations
-import { ui, components, blocks } from '@ui8kit';
+// Clean, semantic imports
+import { Button } from '@ui8kit/ui/button';
+import { Card, CardHeader, CardContent, CardTitle } from '@ui8kit/ui/card';
+import { Section, SectionHeader, SectionContent } from '@ui8kit/components/section';
 
-// These components adapt to your chosen mode automatically
-<ui.button.Button>Click me</ui.button.Button>
-<components.section.Section>Content here</components.section.Section>
-
-// OR Simply
-export const { Button } = ui.button;
-export const { Card, CardHeader, CardContent, CardFooter, CardImage, CardTitle, CardDescription } = ui.card;
-export const { Section, SectionHeader, SectionContent } = components.section;
+// Semantic HTML5 output
+<section class="section">
+  <header class="section-header">
+    <h2 class="section-title">Clean Architecture</h2>
+  </header>
+  <div class="section-content">
+    <div class="card">
+      <button class="btn btn-primary">Semantic Button</button>
+    </div>
+  </div>
+</section>
 ```
 
-### 🛠️ Development Modes
+### 🎨 Development to Production Workflow
 ```bash
-# Development with mode switching
-bun dev                    # Full switching capability
+# Development with Tailwind utilities
+className="bg-primary text-white rounded-md px-4 py-2 hover:bg-primary/90"
 
-# Development with fixed mode
-bun dev:utility           # Locked to utility classes
-bun dev:semantic          # Locked to semantic HTML
+# Automatic transformation to semantic classes
+class="btn btn-primary"
 
-# Production builds
-bun build:utility         # Build for utility-first approach
-bun build:semantic        # Build for semantic approach
+# Production CSS
+.btn { @apply inline-flex items-center justify-center rounded-md ... }
+.btn-primary { @apply bg-primary text-white hover:bg-primary/90 ... }
 ```
-
-### 🎨 Perfect for Teams
-- **Designers** can work with semantic HTML structure
-- **Developers** can use utility-first approach
-- **Same components** work for both methodologies
-- **No code duplication** between different CSS approaches
 
 ---
 
 ## Features
 
 - ⚡️ **Vite 6** - Lightning fast build tool
-- ⚛️ **React 19** - Latest React with new features
-- 🔷 **TypeScript** - Type safety out of the box
-- 🚀 **SWC** - Super fast TypeScript/JSX compilation
+- ⚛️ **React 19** - Latest React with concurrent features
+- 🔷 **TypeScript** - Full type safety
+- 🎨 **Semantic HTML5** - Clean, accessible markup
+- 📦 **Tailwind CSS 4** - Utility-first CSS framework
+- 🚀 **SWC** - Super fast compilation
 - 📁 **Path Aliases** - Clean imports with `@/` prefix
-- 🎨 **UI8Kit System** - Dual-mode component loading
-- 📦 **Minimal Dependencies** - Only what you need
+- 🌐 **CDN Ready** - Semantic CSS available via CDN
 
 ## Quick Start
 
-### Clone current version
+### Choose Your Version
+
 ```bash
-# Clone into new folder
+# Current: Semantic HTML5 (Recommended)
 git clone https://github.com/buildy-ui/app-starter.git my-project
 cd my-project
 
-# Or clone into current folder (must be empty)
-git clone https://github.com/buildy-ui/app-starter.git .
-```
+# Or specific versions:
 
-### Clone from specific branch version
-```bash
-# 1) boilerplate - minimal React App Starter
-git clone -b boilerplate https://github.com/buildy-ui/app-starter.git my-project
-cd my-project
+# Semantic Blog - Full semantic HTML5 blog
+git clone -b semantic-blog https://github.com/buildy-ui/app-starter.git my-project
 
-# 2) single-page - minimal React App Starter with Switcher Theme
-git clone -b single-page https://github.com/buildy-ui/app-starter.git my-project
-cd my-project
-
-# 3) spa-blog - Fully App SPA Blog with UI8KIT_MODE
+# SPA Blog - Dynamic theme switching (v0.0.2)
+# Recommended for seeing utility vs semantic comparison
 git clone -b spa-blog https://github.com/buildy-ui/app-starter.git my-project
-cd my-project
+
+# Minimal boilerplate
+git clone -b boilerplate https://github.com/buildy-ui/app-starter.git my-project
 ```
 
-### Install dependencies
+### Release SPA Blog - Dynamic theme switching ([v0.0.2](https://github.com/buildy-ui/app-starter/releases/tag/v.0.0.2))
+
+### Install and Run
+
 ```bash
-# Using Bun (recommended)
+# Install dependencies
 bun install
 
-# Or using npm
-npm install
-
-# Or using yarn
-yarn install
-```
-
-### Start development server
-```bash
-# Development with mode switching
+# Start development server
 bun dev
-
-# Development with fixed modes
-bun dev:utility           # Utility-first mode only
-bun dev:semantic          # Semantic HTML mode only
 ```
 
 Open [http://localhost:5173](http://localhost:5173) to view your app.
@@ -111,133 +97,179 @@ Open [http://localhost:5173](http://localhost:5173) to view your app.
 ## Available Scripts
 
 ### Development
-- `bun dev` - Start development server with mode switching
-- `bun dev:utility` - Start in utility-first mode (fixed)
-- `bun dev:semantic` - Start in semantic HTML mode (fixed)
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun preview` - Preview production build
 
-### Production
-- `bun build` - Build with mode switching capability
-- `bun build:utility` - Build for utility-first approach only
-- `bun build:semantic` - Build for semantic HTML approach only
-- `bun preview` - Preview production build locally
+### CSS Generation
+- `bun css:semantic` - Generate semantic CSS classes
+- `bun css:extract` - Extract Tailwind utilities to semantic classes
 
-## UI8Kit System
+## Semantic HTML5 Architecture
 
 ### Component Structure
 ```
-src/app/ui8kit/
-├── loader.tsx              # Dynamic component loader
-├── hooks/
-│   └── useThemeMode.ts    # Mode switching hook
-├── utility/               # Utility-first components
-│   ├── ui/               # Base UI components
-│   ├── components/       # Semantic components
-│   └── blocks/           # Complex blocks
-└── semantic/             # Semantic HTML components
-    ├── ui/               # Base UI components
-    ├── components/       # Semantic components
-    └── blocks/           # Complex blocks
+src/app/ui8kit/semantic/
+├── ui/                    # Base UI components
+│   ├── button.tsx        # Semantic button component
+│   ├── card.tsx          # Semantic card component
+│   └── ...
+├── components/           # Semantic layout components
+│   ├── section.tsx       # Semantic section component
+│   ├── article.tsx       # Semantic article component
+│   └── ...
+└── buildy.config.json    # Design tokens
+```
+
+### CSS Architecture
+```
+src/assets/css/
+├── index.css             # Main stylesheet
+├── semantic/             # Semantic CSS classes
+│   ├── button.css       # .btn, .btn-primary, .btn-lg
+│   ├── card.css         # .card, .card-header, .card-content
+│   └── ...
+└── source/              # Base styles
+    ├── latty.css        # Icon system
+    └── shadcn4.css      # Design system base
 ```
 
 ### Usage Examples
-```typescript
-// Import the registries
-import { ui, components, blocks } from '@ui8kit';
 
-// Use components - they adapt to current mode
+```typescript
+// Semantic HTML5 components
+import { Button } from '@ui8kit/ui/button';
+import { Card, CardHeader, CardContent, CardTitle } from '@ui8kit/ui/card';
+import { Section, SectionHeader, SectionContent } from '@ui8kit/components/section';
+
 function MyPage() {
   return (
-    <components.section.Section>
-      <ui.card.Card>
-        <ui.button.Button>Click me</ui.button.Button>
-      </ui.card.Card>
-    </components.section.Section>
+    <Section>
+      <SectionHeader>
+        <h1>Semantic HTML5 Architecture</h1>
+      </SectionHeader>
+      <SectionContent>
+        <Card>
+          <CardHeader>
+            <CardTitle>Clean Components</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Button variant="primary">Semantic Button</Button>
+          </CardContent>
+        </Card>
+      </SectionContent>
+    </Section>
   );
 }
+```
 
-// Mode switching hook
-import { useThemeMode } from '@ui8kit/hooks';
+## CDN Integration
 
-function ThemeSwitcher() {
-  const { mode, toggleMode, isFixed } = useThemeMode();
-  
-  if (isFixed) return null; // Hide switcher in fixed mode
-  
-  return (
-    <button onClick={toggleMode}>
-      Switch to {mode === 'utility' ? 'semantic' : 'utility'}
-    </button>
-  );
-}
+### Semantic CSS via CDN
+```css
+/* Import semantic styles directly */
+@import "https://cdn.jsdelivr.net/npm/ui8kit@latest/css/dist/semantic/button.css";
+@import "https://cdn.jsdelivr.net/npm/ui8kit@latest/css/dist/semantic/card.css";
+@import "https://cdn.jsdelivr.net/npm/ui8kit@latest/css/dist/semantic/section.css";
+```
+
+### Local CSS Import
+```css
+/* src/assets/css/index.css */
+@import "tailwindcss";
+@import "../font/Nunito/nunito.css";
+@import "./source/latty.css";
+
+/* Semantic components */
+@import "./semantic/button.css";
+@import "./semantic/card.css";
+@import "./semantic/section.css";
 ```
 
 ## Project Structure
 
 ```
 ├── public/
-│   ├── buildy.svg         # Optimized 24x24 icon
-│   └── styles.css         # Global styles
+│   ├── buildy.svg           # Optimized icon
+│   └── images/              # Optimized images
 ├── src/
 │   ├── app/
-│   │   ├── ui8kit/        # UI8Kit system
-│   │   ├── layouts/       # Layout components
-│   │   ├── pages/         # Page components
-│   │   └── data/          # Static data and context
+│   │   ├── ui8kit/semantic/ # Semantic components
+│   │   ├── components/      # App components
+│   │   ├── layouts/         # Layout components
+│   │   └── pages/           # Page components
 │   ├── assets/
-│   │   ├── css/           # Stylesheets
-│   │   └── font/          # Local fonts
-│   ├── App.tsx            # Main React component
-│   └── main.tsx           # Application entry point
-├── index.html             # HTML template
-├── package.json           # Dependencies and scripts
-├── tsconfig.json          # TypeScript configuration
-├── tsconfig.node.json     # Node.js TypeScript config
-└── vite.config.ts         # Vite configuration
+│   │   ├── css/semantic/    # Semantic CSS classes
+│   │   └── font/            # Local fonts
+│   ├── data/                # Static data
+│   └── lib/                 # Utilities
+├── CONTRIBUTING.md          # Contribution guidelines
+├── package.json             # Dependencies
+├── tsconfig.json            # TypeScript config
+└── vite.config.ts           # Vite configuration
 ```
 
-## Environment Variables
+## Semantic Class Examples
 
-### UI8Kit Mode Control
-```bash
-# Set fixed mode (optional)
-VITE_UI8KIT_MODE=utility   # Lock to utility-first
-VITE_UI8KIT_MODE=semantic  # Lock to semantic HTML
+### Button Classes
+```css
+.btn { /* base button styles */ }
+.btn-primary { /* primary variant */ }
+.btn-secondary { /* secondary variant */ }
+.btn-lg { /* large size */ }
+.btn-sm { /* small size */ }
 ```
 
-When `VITE_UI8KIT_MODE` is set:
-- Mode switching is disabled
-- Components load only from the specified mode
-- Theme switcher button is hidden
-- Optimized bundle size (only one mode included)
-
-## Customization
-
-### Path Aliases
-Import from `src/` using the `@/` prefix:
-```typescript
-import Component from '@/components/Component'
-import { ui } from '@ui8kit'
-import { renderContext } from '@data'
+### Card Classes
+```css
+.card { /* base card styles */ }
+.card-header { /* card header */ }
+.card-content { /* card content */ }
+.card-title { /* card title */ }
+.card-description { /* card description */ }
 ```
 
-### Adding New Components
-1. Create component in both `utility/` and `semantic/` directories
-2. Use the same export names in both versions
-3. Components automatically work with the loader system
+### Section Classes
+```css
+.section { /* semantic section */ }
+.section-header { /* section header */ }
+.section-content { /* section content */ }
+.section-title { /* section title */ }
+```
 
-### Styling
-- Utility mode: Use Tailwind CSS classes
-- Semantic mode: Use semantic CSS classes
-- Global styles: `src/assets/css/index.css`
+## Why Semantic HTML5?
 
-## Other Starter Templates
+### For Developers
+- **Clean Code**: Self-documenting HTML structure
+- **Better Debugging**: Meaningful class names
+- **Easier Maintenance**: Semantic structure is intuitive
+- **Framework Agnostic**: Works with any backend
 
-This repository contains multiple starter templates in different branches:
+### For Performance
+- **Smaller Bundles**: Semantic CSS is more efficient
+- **Better Caching**: Semantic stylesheets cache better
+- **Faster Rendering**: Clean HTML renders faster
+- **Improved SEO**: Search engines understand semantic structure
 
-- `spa-blog` - Single Page Application with blog features (current)
-- `boilerplate` - Minimal starter template
-- `main` - Documentation and overview
-- More templates coming soon...
+### For Accessibility
+- **Screen Reader Friendly**: Semantic elements have meaning
+- **Better Navigation**: Logical document structure
+- **WCAG Compliant**: Follows accessibility standards
+- **Keyboard Navigation**: Semantic elements support tab order
+
+## Comparison with Dynamic Version
+
+### Current Version (semantic-blog)
+- ✅ Pure semantic HTML5 structure
+- ✅ Clean, production-ready code
+- ✅ Optimized for performance and SEO
+- ✅ Framework-agnostic output
+
+### Dynamic Version (spa-blog - v0.0.2)
+- 🔄 Real-time switching between utility and semantic
+- 👀 Visual comparison in dev tools
+- 🎓 Educational - see both approaches
+- 📚 **Recommended for learning the difference**
 
 ## License
 
@@ -245,4 +277,5 @@ MIT License - feel free to use this starter for any project.
 
 ---
 
-Built with ❤️ by [Buildy UI](https://github.com/buildy-ui)
+**Built with semantic HTML5 architecture**  
+🌟 [Buildy UI](https://github.com/buildy-ui) - The future of frontend development
