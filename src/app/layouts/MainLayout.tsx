@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-//import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { Navigation } from "@/app/components/Navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { SiteLogo } from "@/app/components/SiteLogo";
@@ -18,15 +18,15 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export const MainLayout = ({ children }: RootLayoutProps) => {
+export const MainLayout = ({ title, description, children }: RootLayoutProps) => {
   return (
     <>
-      {/*<Helmet>
+      <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-      </Helmet>*/}
+      </Helmet>
       
       <SheetLayout>
         <Navigation />
