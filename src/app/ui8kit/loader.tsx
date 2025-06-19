@@ -156,11 +156,7 @@ function createDynamicComponent(
     
     // Show loaded component with blur-to-focus and scale animation
     return (
-        <LoadedComponent 
-        className="animate-blur-in"
-        style={{
-          animation: 'blurToFocus 0.2s ease-out forwards'
-        }} {...props} ref={ref} />
+        <LoadedComponent {...props} ref={ref} />
     );
   });
   
@@ -182,8 +178,8 @@ function createDynamicComponent(
 function ComponentSkeleton({ className, children, ...props }: any) {
   return (
     <div 
-      className={`animate-pulse bg-gray-200 dark:bg-gray-800 rounded-md transition-all duration-75 ${className}`}
-      style={{ minHeight: '2rem' }}
+      className={`animate-blur-in bg-gray-200 dark:bg-gray-800 rounded-md transition-all duration-75 ${className}`}
+      style={{ minHeight: '2rem', animation: 'blurToFocus 0.3s ease-out forwards' }}
       {...props}
     >
       {children && <div className="invisible">{children}</div>}
