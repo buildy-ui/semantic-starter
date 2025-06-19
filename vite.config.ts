@@ -22,7 +22,7 @@ export default defineConfig({
       '@/lib': path.resolve(__dirname, './src/lib'),
       '@/hooks': path.resolve(__dirname, './src/hooks'),
       '@/data': path.resolve(__dirname, './src/data/index.ts'),
-      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/utility')
+      '@ui8kit': path.resolve(__dirname, './src/app/ui8kit/semantic')
     }
   },
   server: {

@@ -22,7 +22,7 @@
       "@/lib/*": ["src/lib/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/data": ["src/data/index.ts"],
-      "@ui8kit/*": ["src/app/ui8kit/utility/*"]
+      "@ui8kit/*": ["src/app/ui8kit/semantic/*"]
     }
   },
   "include": ["src/**/*"],

@@ -1,15 +1,16 @@
-@import "tailwindcss";
+@import "./source/tailwind4.css";
+
 @import "../font/Nunito/nunito.css";
 @import "./source/latty.css";
 
-/*@import "./semantic/button.css";
+@import "./semantic/button.css";
 @import "./semantic/card.css";
-@import "./semantic/section.css";
 @import "./semantic/article.css";
 @import "./semantic/markup.css";
-@import "./semantic/nav.css";
 @import "./semantic/main.css";
-@import "./semantic/sheet.css";*/
+@import "./semantic/nav.css";
+@import "./semantic/sheet.css";
+@import "./semantic/section.css";
 
 @import "./source/shadcn4.css";
 
@@ -52,7 +53,7 @@
   }
   
   .site-logo__icon {
-    @apply text-sky-500;
+    @apply text-teal-500;
   }
   
   .site-logo__text {
