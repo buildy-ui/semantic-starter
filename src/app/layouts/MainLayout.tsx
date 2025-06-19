@@ -18,7 +18,7 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export const MainLayout = ({ title, description, children }: RootLayoutProps) => {
+export const MainLayout = ({ children }: RootLayoutProps) => {
   return (
     <>
       {/*<Helmet>

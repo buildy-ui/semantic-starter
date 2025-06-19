@@ -10,7 +10,9 @@ export const { posts } = renderContext.posts;
 
 // Configuration
 // bun generate
-// npx serve www -p 8080
+// npx serve public -p 8080
+// npx serve examples/html-semantic -p 8080
+// npx serve examples/html-utility -p 8080
 const SITE_URL = "http://192.168.100.169:8080"
 
 // Function to create HTML document
@@ -106,7 +108,7 @@ function copyStaticAssets(outputDir: string) {
 
 // Main generation function
 async function generateStaticSite() {
-  const outputDir = './www'
+  const outputDir = './examples/html-utility'
   
   // First, copy static assets
   console.log('📁 Copying static assets...')

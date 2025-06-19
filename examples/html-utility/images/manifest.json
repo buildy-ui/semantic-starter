@@ -1,0 +1,30 @@
+{
+  "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu": {
+    "original": {
+      "width": 1200,
+      "height": 800
+    },
+    "variants": [
+      "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-320w.webp",
+      "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-560w.webp",
+      "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-768w.webp",
+      "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-1024w.webp",
+      "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-1200w.webp"
+    ],
+    "fallback": "programmer-working-in-cozy-office-with-large-windows-palm-plants-mountain-view-premium-computer-setu-fallback.jpg"
+  },
+  "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism": {
+    "original": {
+      "width": 800,
+      "height": 600
+    },
+    "variants": [
+      "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-320w.webp",
+      "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-560w.webp",
+      "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-768w.webp",
+      "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-1024w.webp",
+      "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-1200w.webp"
+    ],
+    "fallback": "programmer-at-premium-pc-in-eco-style-room-flat-design-illustration-minimalism-fallback.jpg"
+  }
+}

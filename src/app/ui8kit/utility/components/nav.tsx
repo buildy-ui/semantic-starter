@@ -82,7 +82,7 @@ function Nav({ className, children, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
       data-slot="nav"
-      className={cn("hidden lg:flex items-center space-x-1", className)}
+      className={cn("hidden md:flex items-center space-x-1", className)}
       {...props}
     >
       {children}
@@ -228,7 +228,7 @@ function NavTrigger({ className, ...props }: React.ComponentProps<"label">) {
     <label
       htmlFor="nav-toggle"
       data-slot="nav-trigger"
-      className={cn("lg:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer", className)}
+      className={cn("md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer", className)}
       aria-label="Toggle navigation menu"
       {...props}
     >
@@ -242,7 +242,7 @@ function NavMobile({ className, children, ...props }: React.ComponentProps<"div"
   return (
     <div
       data-slot="nav-mobile"
-      className={cn("fixed inset-0 z-50 lg:hidden opacity-0 invisible -translate-y-full transition-all duration-300 ease-out peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-0", className)}
+      className={cn("fixed inset-0 z-50 md:hidden opacity-0 invisible -translate-y-full transition-all duration-300 ease-out peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-0", className)}
       {...props}
     >
       {/* Backdrop */}

@@ -1,5 +1,5 @@
 .nav {
-  @apply hidden lg:flex items-center space-x-1;
+  @apply hidden md:flex items-center space-x-1;
 }
 
 .nav-layout {
@@ -35,11 +35,11 @@
 }
 
 .nav-trigger {
-  @apply lg:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer;
+  @apply md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer;
 }
 
 .nav-mobile {
-  @apply fixed inset-0 z-50 lg:hidden opacity-0 invisible -translate-y-full transition-all duration-300 ease-out peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-0;
+  @apply fixed inset-0 z-50 md:hidden opacity-0 invisible -translate-y-full transition-all duration-300 ease-out peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-0;
 }
 
 .nav-mobile-list {
