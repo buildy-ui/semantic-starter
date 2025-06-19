@@ -28,4 +28,3 @@ export const routeConfig: RouteInfo[] = [
     paramMapper: (params: Record<string, string>) => ({ slug: params.slug })
   },
 ];
-

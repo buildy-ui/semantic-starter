@@ -4,7 +4,6 @@ import { Navigation } from "@/app/components/Navigation";
 import { Sidebar } from "@/app/components/Sidebar";
 import { SiteLogo } from "@/app/components/SiteLogo";
 import { renderContext } from '@/data';
-
 export const { site, menu } = renderContext;
 
 import { Main } from '@ui8kit/components/main';

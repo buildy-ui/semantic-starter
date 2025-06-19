@@ -13,8 +13,15 @@ export const NotFound = {
   linkText: 'Return to homepage'
 } as const;
 
-export function Post() {
-  const { slug } = useParams<{ slug: string }>();
+interface PostProps {
+  slug?: string; // For static generation
+}
+
+export function Post({ slug: propSlug }: PostProps = {}) {
+  const params = useParams<{ slug: string }>();
+  // Use the slug from props (for static generation) or from useParams (for SPA)
+  const slug = propSlug || params.slug;
+  
   const post = posts.find(p => p.slug === slug);
 
   if (!post) {
