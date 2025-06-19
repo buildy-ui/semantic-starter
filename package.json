@@ -18,12 +18,13 @@
     "preview": "vite preview",
     "build:analyze": "tsc && vite build --mode analyze",
     "optimize:images": "tsx scripts/optimize-images.ts",
-    "generate": "tsx scripts/public-generate.tsx"
+    "generate": "bun run build && tsx scripts/public-generate.tsx"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.515.0",
+    "pretty": "^2.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-helmet-async": "^2.0.5",

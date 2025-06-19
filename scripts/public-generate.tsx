@@ -4,7 +4,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { writeFileSync, mkdirSync, existsSync, cpSync, readdirSync, statSync } from 'fs'
 import { join, dirname } from 'path'
 import { routeConfig, type RouteInfo } from './routes.config'
-import { renderContext } from '../src/data';
+import { renderContext } from '../src/data'
+import pretty from 'pretty';
 
 export const { posts } = renderContext.posts;
 
@@ -17,7 +18,7 @@ const SITE_URL = "http://192.168.100.169:8080"
 
 // Function to create HTML document
 function createHTMLDocument(content: string, title: string = 'Page', description: string = 'Page description') {
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,11 +35,15 @@ function createHTMLDocument(content: string, title: string = 'Page', description
   <script defer src="${SITE_URL}/assets/js/darkmode.js"></script>
 </body>
 </html>`
+
+  // Format HTML with 2-space indentation
+  return pretty(html, { ocd: true })
 }
 
 // Function to copy static assets
 function copyStaticAssets(outputDir: string) {
   const publicDir = './public'
+  const distDir = './dist'
   
   // Directories to copy to assets/
   const assetDirs = ['js', 'css']
@@ -52,7 +57,46 @@ function copyStaticAssets(outputDir: string) {
     mkdirSync(assetsDir, { recursive: true })
   }
   
+  // Special handling for CSS - look in dist/ first, then public/
+  const assetsCssDir = join(assetsDir, 'css')
+  if (!existsSync(assetsCssDir)) {
+    mkdirSync(assetsCssDir, { recursive: true })
+  }
+  
+  // Look for any .css file in dist/ directory
+  let cssFound = false
+  if (existsSync(distDir)) {
+    try {
+      const distFiles = readdirSync(distDir)
+      const cssFile = distFiles.find(file => file.endsWith('.css'))
+      
+      if (cssFile) {
+        const sourceCssPath = join(distDir, cssFile)
+        const targetCssPath = join(outputDir, 'styles.css')
+        const assetsCssPath = join(assetsCssDir, 'styles.css')
+        
+        // Copy to root as styles.css
+        cpSync(sourceCssPath, targetCssPath)
+        console.log(`✅ Copied: dist/${cssFile} -> styles.css`)
+        
+        // Copy to assets/css/styles.css
+        cpSync(sourceCssPath, assetsCssPath)
+        console.log(`✅ Copied: dist/${cssFile} -> assets/css/styles.css`)
+        
+        cssFound = true
+      }
+    } catch (error) {
+      console.error('❌ Error processing dist directory:', error)
+    }
+  }
+  
+  // Copy other asset directories (skip css if we found it in dist/)
   for (const dirName of assetDirs) {
+    if (dirName === 'css' && cssFound) {
+      console.log(`⏭️  Skipping public/css/ (using dist/ CSS instead)`)
+      continue
+    }
+    
     const sourceDir = join(publicDir, dirName)
     const targetDir = join(assetsDir, dirName)
     
@@ -94,6 +138,12 @@ function copyStaticAssets(outputDir: string) {
       const filePath = join(publicDir, file)
       const stat = statSync(filePath)
       
+      // Skip styles.css if we already copied it from dist/
+      if (file === 'styles.css' && cssFound) {
+        console.log(`⏭️  Skipping public/styles.css (using dist/ CSS instead)`)
+        continue
+      }
+      
       // Copy only files (not directories we already handled)
       if (stat.isFile() && !allDirs.includes(file)) {
         const targetPath = join(outputDir, file)
@@ -108,7 +158,7 @@ function copyStaticAssets(outputDir: string) {
 
 // Main generation function
 async function generateStaticSite() {
-  const outputDir = './examples/html-utility'
+  const outputDir = './examples/html-semantic'
   
   // First, copy static assets
   console.log('📁 Copying static assets...')
