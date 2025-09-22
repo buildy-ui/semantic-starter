@@ -1,5 +1,5 @@
 {
-  "name": "app-starter",
+  "name": "semantic-starter",
   "private": true,
   "version": "0.0.3",
   "type": "module",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/buildy-ui/app-starter.git"
+    "url": "https://github.com/buildy-ui/semantic-starter.git"
   },
   "scripts": {
     "dev": "vite",
