@@ -1,0 +1,126 @@
+---
+description: Use this rule when converting semantic HTML + CSS into a React app with @ui8kit/core.
+alwaysApply: false
+---
+# Semantic → React App Rule (@semantic-app.mdc)
+
+- Purpose: Build clean, minimal, prototype-focused React apps from semantic HTML + CSS using `@ui8kit/core` composite components and prop-driven variants. Avoid utility bloat; keep only what a prototype requires.
+
+## Input contract
+- You provide:
+  - `index.html` with semantic structure (header/nav/main/section/article/aside/footer) and stable selectors (prefer semantic class names).
+  - A `semantic/` CSS directory where each file name equals its target semantic tag or component (e.g., `button.css`, `article.css`, `sheet.css`).
+
+## Import and alias policy
+- Always import from the package root `@ui8kit/core`. No deep imports.
+- Do not import `*Variants` in application code. Variants are for building intermediate/reusable UI components, not for app pages/features.
+- Project aliases must be configured (see `@ui8kit.mdc` for details):
+  - tsconfig paths:
+    ```jsonc
+    {
+      "compilerOptions": {
+        "paths": {
+          "@ui8kit/core": ["src/core/src/index"],
+          "@ui8kit/core/*": ["src/core/src/*"]
+        }
+      }
+    }
+    ```
+  - Vite alias:
+    ```ts
+    import path from 'path'
+    export default defineConfig({
+      resolve: { alias: { '@ui8kit/core': path.resolve(__dirname, './src/core/src') } }
+    })
+    ```
+
+## Composition rules (app code)
+- Use composite components only: `Block`, `Container`, `Grid`, `Group`, `Stack`, `Box`, `Title`, `Text`, `Button`, `Card`, `Badge`, `Image`, `Icon`, `Sheet`, `Accordion`.
+- No `className`/`style` in JSX. If something cannot be expressed via props, use:
+  - `data-class="semantic-name"` for className-equivalent (will be auto-collected and mapped to `@apply` by tooling).
+- Never add decorative extras (gradients, animations, special borders, etc.) in the prototype stage. These can be layered later (A/B testing/marketing).
+- Icons must use `Icon` with `lucideIcon`.
+- Typography must use `Title`/`Text` with prop variants.
+
+## CSS authoring (semantic/ with Tailwind @apply)
+- Each semantic CSS file contains only semantic class names mapped to Tailwind utilities via `@apply`.
+- Example (button.css):
+```css
+.button { @apply inline-flex items-center justify-center text-sm font-medium h-10 rounded-md px-6; }
+.button-secondary { @apply bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80; }
+.button-lg { @apply h-10; }
+```
+- In JSX, attach semantic classes only via `data-class` when props cannot cover the need:
+```tsx
+<Button data-class="button-custom-name">Learn More</Button>
+```
+
+## Migration workflow
+1) Parse `index.html` and identify sections by semantics pure html5.
+2) Map layout to components: `Block` (with `component`), `Container` (width), `Grid`/`Group`/`Stack` (flow), `Box` (atomic wrappers).
+3) Map text to `Title`/`Text`; icons to `Icon`; UI elements to `Button`/`Card`/`Image`/`Sheet`/`Accordion`.
+4) Convert utility chains into component props wherever possible. If not possible, attach `data-class`.
+5) Wire `ThemeProvider` and a default theme from `@ui8kit/core`.
+6) Ensure no `*Variants` imports in app code; keep imports from `@ui8kit/core` root only.
+
+## Example mapping
+- Semantic HTML fragment:
+```html
+<header class="nav-bar">
+  <nav class="nav"><ul class="nav-list">...</ul></nav>
+  <div class="nav-group-buttons"><button class="button button-ghost">Toggle</button></div>
+header>
+```
+
+## Example UI. The ideal component does not contain attributes for classes and styles
+- React with `@ui8kit/core`:
+```tsx
+import { Block, Container, Group, Button, Icon, Title, Text } from '@ui8kit/core'
+
+function Header() {
+  return (
+    <Block component="header" bg="background">
+      <Container>
+        <Group justify="between" align="center">
+          <Group align="center" gap="sm">
+            <Icon lucideIcon={/* Logo icon */} />
+            <Title order={2} size="xl">UI8Kit</Title>
+          </Group>
+          <Group align="center" gap="xs">
+            <Button variant="ghost">Toggle</Button>
+          </Group>
+        </Group>
+      </Container>
+    </Block>
+  )
+}
+```
+
+## Why without classes and styles
+Because you need to leave space for marketing. For example, for A/B testing. That's why ui8kit only provides dry prototypes with indents and minimal `border` and `shadow`. Color markup is controlled by the `shadcn` design tokens.
+
+Therefore, any adaptation and refactoring always implies following the `props` that are in the `@ui8kit/core` and only there.
+
+## Do / Don’t
+- Do: use composite components and prop variants; preserve semantic HTML structure; keep CSS in `semantic/` with `@apply`.
+- Do: prefer `Block/Container/Grid/Group/Stack` for layout; `Box` for atomic wrappers.
+- Do: use `data-class` only when props cannot express a need — favor simplicity over decoration. Avoid unnecessary classes.
+- Don’t: import `*Variants` in app code; deep-import anything from `core`.
+- Don’t: add decorative utilities (animations/gradients/special borders) at prototype stage.
+- Don’t: inline SVGs; use `Icon`.
+
+## Acceptance checklist
+- Imports only from `@ui8kit/core` root; no deep imports.
+- No `*Variants` imports in app code.
+- No Tailwind utilities directly in JSX; custom styling goes via `data-class` and `semantic/*.css` with `@apply`.
+- Layout uses `Block/Container/Grid/Group/Stack/Box` appropriately.
+- Typography uses `Title`/`Text`; icons use `Icon` with `lucideIcon`.
+- Non-prototype decorations removed; prototype remains minimal and consistent.
+- Comments are in English.
+
+## References
+- Core exports: [src/core/src/index.ts](mdc:src/core/src/index.ts)
+- Variants index (for internal UI work, not app pages): [src/core/src/core/variants/index.ts](mdc:src/core/src/core/variants/index.ts)
+- Components index: [src/core/src/components/index.ts](mdc:src/core/src/components/index.ts)
+- See also the import/alias policy in: [.cursor/ui8kit.mdc](mdc:.cursor/ui8kit.mdc)
+

@@ -10,6 +10,5 @@ bun.lock
 bun.lockb
 package-lock.json
 .manual/
-.cursor/
 .cursorignore
 .helper/
