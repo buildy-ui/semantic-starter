@@ -1,32 +1,28 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base TypeScript Config",
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "preserveWatchOutput": true,
+    "composite": true,
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/data": ["src/data/index.ts"],
-      "@ui8kit/core": ["src/core/src/index"],
-      "@ui8kit/core/*": ["src/core/src/*"]
+      "@ui8kit/core": ["./packages/@ui8kit/core/src"],
+      "@ui8kit/core/*": ["./packages/@ui8kit/core/src/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["vite.config.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
-} 
+  "exclude": ["node_modules", "dist", "build"]
+}

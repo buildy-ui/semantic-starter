@@ -1,0 +1,3 @@
+[submodule "packages/@ui8kit/core"]
+	path = packages/@ui8kit/core
+	url = https://github.com/ui8kit/core.git
