@@ -12,3 +12,4 @@ package-lock.json
 .manual/
 .cursorignore
 .helper/
+app-old

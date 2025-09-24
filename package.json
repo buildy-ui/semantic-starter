@@ -18,7 +18,8 @@
     "preview": "vite preview",
     "build:analyze": "tsc && vite build --mode analyze",
     "optimize:images": "tsx scripts/optimize-images.ts",
-    "generate": "bun run build && tsx scripts/public-generate.tsx"
+    "generate": "bun run build && tsx scripts/public-generate.tsx",
+    "html": "bun run build && tsx scripts/html-generate.tsx"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
