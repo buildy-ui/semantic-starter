@@ -1,0 +1,30 @@
+{
+  "name": "@ui8kit/vite-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tw4:html": "bun x @tailwindcss/cli -i ./html/input-v4.css -o ./html/styles.css --minify",
+    "tw3:html": "bun x -p tailwindcss@3 tailwindcss -i ./html/input.css -o ./html/styles.legacy.css --minify -c ./html/tailwind.config.js"
+  },
+  "dependencies": {
+    "@ui8kit/core": "workspace:*",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.9",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react-swc": "^3.11.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.9",
+    "tailwindcss3": "npm:tailwindcss@3.4.14",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}

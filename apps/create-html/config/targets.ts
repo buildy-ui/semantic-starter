@@ -18,24 +18,11 @@ export type HtmlTargetConfig = {
 
 export const targets: HtmlTargetConfig[] = [
   {
-    name: 'tw4-hsl',
-    entryPath: 'apps/tw4-hsl/src/app/index.tsx',
-    outputDir: 'examples/html',
-    cssSources: [
-      'apps/tw4-hsl/dist/assets',
-      'apps/tw4-hsl/src/assets/css',
-    ],
-    title: 'TW4 HSL App',
-  },
-  {
-    name: 'tw3-legacy',
-    entryPath: 'apps/tw3-legacy/src/App.tsx',
-    outputDir: 'examples/html-legacy',
-    cssSources: [
-      'apps/tw3-legacy/dist/assets',
-      'apps/tw3-legacy/src/index.css',
-    ],
-    title: 'TW3 Legacy App',
+    name: 'vite-app',
+    entryPath: 'apps/vite/src/App.tsx',
+    outputDir: 'apps/vite/html',
+    cssSources: [],
+    title: 'Vite App',
   },
 ]
 

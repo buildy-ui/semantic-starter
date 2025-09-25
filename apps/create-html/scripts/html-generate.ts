@@ -89,8 +89,12 @@ export async function generateHtml(options: GenerateOptions) {
   writeFileSync(fullPath, createHTMLDocument(content, title))
   console.log(`✅ Generated: ${fullPath}`)
 
-  console.log('📁 Copying CSS...')
-  copyCssToAssets(outputDir, cssSources)
+  if (cssSources && cssSources.length > 0) {
+    console.log('📁 Copying CSS...')
+    copyCssToAssets(outputDir, cssSources)
+  } else {
+    console.log('ℹ️  Skipping CSS copy (no cssSources configured)')
+  }
 }
 
 
