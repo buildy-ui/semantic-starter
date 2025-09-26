@@ -1,0 +1,44 @@
+/* https://cdn.jsdelivr.net/npm/ui8kit@latest/css/dist/semantic/card.css */
+.card {
+  @apply bg-card text-card-foreground flex flex-col gap-6 rounded-md border shadow-sm;
+}
+
+.card-header {
+  @apply gap-1.5 mt-4 px-6;
+}
+
+.card-title {
+  @apply leading-none font-bold text-xl mb-2;
+}
+
+.card-description {
+  @apply text-muted-foreground text-sm mb-4;
+}
+
+.card-action {
+  @apply col-start-2 row-span-2 row-start-1 self-start justify-self-end;
+}
+
+.card-meta {
+  @apply flex flex-wrap items-center gap-3 text-sm text-muted-foreground;
+}
+
+.card-figure {
+  @apply overflow-hidden;
+}
+
+.card-image {
+  @apply aspect-video w-full object-cover rounded-t-md;
+}
+
+.card-figcaption {
+  @apply mt-2 text-center text-sm text-muted-foreground;
+}
+
+.card-content {
+  @apply px-6 py-4;
+}
+
+.card-footer {
+  @apply flex items-center px-6 [.border-t]:pt-6;
+}
