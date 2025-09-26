@@ -16,10 +16,7 @@
   "scripts": {
     "dev": "bunx turbo run dev",
     "build": "bunx turbo run build",
-    "build:all": "bunx turbo run build:tw3-legacy build:tw4-hsl",
-    "html": "bunx turbo run build && bun apps/create-html",
-    "html:vite": "bunx turbo run build --filter=./apps/vite && bun apps/create-html && bun --cwd apps/vite run tw4:html && bun --cwd apps/vite run tw3:html",
-    "html:legacy": "bun run build:tw3-legacy && bun apps/create-html",
+    "html": "bun apps/create-html && bunx turbo run html --filter=./apps/create-html",
     "test": "bunx turbo run test",
     "lint": "bunx turbo run lint"
   },

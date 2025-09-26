@@ -20,9 +20,9 @@ export const targets: HtmlTargetConfig[] = [
   {
     name: 'vite-app',
     entryPath: 'apps/vite/src/App.tsx',
-    outputDir: 'apps/vite/html',
+    outputDir: 'apps/create-html/html',
     cssSources: [],
-    title: 'Vite App',
+    title: 'Pure HTML5 based on Tailwind CSS',
   },
 ]
 

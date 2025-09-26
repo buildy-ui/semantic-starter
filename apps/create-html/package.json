@@ -12,22 +12,18 @@
     "type": "git",
     "url": "https://github.com/buildy-ui/semantic-starter.git"
   },
-  "scripts": {},
+  "scripts": {
+    "tw4:html": "bun x @tailwindcss/cli -i ./assets/input-tw4.css -o ./html/styles.css --minify",
+    "tw3:html": "bun x -p tailwindcss@3 tailwindcss -i ./assets/input-tw3.css -o ./html/styles.legacy.css --minify -c ./config/tailwind.config.js",
+    "html": "bun run tw4:html && bun run tw3:html"
+  },
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22.15.30",
-    "@vitejs/plugin-react-swc": "^3.10.2",
     "glob": "^11.0.3",
-    "postcss": "^8.5.4",
     "sharp": "^0.33.0",
-    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.9",
-    "tsx": "^4.0.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5",
-    "vite-bundle-analyzer": "^0.7.0",
-    "vite-plugin-compression": "^0.5.1"
+    "tailwindcss3": "npm:tailwindcss@3.4.14"
   }
 }
