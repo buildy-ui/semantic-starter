@@ -1,5 +1,5 @@
 {
-  "name": "@ui8kit/vite-app",
+  "name": "@semantic/vite-app",
   "private": true,
   "version": "0.0.1",
   "type": "module",

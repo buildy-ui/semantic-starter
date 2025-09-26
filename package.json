@@ -1,5 +1,5 @@
 {
-  "name": "@ui8kit/workspace",
+  "name": "@semantic/workspace",
   "version": "0.0.1",
   "private": true,
   "license": "GPL-3.0",
@@ -16,9 +16,9 @@
   "scripts": {
     "dev": "bunx turbo run dev",
     "build": "bunx turbo run build",
-    "html": "bun apps/create-html && bunx turbo run html --filter=./apps/create-html",
     "test": "bunx turbo run test",
-    "lint": "bunx turbo run lint"
+    "lint": "bunx turbo run lint",
+    "html": "bunx turbo run apps/create-html && bunx turbo run html --filter=./apps/create-html"
   },
   "packageManager": "bun@1.1.30",
   "devDependencies": {
