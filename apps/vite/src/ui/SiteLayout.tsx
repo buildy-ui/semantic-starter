@@ -1,6 +1,8 @@
 import { ReactNode, useCallback } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Block, Container, Group, Stack, Title, Text, Sheet, Button, Icon, useMobile, useTheme } from '@ui8kit/core'
+import { Block, Container, Group, Stack, Title, Text, Sheet, Button, Icon, useMobile, useTheme, Grid } from '@ui8kit/core'
+import { CategoryList } from '@/ui/CategoryList'
+import { RecentPosts } from '@/ui/RecentPosts'
 import { Menu, Sun, Moon } from 'lucide-react'
 import { renderContext } from '@/data'
 
@@ -57,25 +59,21 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
 
       <Block component="main" py="xl">
         <Container size="lg">
-          <Group align="start" gap="xl" wrap="wrap">
-            {sidebar === 'left' && (
-              <Stack gap="md" w="full">
-                <Title order={3} size="lg">Sidebar</Title>
-                <Text size="sm" c="secondary-foreground">Sidebar content</Text>
+          <Grid cols="1-3" gap="xl">
+            <Grid.Col span={2}>
+              <Stack gap="xl">
+                {children}
               </Stack>
-            )}
-
-            <Stack gap="xl" w="full">
-              {children}
-            </Stack>
-
-            {sidebar === 'right' && (
-              <Stack gap="md" w="full">
-                <Title order={3} size="lg">Sidebar</Title>
-                <Text size="sm" c="secondary-foreground">Sidebar content</Text>
-              </Stack>
-            )}
-          </Group>
+            </Grid.Col>
+            <Grid.Col span={1}>
+              <aside>
+                <Stack gap="xl">
+                  <CategoryList items={[{ id: 1, name: 'Architecture', slug: 'architecture', count: 8 }, { id: 2, name: 'Semantic HTML', slug: 'semantic-html', count: 12 }]} />
+                  <RecentPosts />
+                </Stack>
+              </aside>
+            </Grid.Col>
+          </Grid>
         </Container>
       </Block>
 

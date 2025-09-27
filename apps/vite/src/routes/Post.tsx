@@ -1,5 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
-import { Block, Container, Stack, Title, Text, Image, Card, Badge, Group, Button } from '@ui8kit/core'
+import { Block, Container, Stack, Title, Text, Image, Card, Badge, Group, Button, Grid } from '@ui8kit/core'
+import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { PostMeta } from '@/ui/PostMeta'
+import { AuthorBio } from '@/ui/AuthorBio'
+import { RelatedPosts } from '@/ui/RelatedPosts'
 import { renderContext } from '@/data'
 
 export default function Post() {
@@ -25,26 +29,34 @@ export default function Post() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: post.title }]} />
           {post.featuredImage?.url && (
             <Image src={post.featuredImage.url} alt={post.featuredImage.alt} rounded="lg" w="full" h="auto" fit="cover" />
           )}
 
-          <Stack gap="xs">
+          <Stack gap="sm">
             <Title order={1} size="3xl">{post.title}</Title>
-            <Text size="sm" c="secondary-foreground">Published on {post.date.display}</Text>
+            <PostMeta date={post.date.display} categories={post.categories as any} />
           </Stack>
 
           <Card p="lg" rounded="lg" shadow="sm" bg="card">
             <div data-class="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
           </Card>
 
-          {post.categories?.length ? (
-            <Group gap="sm" align="center">
-              {post.categories.map(cat => (
-                <Badge key={cat.id} variant="secondary" rounded="full">{cat.name}</Badge>
-              ))}
-            </Group>
-          ) : null}
+          <Grid cols="1-2" gap="xl">
+            <Stack gap="xl">
+              {post.categories?.length ? (
+                <Group gap="sm" align="center">
+                  {post.categories.map(cat => (
+                    <Badge key={cat.id} variant="secondary" rounded="full">{cat.name}</Badge>
+                  ))}
+                </Group>
+              ) : null}
+              <AuthorBio author={{ name: 'John Doe', role: 'Editor', avatar: { url: 'https://i.pravatar.cc/128', alt: 'Author' }, bio: 'Writer and frontend engineer. Passionate about semantic HTML and design systems.' }} />
+            </Stack>
+
+            <RelatedPosts currentId={post.id} posts={renderContext.posts.posts as any} />
+          </Grid>
         </Stack>
       </Container>
     </Block>

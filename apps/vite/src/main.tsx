@@ -7,6 +7,7 @@ import Home from '@/routes/Home'
 import About from '@/routes/About'
 import Blog from '@/routes/Blog'
 import Post from '@/routes/Post'
+import Category from '@/routes/Category'
 import './assets/css/index.css'
 
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
       { path: 'blog', element: <Blog /> },
+      { path: 'category/:slug', element: <Category /> },
       { path: 'posts/:slug', element: <Post /> },
     ]
   }
