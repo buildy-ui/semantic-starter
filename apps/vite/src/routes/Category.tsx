@@ -3,6 +3,7 @@ import { Block, Container, Stack, Title, Text, Grid, Button } from '@ui8kit/core
 import { renderContext } from '@/data'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
 import { PostCard } from '@/ui/PostCard'
+import { SEO } from '@/ui/SEO'
 
 export default function Category() {
   const { slug } = useParams<{ slug: string }>()
@@ -14,6 +15,7 @@ export default function Category() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title={`Category: ${categoryName}`} description={`Posts categorized under ${categoryName}.`} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: categoryName }]} />
           <Stack gap="sm">
             <Title order={1} size="2xl">{categoryName}</Title>

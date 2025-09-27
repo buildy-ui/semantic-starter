@@ -1,5 +1,6 @@
 import { Block, Container, Stack, Title, Text, Button, Grid, Card, Group, Image } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { SEO } from '@/ui/SEO'
 import { HomeLatest } from '@/ui/HomeLatest'
 import { renderContext } from '@/data'
 
@@ -9,6 +10,7 @@ export default function Home() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title={home.page.title} description={home.page.excerpt} />
           <Breadcrumbs items={[{ label: 'Home' }]} />
           <Stack gap="md" align="start">
             <Title order={1} size="3xl">{home.page.title}</Title>

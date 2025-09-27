@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { Block, Container, Stack, Title, Text, Image, Card, Badge, Group, Button, Grid } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { SEO } from '@/ui/SEO'
 import { PostMeta } from '@/ui/PostMeta'
 import { AuthorBio } from '@/ui/AuthorBio'
 import { RelatedPosts } from '@/ui/RelatedPosts'
@@ -29,6 +30,7 @@ export default function Post() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title={post.title} description={post.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: post.title }]} />
           {post.featuredImage?.url && (
             <Image src={post.featuredImage.url} alt={post.featuredImage.alt} rounded="lg" w="full" h="auto" fit="cover" />

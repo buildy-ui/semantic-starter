@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
+import { HelmetProvider } from 'react-helmet-async'
 import App from '@/routes/App'
 import NotFound from '@/routes/NotFound'
 import ErrorBoundary from '@/routes/ErrorBoundary'
@@ -42,8 +43,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider theme={skyOSTheme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider theme={skyOSTheme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </HelmetProvider>
   </StrictMode>
 )

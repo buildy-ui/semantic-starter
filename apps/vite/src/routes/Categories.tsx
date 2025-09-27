@@ -1,5 +1,6 @@
 import { Block, Container, Stack, Title, Text, Grid } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { SEO } from '@/ui/SEO'
 import { renderContext } from '@/data'
 import { CategoryCard } from '@/ui/cards/CategoryCard'
 
@@ -9,6 +10,7 @@ export default function Categories() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title="Categories" description="Browse all categories." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Categories' }]} />
           <Stack gap="sm">
             <Title order={1} size="2xl">Categories</Title>

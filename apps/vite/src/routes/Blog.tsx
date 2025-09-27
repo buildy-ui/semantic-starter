@@ -1,5 +1,6 @@
 import { Block, Container, Stack, Title, Text, Grid } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { SEO } from '@/ui/SEO'
 import { PostCard } from '@/ui/PostCard'
 import { Pagination } from '@/ui/Pagination'
 import { useMemo, useState } from 'react'
@@ -15,6 +16,7 @@ export default function Blog() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title={blog.page.title} description={blog.page.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog' }]} />
           <Stack gap="md">
             <Title order={1} size="2xl">{blog.page.title}</Title>

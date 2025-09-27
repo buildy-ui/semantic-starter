@@ -1,5 +1,6 @@
 import { Block, Container, Stack, Title, Text, Grid, Card, Image } from '@ui8kit/core'
 import { renderContext } from '@/data'
+import { Helmet } from 'react-helmet-async'
 
 export default function About() {
   const { about } = renderContext

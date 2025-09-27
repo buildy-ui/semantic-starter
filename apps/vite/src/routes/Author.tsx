@@ -3,6 +3,7 @@ import { Block, Container, Stack, Title, Text, Grid, Button } from '@ui8kit/core
 import { renderContext } from '@/data'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
 import { PostCard } from '@/ui/PostCard'
+import { SEO } from '@/ui/SEO'
 
 export default function Author() {
   const { slug } = useParams<{ slug: string }>()
@@ -14,6 +15,7 @@ export default function Author() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title={`Author: ${authorName}`} description={`Posts written by ${authorName}.`} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: authorName }]} />
           <Stack gap="sm">
             <Title order={1} size="2xl">Author: {authorName}</Title>

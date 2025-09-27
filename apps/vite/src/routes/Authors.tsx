@@ -1,5 +1,6 @@
 import { Block, Container, Stack, Title, Text, Grid } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { SEO } from '@/ui/SEO'
 import { renderContext } from '@/data'
 import { AuthorCard } from '@/ui/cards/AuthorCard'
 
@@ -10,6 +11,7 @@ export default function Authors() {
     <Block component="main" py="xl">
       <Container size="lg">
         <Stack gap="xl">
+          <SEO title="Authors" description="Browse all authors." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Authors' }]} />
           <Stack gap="sm">
             <Title order={1} size="2xl">Authors</Title>
