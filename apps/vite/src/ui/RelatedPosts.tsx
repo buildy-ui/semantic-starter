@@ -1,5 +1,5 @@
-import { Stack, Title, Group } from '@ui8kit/core'
-import { PostCard } from '@/ui/PostCard'
+import { Stack, Title } from '@ui8kit/core'
+import { SmallMediaCard } from '@/ui/SmallMediaCard'
 
 type Post = { id: number; categories?: { slug: string }[] }
 
@@ -11,11 +11,11 @@ export function RelatedPosts({ currentId, posts }: { currentId: number; posts: P
   return (
     <Stack gap="md">
       <Title order={2} size="xl">Related Posts</Title>
-      <Group gap="lg">
+      <Stack gap="md">
         {related.map(p => (
-          <PostCard key={p.id} post={p as any} />
+          <SmallMediaCard key={p.id} item={p as any} />
         ))}
-      </Group>
+      </Stack>
     </Stack>
   )
 }

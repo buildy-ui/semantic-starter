@@ -1,8 +1,11 @@
 import { ReactNode, useCallback } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Block, Container, Group, Stack, Title, Text, Sheet, Button, Icon, useMobile, useTheme, Grid } from '@ui8kit/core'
+import { SearchBar } from '@/ui/SearchBar'
 import { CategoryList } from '@/ui/CategoryList'
 import { TagList } from '@/ui/TagList'
+import { PopularPosts } from '@/ui/PopularPosts'
+import { NewsletterSignup } from '@/ui/NewsletterSignup'
 import { RecentPosts } from '@/ui/RecentPosts'
 import { Menu, Sun, Moon } from 'lucide-react'
 import { renderContext } from '@/data'
@@ -40,6 +43,8 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
                 </nav>
               )}
 
+              {!isMobile && <SearchBar />}
+
               <Button variant="ghost" size="sm" aria-label="Toggle dark mode" onClick={toggleDarkMode}>
                 <Icon lucideIcon={isDarkMode ? Sun : Moon} />
               </Button>
@@ -47,6 +52,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
               {isMobile && (
                 <Sheet id="site-sheet" side="left" title="Menu" showTrigger triggerIcon={Menu}>
                   <Stack gap="xs">
+                    <SearchBar />
                     {menu.primary.items.map(item => (
                       <NavLink key={item.id} to={item.url} onClick={closeSheet}>{item.title}</NavLink>
                     ))}
@@ -74,6 +80,8 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
                   <TagList items={renderContext.tags as any} />
                   <Link to="/tags"><Text size="sm" c="secondary-foreground">View all tags</Text></Link>
                   <Link to="/authors"><Text size="sm" c="secondary-foreground">View all authors</Text></Link>
+                  <PopularPosts />
+                  <NewsletterSignup />
                   <RecentPosts />
                 </Stack>
               </aside>
