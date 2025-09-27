@@ -36,7 +36,7 @@ export default function Post() {
 
           <Stack gap="sm">
             <Title order={1} size="3xl">{post.title}</Title>
-            <PostMeta date={post.date.display} categories={post.categories as any} />
+            <PostMeta date={post.date.display} categories={post.categories as any} tags={post.tags as any} />
           </Stack>
 
           <Card p="lg" rounded="lg" shadow="sm" bg="card">
@@ -52,7 +52,7 @@ export default function Post() {
                   ))}
                 </Group>
               ) : null}
-              <AuthorBio author={{ name: 'John Doe', role: 'Editor', avatar: { url: 'https://i.pravatar.cc/128', alt: 'Author' }, bio: 'Writer and frontend engineer. Passionate about semantic HTML and design systems.' }} />
+              <AuthorBio author={{ name: post.author?.name || 'John Doe', slug: post.author?.slug, role: 'Editor', avatar: { url: 'https://i.pravatar.cc/128', alt: 'Author' }, bio: 'Writer and frontend engineer. Passionate about semantic HTML and design systems.' }} />
             </Stack>
 
             <RelatedPosts currentId={post.id} posts={renderContext.posts.posts as any} />

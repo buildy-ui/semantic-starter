@@ -1,5 +1,6 @@
 import { Card, Image, Stack, Title, Text, Group, Badge, Button } from '@ui8kit/core'
 import { Link } from 'react-router-dom'
+import { postPath } from '@/lib/paths'
 
 type Post = {
   id: number
@@ -26,7 +27,7 @@ export function PostCard({ post }: { post: Post }) {
             ))}
           </Group>
         ) : null}
-        <Link to={`/posts/${post.slug}`}>
+        <Link to={postPath(post.slug)}>
           <Button size="sm">Read more</Button>
         </Link>
       </Stack>

@@ -2,6 +2,7 @@ import { ReactNode, useCallback } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Block, Container, Group, Stack, Title, Text, Sheet, Button, Icon, useMobile, useTheme, Grid } from '@ui8kit/core'
 import { CategoryList } from '@/ui/CategoryList'
+import { TagList } from '@/ui/TagList'
 import { RecentPosts } from '@/ui/RecentPosts'
 import { Menu, Sun, Moon } from 'lucide-react'
 import { renderContext } from '@/data'
@@ -68,7 +69,11 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
             <Grid.Col span={1}>
               <aside>
                 <Stack gap="xl">
-                  <CategoryList items={[{ id: 1, name: 'Architecture', slug: 'architecture', count: 8 }, { id: 2, name: 'Semantic HTML', slug: 'semantic-html', count: 12 }]} />
+                  <CategoryList items={renderContext.categories as any} />
+                  <Link to="/categories"><Text size="sm" c="secondary-foreground">View all categories</Text></Link>
+                  <TagList items={renderContext.tags as any} />
+                  <Link to="/tags"><Text size="sm" c="secondary-foreground">View all tags</Text></Link>
+                  <Link to="/authors"><Text size="sm" c="secondary-foreground">View all authors</Text></Link>
                   <RecentPosts />
                 </Stack>
               </aside>
