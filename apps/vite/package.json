@@ -11,7 +11,9 @@
   "dependencies": {
     "@ui8kit/core": "workspace:*",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.0.1",
+    "lucide-react": "^0.460.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.9",

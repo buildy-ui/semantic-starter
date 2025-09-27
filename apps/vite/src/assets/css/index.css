@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @source "../../../../../packages/@ui8kit/core/src";
+@import "./prose.css";
 
 /* Tailwind v4 sources are declared above for dev (Vite + PostCSS). */
 
