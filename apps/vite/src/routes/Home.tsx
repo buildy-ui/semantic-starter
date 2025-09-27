@@ -9,7 +9,7 @@ export default function Home() {
         <Stack gap="xl">
           <Stack gap="md" align="start">
             <Title order={1} size="3xl">{home.page.title}</Title>
-            <Text c="secondary">{home.page.excerpt}</Text>
+            <Text c="secondary-foreground">{home.page.excerpt}</Text>
             <Group gap="sm">
               <Button>Get Started</Button>
               <Button variant="secondary">Learn More</Button>
@@ -23,7 +23,7 @@ export default function Home() {
                   <Image src={f.featuredImage.url} alt={f.featuredImage.alt} rounded="md" w="full" h="auto" fit="cover" />
                 )}
                 <Title order={3} size="lg">{f.title}</Title>
-                <Text size="sm" c="secondary">{f.excerpt}</Text>
+                <Text size="sm" c="secondary-foreground">{f.excerpt}</Text>
               </Card>
             ))}
           </Grid>

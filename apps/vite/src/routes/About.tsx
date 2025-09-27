@@ -9,7 +9,7 @@ export default function About() {
         <Stack gap="xl">
           <Stack gap="md">
             <Title order={1} size="2xl">{about.page.title}</Title>
-            <Text c="secondary">{about.page.excerpt}</Text>
+            <Text c="secondary-foreground">{about.page.excerpt}</Text>
           </Stack>
           <Grid cols="1-2-3" gap="lg">
             {about.features.map((f) => (
@@ -18,7 +18,7 @@ export default function About() {
                   <Image src={f.featuredImage.url} alt={f.featuredImage.alt} rounded="md" w="full" h="auto" fit="cover" />
                 )}
                 <Title order={3} size="lg">{f.title}</Title>
-                <Text size="sm" c="secondary">{f.excerpt}</Text>
+                <Text size="sm" c="secondary-foreground">{f.excerpt}</Text>
               </Card>
             ))}
           </Grid>

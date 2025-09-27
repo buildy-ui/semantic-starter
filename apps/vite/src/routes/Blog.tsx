@@ -10,7 +10,7 @@ export default function Blog() {
         <Stack gap="xl">
           <Stack gap="md">
             <Title order={1} size="2xl">{blog.page.title}</Title>
-            <Text c="secondary">{blog.page.excerpt}</Text>
+            <Text c="secondary-foreground">{blog.page.excerpt}</Text>
           </Stack>
 
           <Grid cols="1-2-3" gap="lg">
@@ -21,7 +21,7 @@ export default function Blog() {
                 )}
                 <Stack gap="sm">
                   <Title order={3} size="lg">{p.title}</Title>
-                  <Text size="sm" c="secondary">{p.excerpt}</Text>
+                  <Text size="sm" c="secondary-foreground">{p.excerpt}</Text>
                   <Link to={`/posts/${p.slug}`}>
                     <Button size="sm">Read more</Button>
                   </Link>

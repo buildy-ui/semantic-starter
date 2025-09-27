@@ -23,7 +23,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
               <Link to="/">
                 <Title order={2} size="xl">UI8Kit</Title>
               </Link>
-              <Text c="secondary">Design System</Text>
+              <Text c="secondary-foreground">Design System</Text>
             </Group>
 
             <Group align="center" gap="xs">
@@ -61,7 +61,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
             {sidebar === 'left' && (
               <Stack gap="md" w="full">
                 <Title order={3} size="lg">Sidebar</Title>
-                <Text size="sm" c="secondary">Sidebar content</Text>
+                <Text size="sm" c="secondary-foreground">Sidebar content</Text>
               </Stack>
             )}
 
@@ -72,7 +72,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
             {sidebar === 'right' && (
               <Stack gap="md" w="full">
                 <Title order={3} size="lg">Sidebar</Title>
-                <Text size="sm" c="secondary">Sidebar content</Text>
+                <Text size="sm" c="secondary-foreground">Sidebar content</Text>
               </Stack>
             )}
           </Group>

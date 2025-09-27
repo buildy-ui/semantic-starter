@@ -31,7 +31,7 @@ export default function Post() {
 
           <Stack gap="xs">
             <Title order={1} size="3xl">{post.title}</Title>
-            <Text size="sm" c="secondary">Published on {post.date.display}</Text>
+            <Text size="sm" c="secondary-foreground">Published on {post.date.display}</Text>
           </Stack>
 
           <Card p="lg" rounded="lg" shadow="sm" bg="card">
