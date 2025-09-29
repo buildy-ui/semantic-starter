@@ -13,26 +13,24 @@ export default function Tag() {
 
   return (
     <Block component="main" py="lg">
-      <Container size="lg">
-        <Stack gap="lg">
-          <SEO title={`Tag: ${tagName}`} description={`Posts tagged with ${tagName}.`} />
-          <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: tagName }]} />
-          <Stack gap="md">
-            <Title order={1} size="2xl">Tag: {tagName}</Title>
-            <Text c="secondary-foreground">Posts tagged with “{tagName}”.</Text>
-          </Stack>
-          {filtered.length === 0 ? (
-            <Stack gap="md">
-              <Text>No posts found for this tag.</Text>
-              <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
-            </Stack>
-          ) : (
-            <Grid cols="1-2-3" gap="lg">
-              {filtered.map(p => <PostCard key={p.id} post={p as any} />)}
-            </Grid>
-          )}
+      <Stack gap="lg">
+        <SEO title={`Tag: ${tagName}`} description={`Posts tagged with ${tagName}.`} />
+        <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: tagName }]} />
+        <Stack gap="md">
+          <Title order={1} size="2xl">Tag: {tagName}</Title>
+          <Text c="secondary-foreground">Posts tagged with “{tagName}”.</Text>
         </Stack>
-      </Container>
+        {filtered.length === 0 ? (
+          <Stack gap="md">
+            <Text>No posts found for this tag.</Text>
+            <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
+          </Stack>
+        ) : (
+          <Grid cols="1-2-3" gap="lg">
+            {filtered.map(p => <PostCard key={p.id} post={p as any} />)}
+          </Grid>
+        )}
+      </Stack>
     </Block>
   )
 }

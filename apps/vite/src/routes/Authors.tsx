@@ -9,19 +9,17 @@ export default function Authors() {
   const items = authors.map(a => ({ ...a, avatarUrl: 'https://i.pravatar.cc/96' }))
   return (
     <Block component="main" py="lg">
-      <Container size="lg">
-        <Stack gap="lg">
-          <SEO title="Authors" description="Browse all authors." />
-          <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Authors' }]} />
-          <Stack gap="md">
-            <Title order={1} size="2xl">Authors</Title>
-            <Text c="secondary-foreground">Browse all authors.</Text>
-          </Stack>
-          <Grid cols="1-2-3" gap="lg">
-            {items.map(a => <AuthorCard key={a.id} item={a as any} />)}
-          </Grid>
+      <Stack gap="lg">
+        <SEO title="Authors" description="Browse all authors." />
+        <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Authors' }]} />
+        <Stack gap="md">
+          <Title order={1} size="2xl">Authors</Title>
+          <Text c="secondary-foreground">Browse all authors.</Text>
         </Stack>
-      </Container>
+        <Grid cols="1-2-3" gap="lg">
+          {items.map(a => <AuthorCard key={a.id} item={a as any} />)}
+        </Grid>
+      </Stack>
     </Block>
   )
 }

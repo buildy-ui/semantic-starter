@@ -13,26 +13,24 @@ export default function Category() {
 
   return (
     <Block component="main" py="lg">
-      <Container size="lg">
-        <Stack gap="lg">
-          <SEO title={`Category: ${categoryName}`} description={`Posts categorized under ${categoryName}.`} />
-          <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: categoryName }]} />
-          <Stack gap="md">
-            <Title order={1} size="2xl">{categoryName}</Title>
-            <Text c="secondary-foreground">Posts categorized under “{categoryName}”.</Text>
-          </Stack>
-          {filtered.length === 0 ? (
-            <Stack gap="md">
-              <Text>No posts found in this category.</Text>
-              <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
-            </Stack>
-          ) : (
-            <Grid cols="1-2-3" gap="lg">
-              {filtered.map(p => <PostCard key={p.id} post={p as any} />)}
-            </Grid>
-          )}
+      <Stack gap="lg">
+        <SEO title={`Category: ${categoryName}`} description={`Posts categorized under ${categoryName}.`} />
+        <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: categoryName }]} />
+        <Stack gap="md">
+          <Title order={1} size="2xl">{categoryName}</Title>
+          <Text c="secondary-foreground">Posts categorized under “{categoryName}”.</Text>
         </Stack>
-      </Container>
+        {filtered.length === 0 ? (
+          <Stack gap="md">
+            <Text>No posts found in this category.</Text>
+            <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
+          </Stack>
+        ) : (
+          <Grid cols="1-2-3" gap="lg">
+            {filtered.map(p => <PostCard key={p.id} post={p as any} />)}
+          </Grid>
+        )}
+      </Stack>
     </Block>
   )
 }

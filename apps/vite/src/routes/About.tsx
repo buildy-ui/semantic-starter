@@ -7,7 +7,6 @@ export default function About() {
   const { about } = renderContext
   return (
     <Block component="main" py="lg">
-      <Container size="lg">
         <Stack gap="lg">
           <SEO title={about.page.title} description={about.page.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'About' }]} />
@@ -27,7 +26,6 @@ export default function About() {
             ))}
           </Grid>
         </Stack>
-      </Container>
     </Block>
   )
 }

@@ -8,19 +8,17 @@ export default function Tags() {
   const { tags } = renderContext
   return (
     <Block component="main" py="lg">
-      <Container size="lg">
-        <Stack gap="lg">
-          <SEO title="Tags" description="Browse all tags." />
-          <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Tags' }]} />
-          <Stack gap="md">
-            <Title order={1} size="2xl">Tags</Title>
-            <Text c="secondary-foreground">Browse all tags.</Text>
-          </Stack>
-          <Grid cols="1-2-3" gap="lg">
-            {tags.map(t => <TagCard key={t.id} item={t as any} />)}
-          </Grid>
+      <Stack gap="lg">
+        <SEO title="Tags" description="Browse all tags." />
+        <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Tags' }]} />
+        <Stack gap="md">
+          <Title order={1} size="2xl">Tags</Title>
+          <Text c="secondary-foreground">Browse all tags.</Text>
         </Stack>
-      </Container>
+        <Grid cols="1-2-3" gap="lg">
+          {tags.map(t => <TagCard key={t.id} item={t as any} />)}
+        </Grid>
+      </Stack>
     </Block>
   )
 }
