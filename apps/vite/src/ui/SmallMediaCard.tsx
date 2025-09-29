@@ -1,0 +1,33 @@
+import { Group, Image, Stack, Title, Text, Card } from '@ui8kit/core'
+import { Link } from 'react-router-dom'
+import { postPath } from '@/lib/paths'
+
+type Item = {
+  id: number
+  title: string
+  slug: string
+  excerpt?: string
+  thumbnail?: { url: string; alt: string }
+}
+
+export function SmallMediaCard({ item }: { item: Item }) {
+  return (
+    <Card p="md" rounded="lg" shadow="none" bg="card" data-class="small-media-card">
+      <Group gap="md" align="start">
+        {item.thumbnail?.url && (
+          <Link to={postPath(item.slug)}>
+            <Image src={item.thumbnail.url} alt={item.title} rounded="md" width={72} height={72} fit="cover" />
+          </Link>
+        )}
+        <Stack gap="xs">
+          <Link to={postPath(item.slug)}>
+            <Title order={4} size="md" fw="medium" c="foreground">{item.title}</Title>
+          </Link>
+          {item.excerpt && <Text size="xs" c="secondary-foreground" leading="relaxed">{item.excerpt.slice(0, 80)}...</Text>}
+        </Stack>
+      </Group>
+    </Card>
+  )
+}
+
+
