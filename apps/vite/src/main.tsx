@@ -40,7 +40,7 @@ const router = createBrowserRouter([
   }
 ])
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('app')!).render(
   <StrictMode>
     <ThemeProvider theme={skyOSTheme}>
       <RouterProvider router={router} />

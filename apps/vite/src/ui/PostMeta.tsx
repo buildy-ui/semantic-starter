@@ -11,15 +11,15 @@ type Meta = {
 
 export function PostMeta({ date, categories, tags }: Meta) {
   return (
-    <Group gap="sm" align="center">
-      <Group gap="xs" align="center">
+    <Group gap="md" align="center">
+      <Group gap="sm" align="center">
         <Icon lucideIcon={Calendar} c="muted" />
         <Text size="sm" c="secondary-foreground">{date}</Text>
       </Group>
       {categories?.length ? (
-        <Group gap="xs" align="center">
+        <Group gap="sm" align="center">
           <Icon lucideIcon={Tag} c="muted" />
-          <Group gap="xs" align="center">
+          <Group gap="sm" align="center">
             {categories.map((c, idx) => (
               <Link key={c.id} to={c.slug ? categoryPath(c.slug) : '#'}><Text size="sm" c="secondary-foreground">{c.name}{idx < (categories.length - 1) ? ',' : ''}</Text></Link>
             ))}
@@ -27,9 +27,9 @@ export function PostMeta({ date, categories, tags }: Meta) {
         </Group>
       ) : null}
       {tags?.length ? (
-        <Group gap="xs" align="center">
+        <Group gap="sm" align="center">
           <Icon lucideIcon={Tag} c="muted" />
-          <Group gap="xs" align="center">
+          <Group gap="sm" align="center">
             {tags.map((t, idx) => (
               <Link key={t.id} to={t.slug ? tagPath(t.slug) : '#'}><Text size="sm" c="secondary-foreground">{t.name}{idx < (tags.length - 1) ? ',' : ''}</Text></Link>
             ))}

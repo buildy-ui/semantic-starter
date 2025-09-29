@@ -9,9 +9,9 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const ldItems = items.map(({ label, to }) => ({ name: label, url: to }))
   return (
     <>
-      <Group align="center" gap="xs" aria-label="Breadcrumb">
+      <Group align="center" gap="sm" aria-label="Breadcrumb">
         {items.map((item, idx) => (
-          <Group key={idx} align="center" gap="xs">
+          <Group key={idx} align="center" gap="sm">
             {idx > 0 && <Icon lucideIcon={ChevronRight} c="muted" />}
             {item.to ? (
               <Link to={item.to}><Text size="sm" c="secondary-foreground">{item.label}</Text></Link>

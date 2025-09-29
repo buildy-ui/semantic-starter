@@ -5,9 +5,9 @@ import { SearchBar } from '@/ui/SearchBar'
 
 export default function NotFound() {
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title="Page Not Found" description="The page you're looking for doesn't exist." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Not Found' }]} />
           <Stack gap="md">

@@ -17,7 +17,7 @@ export function AuthorBio({ author }: { author: Author & { slug?: string } }) {
           {author.avatar?.url && (
             <Image src={author.avatar.url} alt={author.avatar.alt} rounded="full" w={"auto"} h={64} />
           )}
-          <Stack gap="xs">
+          <Stack gap="sm">
             <Title order={3} size="lg">{author.name}</Title>
             {author.role && <Text size="sm" c="secondary-foreground">{author.role}</Text>}
             {author.bio && <Text size="sm" c="secondary-foreground">{author.bio}</Text>}

@@ -12,17 +12,17 @@ export default function Tag() {
   const tagName = filtered[0]?.tags?.find(t => t.slug === slug)?.name || 'Tag'
 
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={`Tag: ${tagName}`} description={`Posts tagged with ${tagName}.`} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: tagName }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Tag: {tagName}</Title>
             <Text c="secondary-foreground">Posts tagged with “{tagName}”.</Text>
           </Stack>
           {filtered.length === 0 ? (
-            <Stack gap="sm">
+            <Stack gap="md">
               <Text>No posts found for this tag.</Text>
               <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
             </Stack>

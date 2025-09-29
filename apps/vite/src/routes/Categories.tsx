@@ -7,12 +7,12 @@ import { CategoryCard } from '@/ui/cards/CategoryCard'
 export default function Categories() {
   const { categories } = renderContext
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title="Categories" description="Browse all categories." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Categories' }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Categories</Title>
             <Text c="secondary-foreground">Browse all categories.</Text>
           </Stack>

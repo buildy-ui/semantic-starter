@@ -21,21 +21,21 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
   }, [])
 
   return (
-    <Block component="div" w="full">
-      <Block component="header" py="lg" bg="background" data-class="nav-bar" shadow="sm">
+    <>
+      <Block component="nav" py="lg" bg="background" data-class="nav-bar" shadow="sm">
         <Container size="lg">
           <Group justify="between" align="center">
-            <Group align="center" gap="sm">
+            <Group align="center" gap="md">
               <Link to="/">
                 <Title order={2} size="2xl" fw="bold" c="primary">UI8Kit</Title>
               </Link>
               <Text size="sm" c="secondary-foreground">Design System</Text>
             </Group>
 
-            <Group align="center" gap="xs">
+            <Group align="center" gap="sm">
               {!isMobile && (
                 <nav>
-                  <Group align="center" gap="xs" data-class="nav">
+                  <Group align="center" gap="sm" data-class="nav">
                     {menu.primary.items.map(item => (
                       <NavLink key={item.id} to={item.url}>{item.title}</NavLink>
                     ))}
@@ -51,7 +51,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
 
               {isMobile && (
                 <Sheet id="site-sheet" side="left" title="Menu" showTrigger triggerIcon={Menu}>
-                  <Stack gap="xs">
+                  <Stack gap="sm">
                     <SearchBar />
                     {menu.primary.items.map(item => (
                       <NavLink key={item.id} to={item.url} onClick={closeSheet}>{item.title}</NavLink>
@@ -64,17 +64,17 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
         </Container>
       </Block>
 
-      <Block component="main" py="2xl">
+      <Block component="main" py="lg" data-class="main-page">
         <Container size="lg">
-          <Grid cols="1-3" gap="2xl">
+          <Grid cols="1-3" gap="lg">
             <Grid.Col span={2} data-class="main-content">
-              <Stack gap="2xl">
+              <Stack gap="lg">
                 {children}
               </Stack>
             </Grid.Col>
             <Grid.Col span={1} data-class="sidebar">
-              <aside>
-                <Stack gap="2xl">
+              <Block component="aside">
+                <Stack gap="lg">
                   <CategoryList items={renderContext.categories as any} />
                   <Link to="/categories"><Text size="sm" c="secondary-foreground">View all categories</Text></Link>
                   <TagList items={renderContext.tags as any} />
@@ -84,13 +84,13 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
                   <NewsletterSignup />
                   <RecentPosts />
                 </Stack>
-              </aside>
+              </Block>
             </Grid.Col>
           </Grid>
         </Container>
       </Block>
 
-      <Block component="footer" py="2xl" bg="muted" data-class="site-footer">
+      <Block component="footer" py="lg" bg="muted" data-class="site-footer">
         <Container size="lg">
           <Stack gap="lg" align="center">
             <Text size="sm" c="secondary-foreground" ta="center">© 2025 UI8Kit Design System</Text>
@@ -102,7 +102,7 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
           </Stack>
         </Container>
       </Block>
-    </Block>
+    </>
   )
 }
 

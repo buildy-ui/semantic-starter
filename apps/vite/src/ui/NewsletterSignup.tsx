@@ -2,7 +2,7 @@ import { Card, Stack, Title, Text, Button } from '@ui8kit/core'
 
 export function NewsletterSignup() {
   return (
-    <Card p="xl" rounded="xl" shadow="md" bg="primary" data-class="newsletter-signup">
+    <Card p="lg" rounded="xl" shadow="md" bg="primary" data-class="newsletter-signup">
       <Stack gap="md">
         <Title order={3} size="xl" fw="bold" c="primary-foreground">Subscribe</Title>
         <Text size="sm" c="primary-foreground" leading="relaxed">Get the latest posts delivered to your inbox.</Text>

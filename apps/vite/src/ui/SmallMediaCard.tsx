@@ -19,7 +19,7 @@ export function SmallMediaCard({ item }: { item: Item }) {
             <Image src={item.thumbnail.url} alt={item.title} rounded="md" width={72} height={72} fit="cover" />
           </Link>
         )}
-        <Stack gap="xs">
+        <Stack gap="sm">
           <Link to={postPath(item.slug)}>
             <Title order={4} size="md" fw="medium" c="foreground">{item.title}</Title>
           </Link>

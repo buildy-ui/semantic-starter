@@ -11,7 +11,7 @@ export default function Home() {
       <SEO title={home.page.title} description={home.page.excerpt} />
       <Breadcrumbs items={[{ label: 'Home' }]} />
       
-      <Stack gap="3xl" align="center" ta="center" py="2xl" data-class="hero-section">
+      <Stack gap="lg" align="center" ta="center" py="lg" data-class="hero-section">
         <Stack gap="lg">
           <Title order={1} size="5xl" fw="bold" c="foreground">{home.page.title}</Title>
           <Text size="lg" c="secondary-foreground" leading="relaxed">{home.page.excerpt}</Text>
@@ -22,14 +22,14 @@ export default function Home() {
         </Group>
       </Stack>
 
-      <Stack gap="2xl">
+      <Stack gap="lg">
         <Stack gap="lg" align="center" ta="center">
           <Title order={2} size="3xl" fw="bold">Features</Title>
           <Text size="md" c="secondary-foreground">Discover what makes our approach unique</Text>
         </Stack>
-        <Grid cols="1-2-3" gap="xl">
+        <Grid cols="1-2-3" gap="lg">
           {home.features.map((f) => (
-            <Card key={f.id} p="xl" rounded="xl" shadow="md" bg="card">
+            <Card key={f.id} p="lg" rounded="xl" shadow="md" bg="card">
               <Stack gap="lg">
                 {f.featuredImage?.url && (
                   <Image src={f.featuredImage.url} alt={f.featuredImage.alt} rounded="lg" w="full" h="auto" fit="cover" />

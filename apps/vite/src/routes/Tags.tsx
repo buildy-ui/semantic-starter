@@ -7,12 +7,12 @@ import { TagCard } from '@/ui/cards/TagCard'
 export default function Tags() {
   const { tags } = renderContext
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title="Tags" description="Browse all tags." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Tags' }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Tags</Title>
             <Text c="secondary-foreground">Browse all tags.</Text>
           </Stack>

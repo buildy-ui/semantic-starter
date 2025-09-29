@@ -152,7 +152,7 @@ const DefaultItemRenderers = {
           </Box>
         )}
 
-        <Stack gap="xs">
+        <Stack gap="sm">
           <Title order={3} size="lg" fw="semibold">
             {item.title}
           </Title>
@@ -183,7 +183,7 @@ const DefaultItemRenderers = {
         </Box>
       )}
 
-      <Stack gap="xs">
+      <Stack gap="sm">
         <Title order={3} size="lg" fw="semibold">
           {item.title}
         </Title>
@@ -213,7 +213,7 @@ const DefaultItemRenderers = {
         </Box>
       )}
 
-      <Stack gap="xs">
+      <Stack gap="sm">
         <Title order={3} size="lg" fw="semibold">
           {item.title}
         </Title>
@@ -354,7 +354,7 @@ export const LayoutBlock = forwardRef<HTMLElement, LayoutBlockProps>(
 
     // Main content
     const mainContent = (
-      <Stack gap="3xl" align={headerAlign}>
+      <Stack gap="lg" align={headerAlign}>
         {renderHeader()}
         {renderItems()}
       </Stack>

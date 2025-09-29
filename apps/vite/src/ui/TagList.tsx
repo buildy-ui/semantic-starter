@@ -5,9 +5,9 @@ type Tag = { id: number; name: string; slug: string; count?: number }
 
 export function TagList({ items }: { items: Tag[] }) {
   return (
-    <Stack gap="sm">
+    <Stack gap="md">
       <Title order={3} size="lg">Tags</Title>
-      <Stack gap="xs">
+      <Stack gap="sm">
         {items.map(t => (
           <Link key={t.id} to={`/tag/${t.slug}`}>
             <Text size="sm" c="secondary-foreground">{t.name}{typeof t.count === 'number' ? ` (${t.count})` : ''}</Text>

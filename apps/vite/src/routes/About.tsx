@@ -6,9 +6,9 @@ import { Breadcrumbs } from '@/ui/Breadcrumbs'
 export default function About() {
   const { about } = renderContext
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={about.page.title} description={about.page.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'About' }]} />
           <Stack gap="md">

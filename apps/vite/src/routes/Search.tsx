@@ -20,12 +20,12 @@ export default function Search() {
   const authorHits = authors.filter(a => a.name.toLowerCase().includes(q))
 
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={q ? `Search: ${q}` : 'Search'} description={q ? `Search results for "${q}"` : 'Search for posts, categories, tags and authors.'} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Search' }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Search</Title>
             <SearchBar initial={q} />
           </Stack>

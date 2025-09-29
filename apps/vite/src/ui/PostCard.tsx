@@ -13,7 +13,7 @@ type Post = {
 
 export function PostCard({ post }: { post: Post }) {
   return (
-    <Card p="xl" rounded="xl" shadow="md" bg="card" data-class="post-card">
+    <Card p="lg" rounded="xl" shadow="md" bg="card" data-class="post-card">
       <Stack gap="lg">
         {post.thumbnail?.url && (
           <Link to={postPath(post.slug)}>
@@ -26,7 +26,7 @@ export function PostCard({ post }: { post: Post }) {
           </Link>
           <Text size="sm" c="secondary-foreground" leading="relaxed">{post.excerpt}</Text>
           {post.categories?.length ? (
-            <Group gap="xs" align="center">
+            <Group gap="sm" align="center">
               {post.categories.slice(0, 2).map(cat => (
                 <Badge key={cat.id} variant="secondary" rounded="full" size="sm">{cat.name}</Badge>
               ))}

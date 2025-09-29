@@ -7,7 +7,7 @@ type Category = { id: number; name: string; slug: string; count?: number }
 export function CategoryCard({ item }: { item: Category }) {
   return (
     <Card p="lg" rounded="lg" shadow="sm" bg="card">
-      <Stack gap="sm">
+      <Stack gap="md">
         <Title order={3} size="lg">{item.name}</Title>
         {typeof item.count === 'number' && (
           <Text size="sm" c="secondary-foreground">{item.count} posts</Text>

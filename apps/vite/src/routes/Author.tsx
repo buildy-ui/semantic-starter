@@ -12,17 +12,17 @@ export default function Author() {
   const authorName = filtered[0]?.author?.name || 'Author'
 
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={`Author: ${authorName}`} description={`Posts written by ${authorName}.`} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: authorName }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Author: {authorName}</Title>
             <Text c="secondary-foreground">Posts written by {authorName}.</Text>
           </Stack>
           {filtered.length === 0 ? (
-            <Stack gap="sm">
+            <Stack gap="md">
               <Text>No posts found for this author.</Text>
               <Link to="/blog"><Button size="sm">Back to blog</Button></Link>
             </Stack>

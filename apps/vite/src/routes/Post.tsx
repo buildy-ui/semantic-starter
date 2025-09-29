@@ -14,7 +14,7 @@ export default function Post() {
 
   if (!post) {
     return (
-      <Block component="main" py="xl">
+      <Block component="main" py="lg">
         <Container size="lg">
           <Stack gap="md">
             <Title order={1} size="2xl">Post Not Found</Title>
@@ -27,16 +27,16 @@ export default function Post() {
   }
 
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={post.title} description={post.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: post.title }]} />
           {post.featuredImage?.url && (
             <Image src={post.featuredImage.url} alt={post.featuredImage.alt} rounded="lg" w="full" h="auto" fit="cover" />
           )}
 
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="3xl">{post.title}</Title>
             <PostMeta date={post.date.display} categories={post.categories as any} tags={post.tags as any} />
           </Stack>
@@ -45,10 +45,10 @@ export default function Post() {
             <div data-class="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
           </Card>
 
-          <Grid cols="1-2" gap="xl">
-            <Stack gap="xl">
+          <Grid cols="1-2" gap="lg">
+            <Stack gap="lg">
               {post.categories?.length ? (
-                <Group gap="sm" align="center">
+                <Group gap="md" align="center">
                   {post.categories.map(cat => (
                     <Badge key={cat.id} variant="secondary" rounded="full">{cat.name}</Badge>
                   ))}

@@ -6,9 +6,9 @@ export function RecentPosts() {
   const { posts } = renderContext
   const recent = posts.posts.slice(0, 3)
   return (
-    <Stack gap="md">
+    <Stack gap="lg">
       <Title order={3} size="lg">Recent Posts</Title>
-      <Stack gap="md">
+      <Stack gap="lg">
         {recent.map(p => <PostCard key={p.id} post={p as any} />)}
       </Stack>
     </Stack>

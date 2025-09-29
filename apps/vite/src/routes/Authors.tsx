@@ -8,12 +8,12 @@ export default function Authors() {
   const { authors } = renderContext
   const items = authors.map(a => ({ ...a, avatarUrl: 'https://i.pravatar.cc/96' }))
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title="Authors" description="Browse all authors." />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Authors' }]} />
-          <Stack gap="sm">
+          <Stack gap="md">
             <Title order={1} size="2xl">Authors</Title>
             <Text c="secondary-foreground">Browse all authors.</Text>
           </Stack>

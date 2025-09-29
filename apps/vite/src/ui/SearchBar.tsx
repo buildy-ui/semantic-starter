@@ -7,7 +7,7 @@ export function SearchBar({ initial = '' }: { initial?: string }) {
   const nav = useNavigate()
   const go = () => nav(`/search?q=${encodeURIComponent(q)}`)
   return (
-    <Group gap="xs" align="center">
+    <Group gap="sm" align="center">
       <input
         value={q}
         onChange={e => setQ(e.target.value)}

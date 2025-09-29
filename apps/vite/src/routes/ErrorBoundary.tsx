@@ -7,7 +7,7 @@ export default function ErrorBoundary() {
   const status = isRouteErrorResponse(error) ? error.status : 500
   const message = isRouteErrorResponse(error) ? error.statusText : 'Something went wrong'
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
         <Stack gap="md">
           <Title order={1} size="2xl">{status} {message}</Title>

@@ -13,9 +13,9 @@ export default function Blog() {
   const total = Math.max(1, Math.ceil(posts.posts.length / perPage))
   const pageItems = useMemo(() => posts.posts.slice((page-1)*perPage, page*perPage), [page])
   return (
-    <Block component="main" py="xl">
+    <Block component="main" py="lg">
       <Container size="lg">
-        <Stack gap="xl">
+        <Stack gap="lg">
           <SEO title={blog.page.title} description={blog.page.excerpt} />
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog' }]} />
           <Stack gap="md">

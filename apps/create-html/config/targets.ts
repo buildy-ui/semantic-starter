@@ -19,7 +19,7 @@ export type HtmlTargetConfig = {
 export const targets: HtmlTargetConfig[] = [
   {
     name: 'vite-app',
-    entryPath: 'apps/vite/src/App.tsx',
+    entryPath: 'apps/vite/src/main.tsx',
     outputDir: 'apps/create-html/html',
     cssSources: [],
     title: 'Pure HTML5 based on Tailwind CSS',
