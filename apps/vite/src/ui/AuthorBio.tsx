@@ -15,12 +15,12 @@ export function AuthorBio({ author }: { author: Author & { slug?: string } }) {
       <Link to={author.slug ? authorPath(author.slug) : '#'}>
         <Group gap="md" align="start">
           {author.avatar?.url && (
-            <Image src={author.avatar.url} alt={author.avatar.alt} rounded="full" w={"auto"} h={64} />
+            <Image src={author.avatar.url} alt={author.avatar.alt} rounded="full" width={72} height={72} />
           )}
           <Stack gap="sm">
-            <Title order={3} size="lg">{author.name}</Title>
-            {author.role && <Text size="sm" c="secondary-foreground">{author.role}</Text>}
-            {author.bio && <Text size="sm" c="secondary-foreground">{author.bio}</Text>}
+            <Title order={3} size="sm" fw="bold">{author.name}</Title>
+            {author.role && <Text size="xs" fw="bold" c="secondary-foreground">{author.role}</Text>}
+            {author.bio && <Text size="xs" c="secondary-foreground">{author.bio}</Text>}
           </Stack>
         </Group>
       </Link>

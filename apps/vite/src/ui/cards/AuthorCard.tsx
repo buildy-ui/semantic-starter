@@ -15,7 +15,7 @@ export function AuthorCard({ item }: { item: Author }) {
         </Stack>
       </Group>
       <Link to={authorPath(item.slug)}>
-        <Button size="sm" m="mt-2">View posts</Button>
+        <Button size="sm" m="sm">View posts</Button>
       </Link>
     </Card>
   )

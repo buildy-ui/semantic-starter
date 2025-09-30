@@ -16,12 +16,12 @@ export function SmallMediaCard({ item }: { item: Item }) {
       <Group gap="md" align="start">
         {item.thumbnail?.url && (
           <Link to={postPath(item.slug)}>
-            <Image src={item.thumbnail.url} alt={item.title} rounded="md" width={72} height={72} fit="cover" />
+            <Image src={item.thumbnail.url} alt={item.title} rounded="md" width={72} height={72} aspect="square" fit="cover" />
           </Link>
         )}
         <Stack gap="sm">
           <Link to={postPath(item.slug)}>
-            <Title order={4} size="md" fw="medium" c="foreground">{item.title}</Title>
+            <Title order={4} size="sm" fw="bold" c="foreground">{item.title}</Title>
           </Link>
           {item.excerpt && <Text size="xs" c="secondary-foreground" leading="relaxed">{item.excerpt.slice(0, 80)}...</Text>}
         </Stack>

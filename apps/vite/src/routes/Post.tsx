@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { Block, Container, Stack, Title, Text, Image, Card, Badge, Group, Button, Grid } from '@ui8kit/core'
+import { Block, Stack, Title, Text, Image, Badge, Group, Button, Grid } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
 import { SEO } from '@/ui/SEO'
 import { PostMeta } from '@/ui/PostMeta'
@@ -25,7 +25,7 @@ export default function Post() {
   }
 
   return (
-    <Block component="main" py="lg">
+    <Block component="article">
       <Stack gap="lg">
         <SEO title={post.title} description={post.excerpt} />
         <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Blog', to: '/blog' }, { label: post.title }]} />
@@ -37,10 +37,8 @@ export default function Post() {
           <Title order={1} size="3xl">{post.title}</Title>
           <PostMeta date={post.date.display} categories={post.categories as any} tags={post.tags as any} />
         </Stack>
-
-        <Card p="lg" rounded="lg" shadow="sm" bg="card">
-          <div data-class="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
-        </Card>
+        
+        <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
 
         <Grid cols="1-2" gap="lg">
           <Stack gap="lg">

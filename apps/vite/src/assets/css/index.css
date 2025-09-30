@@ -5,3 +5,11 @@
 
 @source "../../../../../packages/@ui8kit/core/src";
 
+@layer base {
+  button {
+    cursor: pointer;
+  }
+  .prose {
+    @apply !text-[.925rem];
+  }
+}
