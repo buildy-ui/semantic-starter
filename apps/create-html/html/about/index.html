@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure HTML5 based on Tailwind CSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+:root {
+  --background: hsl(0 0% 97.2549%);
+  --foreground: hsl(240 3.3333% 11.7647%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 3.3333% 11.7647%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 3.3333% 11.7647%);
+  --primary: hsl(187.4739 173.4032% 31.3580%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 94.1176%);
+  --secondary-foreground: hsl(0 0% 29.0196%);
+  --muted: hsl(0 0% 94.1176%);
+  --secondary-foreground: hsl(240 2.2222% 44.1176%);
+  --accent: hsl(203.9916 96.5418% 93.6698%);
+  --accent-foreground: hsl(196.6949 85.4389% 14.5510%);
+  --destructive: hsl(358.7594 101.8439% 69.8357%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(0 0% 87.8431%);
+  --input: hsl(0 0% 100%);
+  --ring: hsl(187.4739 173.4032% 31.3580%);
+  --chart-1: hsl(187.4739 173.4032% 31.3580%);
+  --chart-2: hsl(164.7862 160.6702% 31.9404%);
+  --chart-3: hsl(46.8179 100.7390% 59.5298%);
+  --chart-4: hsl(358.7594 101.8439% 69.8357%);
+  --chart-5: hsl(270.7222 110.5994% 75.2991%);
+  --sidebar: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(0 0% 29.0196%);
+  --sidebar-primary: hsl(187.4739 173.4032% 31.3580%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(186.1272 175.0225% 34.5777%);
+  --sidebar-accent-foreground: hsl(0 0% 100%);
+  --sidebar-border: hsl(0 0% 87.8431%);
+  --sidebar-ring: hsl(187.4739 173.4032% 31.3580%);
+  --font-sans: Outfit, sans-serif;
+  --font-serif: Roboto, sans-serif;
+  --font-mono: Fira Code, monospace;
+  --radius: 0.625rem;
+  --shadow-2xs: 0 0 25px 5px hsl(0 0% 0% / 0.01);
+  --shadow-xs: 0 0 25px 5px hsl(0 0% 0% / 0.01);
+  --shadow-sm: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 1px 2px 4px hsl(0 0% 0% / 0.01);
+  --shadow: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 1px 2px 4px hsl(0 0% 0% / 0.01);
+  --shadow-md: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 2px 4px 4px hsl(0 0% 0% / 0.01);
+  --shadow-lg: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 4px 6px 4px hsl(0 0% 0% / 0.01);
+  --shadow-xl: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 8px 10px 4px hsl(0 0% 0% / 0.01);
+  --shadow-2xl: 0 0 25px 5px hsl(0 0% 0% / 0.03);
+  --tracking-normal: normal;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(0 0% 7.0588%);
+  --foreground: hsl(0 0% 87.8431%);
+  --card: hsl(0 0% 11.7647%);
+  --card-foreground: hsl(0 0% 87.8431%);
+  --popover: hsl(0 0% 11.7647%);
+  --popover-foreground: hsl(0 0% 87.8431%);
+  --primary: hsl(189.9661 161.8632% 27.5935%);
+  --primary-foreground: hsl(183.1588 99.9180% 96.2486%);
+  --secondary: hsl(0 0% 16.4706%);
+  --secondary-foreground: hsl(0 0% 80%);
+  --muted: hsl(0 0% 16.4706%);
+  --secondary-foreground: hsl(0 0% 62.7451%);
+  --accent: hsl(196.6949 85.4389% 14.5510%);
+  --accent-foreground: hsl(186.1272 175.0225% 34.5777%);
+  --destructive: hsl(358.7594 101.8439% 69.8357%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(0 0% 20%);
+  --input: hsl(0 0% 11.7647%);
+  --ring: hsl(189.9661 161.8632% 27.5935%);
+  --chart-1: hsl(189.9661 161.8632% 27.5935%);
+  --chart-2: hsl(164.7862 160.6702% 31.9404%);
+  --chart-3: hsl(46.6817 159.6637% 38.5235%);
+  --chart-4: hsl(358.7594 101.8439% 69.8357%);
+  --chart-5: hsl(256.1554 109.0025% 76.8871%);
+  --sidebar: hsl(0 0% 11.7647%);
+  --sidebar-foreground: hsl(0 0% 80%);
+  --sidebar-primary: hsl(189.9661 161.8632% 27.5935%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(187.4739 173.4032% 31.3580%);
+  --sidebar-accent-foreground: hsl(0 0% 100%);
+  --sidebar-border: hsl(0 0% 20%);
+  --sidebar-ring: hsl(189.9661 161.8632% 27.5935%);
+  --font-sans: Outfit, sans-serif;
+  --font-serif: Roboto, sans-serif;
+  --font-mono: Fira Code, monospace;
+  --radius: 0.625rem;
+  --shadow-2xs: 0 0 25px 5px hsl(0 0% 0% / 0.01);
+  --shadow-xs: 0 0 25px 5px hsl(0 0% 0% / 0.01);
+  --shadow-sm: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 1px 2px 4px hsl(0 0% 0% / 0.01);
+  --shadow: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 1px 2px 4px hsl(0 0% 0% / 0.01);
+  --shadow-md: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 2px 4px 4px hsl(0 0% 0% / 0.01);
+  --shadow-lg: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 4px 6px 4px hsl(0 0% 0% / 0.01);
+  --shadow-xl: 0 0 25px 5px hsl(0 0% 0% / 0.01), 0 8px 10px 4px hsl(0 0% 0% / 0.01);
+  --shadow-2xl: 0 0 25px 5px hsl(0 0% 0% / 0.03);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
+  button {
+    cursor: pointer;
+  }
+}
+      </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGJiYTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib3gtaWNvbiBsdWNpZGUtYm94Ij48cGF0aCBkPSJNMjEgOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczbDcgNGEyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZaIi8+PHBhdGggZD0ibTMuMyA3IDguNyA1IDguNy01Ii8+PHBhdGggZD0iTTEyIDIyVjEyIi8+PC9zdmc+" />
+  </head>
+  <body class="bg-background text-foreground">
+    <link rel="preload" as="image" href="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" />
+    <main class="py-16 w-full" data-class="block">
+      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+        <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group" aria-label="Breadcrumb">
+          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><a href="/" data-discover="true">
+              <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Home</p>
+            </a></div>
+          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><span class="flex items-center justify-center w-4 h-4 text-muted-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 text-muted-foreground"><path d="m9 18 6-6-6-6"></path></svg></span></span>
+            <p class="text-sm font-normal text-left leading-normal text-foreground" data-class="text">About</p>
+          </div>
+        </div>
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "/"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About"
+            }]
+          }
+        </script>
+        <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+          <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+            <h2 class="tracking-tight text-3xl font-bold text-left leading-normal text-foreground" data-class="title">Tailwind to Semantic HTML5 Transformation</h2>
+            <p class="text-base font-normal text-left leading-normal text-secondary-foreground" data-class="text">Revolutionary approach to modern frontend development: Build with utility-first CSS, deploy with semantic HTML5 classes.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-start" data-class="grid">
+            <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
+              <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Utility-First to Semantic CSS Architecture" data-class="image" />
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Utility-First to Semantic CSS Architecture</h3>
+                  <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Leverage Tailwind CSS for rapid development while maintaining clean, semantic HTML5 output. Our automated extraction process converts utility classes into meaningful, BEM-inspired semantic classes that improve code readability, SEO performance, and maintainability.</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
+              <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Component-Driven Development" data-class="image" />
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Component-Driven Development with CVA</h3>
+                  <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Build robust React components using Class Variance Authority (CVA) patterns that automatically generate semantic class variants. Perfect for design systems, atomic design methodology, and TypeScript-first development workflows that scale across enterprise applications.</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
+              <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Production-Ready Semantic HTML5" data-class="image" />
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Production-Ready Semantic HTML5 Output</h3>
+                  <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Generate framework-agnostic, accessible HTML5 markup with semantic class names that follow W3C standards. Ideal for headless CMS integration, server-side rendering, progressive web apps, and cross-platform compatibility with improved Core Web Vitals scores.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

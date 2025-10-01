@@ -11,6 +11,7 @@ async function run() {
         outputDir: t.outputDir,
         cssSources: t.cssSources,
         title: t.title,
+        path: t.path,
       })
     } catch (err) {
       console.error(`❌ Failed target: ${t.name}`)

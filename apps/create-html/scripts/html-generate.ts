@@ -2,16 +2,21 @@
 // bun scripts/html-generate.ts
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { writeFileSync, mkdirSync, existsSync, cpSync, readdirSync } from 'fs'
+import { writeFileSync, mkdirSync, existsSync, cpSync, readdirSync, readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { pathToFileURL } from 'url'
 import pretty from 'pretty'
+import { MemoryRouter } from 'react-router-dom'
+import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
 
 type GenerateOptions = {
   entryPath: string
   outputDir: string
   cssSources: string[]
   title?: string
+  // Optional route path from the app router to render a single page
+  // Examples: '/', 'about', 'blog'
+  path?: string
 }
 
 function createHTMLDocument(content: string, title = 'App') {
@@ -69,19 +74,42 @@ function copyCssToAssets(targetRoot: string, cssPaths: string[]) {
 }
 
 export async function generateHtml(options: GenerateOptions) {
-  const { entryPath, outputDir, cssSources, title } = options
+  const { entryPath, outputDir, cssSources, title, path } = options
   console.log(`📄 Rendering ${entryPath} to static HTML...`)
 
   const absEntryPath = join(process.cwd(), entryPath)
-  const entryModule = await import(pathToFileURL(absEntryPath).href)
-  const EntryComponent = entryModule.default
+
+  // If a route path is provided, resolve the matching component from the router file
+  const EntryComponent = path
+    ? await resolveRouteComponentFromEntry(absEntryPath, path)
+    : (await import(pathToFileURL(absEntryPath).href)).default
+
   if (!EntryComponent) {
-    throw new Error(`Default export not found in ${entryPath}`)
+    throw new Error(`Unable to resolve component to render for ${path ?? 'default export'} in ${entryPath}`)
   }
 
-  const content = renderToStaticMarkup(React.createElement(EntryComponent))
+  const appElement = path
+    ? React.createElement(
+        MemoryRouter,
+        { initialEntries: [normalizeRoutePath(path)] },
+        React.createElement(
+          ThemeProvider,
+          { theme: skyOSTheme },
+          React.createElement(EntryComponent)
+        )
+      )
+    : React.createElement(
+        ThemeProvider,
+        { theme: skyOSTheme },
+        React.createElement(EntryComponent)
+      )
 
-  const fullPath = join(outputDir, 'index.html')
+  const content = renderToStaticMarkup(appElement)
+
+  const normalizedPath = normalizeRoutePath(path)
+  const fullPath = normalizedPath === '/'
+    ? join(outputDir, 'index.html')
+    : join(outputDir, normalizedPath.replace(/^\//, ''), 'index.html')
   const dirPath = dirname(fullPath)
   if (!existsSync(dirPath)) {
     mkdirSync(dirPath, { recursive: true })
@@ -96,6 +124,99 @@ export async function generateHtml(options: GenerateOptions) {
   } else {
     console.log('ℹ️  Skipping CSS copy (no cssSources configured)')
   }
+}
+
+// --- Helpers ---
+
+function normalizeRoutePath(routePath?: string) {
+  if (!routePath || routePath === '/') return '/'
+  // accept both 'about' and '/about'
+  return routePath.startsWith('/') ? routePath : `/${routePath}`
+}
+
+async function resolveRouteComponentFromEntry(absEntryPath: string, routePath: string) {
+  const entryDir = dirname(absEntryPath)
+  const fileContent = readFileSync(absEntryPath, 'utf8')
+
+  const importsMap = parseDefaultImports(fileContent)
+  const routeToComponent = parseChildrenRoutes(fileContent)
+
+  const normalized = normalizeRoutePath(routePath)
+  const componentName = routeToComponent.get(normalized)
+  if (!componentName) {
+    throw new Error(`Route path not found in router: ${normalized}`)
+  }
+
+  const importSpecifier = importsMap.get(componentName)
+  if (!importSpecifier) {
+    throw new Error(`Import for component ${componentName} not found in entry file`)
+  }
+
+  const absModulePath = resolveImportPath(entryDir, importSpecifier)
+  const moduleUrl = pathToFileURL(absModulePath).href
+  const mod = await import(moduleUrl)
+  return mod.default
+}
+
+function parseDefaultImports(source: string): Map<string, string> {
+  const map = new Map<string, string>()
+  const importRegex = /import\s+([A-Za-z0-9_]+)\s+from\s+['"]([^'\"]+)['"];?/g
+  let match: RegExpExecArray | null
+  while ((match = importRegex.exec(source)) !== null) {
+    const name = match[1]
+    const spec = match[2]
+    map.set(name, spec)
+  }
+  return map
+}
+
+function parseChildrenRoutes(source: string): Map<string, string> {
+  const map = new Map<string, string>()
+  // Capture entries inside children: [ ... ] blocks
+  const childrenBlockRegex = /children:\s*\[([\s\S]*?)\]/m
+  const blockMatch = childrenBlockRegex.exec(source)
+  if (!blockMatch) return map
+  const block = blockMatch[1]
+
+  // Match either { index: true, element: <Home /> } OR { path: 'about', element: <About /> }
+  const routeEntryRegex = /\{\s*(index:\s*true|path:\s*['"]([^'"]+)['"])\s*,\s*element:\s*<\s*([A-Za-z0-9_]+)\s*\/>/g
+  let m: RegExpExecArray | null
+  while ((m = routeEntryRegex.exec(block)) !== null) {
+    const isIndex = m[1] && m[1].includes('index')
+    const pathVal = isIndex ? '/' : `/${m[2]}`
+    const componentName = m[3]
+    map.set(pathVal, componentName)
+  }
+  return map
+}
+
+function resolveImportPath(entryDir: string, specifier: string): string {
+  let base: string
+  if (specifier.startsWith('@/')) {
+    // '@' alias points to the src dir of the app, assume relative to entry file dir
+    base = join(entryDir, specifier.slice(2))
+  } else if (specifier.startsWith('./') || specifier.startsWith('../')) {
+    base = join(entryDir, specifier)
+  } else {
+    // Not a file import we can resolve (library). Fail early.
+    throw new Error(`Unsupported import specifier for route component: ${specifier}`)
+  }
+
+  const candidates = [
+    `${base}.tsx`,
+    `${base}.ts`,
+    `${base}.jsx`,
+    `${base}.js`,
+    join(base, 'index.tsx'),
+    join(base, 'index.ts'),
+    join(base, 'index.jsx'),
+    join(base, 'index.js'),
+  ]
+  const found = candidates.find((p) => existsSync(p))
+  if (!found) {
+    throw new Error(`Unable to resolve file for import ${specifier}. Tried: ${candidates.join(', ')}`)
+  }
+  return found
 }
 
 

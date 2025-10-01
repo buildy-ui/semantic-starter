@@ -14,6 +14,8 @@ export type HtmlTargetConfig = {
   cssSources: string[]
   // Optional document title
   title?: string
+  // Optional single route path to render (e.g. '/', 'about') from main router
+  path?: string
 }
 
 export const targets: HtmlTargetConfig[] = [
@@ -23,6 +25,8 @@ export const targets: HtmlTargetConfig[] = [
     outputDir: 'apps/create-html/html',
     cssSources: [],
     title: 'Pure HTML5 based on Tailwind CSS',
+    // Set to '/' for home page or 'about' for the About route
+    path: 'about',
   },
 ]
 

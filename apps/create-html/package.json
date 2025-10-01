@@ -18,10 +18,12 @@
     "html": "bun run tw4:html && bun run tw3:html"
   },
   "devDependencies": {
+    "@types/node": "^22.15.30",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "@types/node": "^22.15.30",
     "glob": "^11.0.3",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3",
     "sharp": "^0.33.0",
     "tailwindcss": "^4.1.9",
     "tailwindcss3": "npm:tailwindcss@3.4.14"
