@@ -1,5 +1,5 @@
 // @ts-nocheck
-// bun scripts/html-generate.ts
+// bun apps/create-html
 // npx serve apps/create-html/html -p 8080
 // npx serve -p 8080 -c serve.json apps/create-html/html
 import React from 'react'
@@ -130,7 +130,7 @@ export async function generateHtml(options: GenerateOptions) {
     ? React.createElement(
         ThemeProvider,
         { theme: skyOSTheme },
-        createRouterElementForPath(AppComponent, EntryComponent, normalizeRoutePath(path))
+        createRouterElementForPath(AppComponent, EntryComponent, normalizeRoutePath(path), derivePatternFromConcretePath(normalizeRoutePath(path)))
       )
     : React.createElement(
         ThemeProvider,
@@ -278,10 +278,10 @@ function parseRootElementName(source: string): string | null {
   return m ? m[1] : null
 }
 
-function createRouterElementForPath(AppComponent: any, RouteComponent: any, normalizedPath: string) {
+function createRouterElementForPath(AppComponent: any, RouteComponent: any, normalizedPath: string, routePatternPath?: string) {
   const childRoute = normalizedPath === '/'
     ? { index: true, element: React.createElement(RouteComponent) }
-    : { path: normalizedPath.replace(/^\//, ''), element: React.createElement(RouteComponent) }
+    : { path: (routePatternPath || normalizedPath).replace(/^\//, ''), element: React.createElement(RouteComponent) }
 
   const router = createMemoryRouter([
     {
@@ -332,7 +332,7 @@ async function generateAllRoutes(absEntryPath: string, outputDir: string, title?
       const slugs = getDynamicSlugsForRoute(routePath, renderContext)
       for (const slug of slugs) {
         const concretePath = routePath.replace('/:slug', `/${slug}`)
-        await renderRouteToFile(normalizeRoutePath(concretePath), AppComponent, RouteComponent, outputDir, title)
+        await renderRouteToFile(normalizeRoutePath(concretePath), AppComponent, RouteComponent, outputDir, title, routePath)
       }
     } else {
       await renderRouteToFile(normalizeRoutePath(routePath), AppComponent, RouteComponent, outputDir, title)
@@ -356,11 +356,11 @@ function getDynamicSlugsForRoute(routePath: string, renderContext: any): string[
   return []
 }
 
-async function renderRouteToFile(normalizedPath: string, AppComponent: any, RouteComponent: any, outputDir: string, title?: string) {
+async function renderRouteToFile(normalizedPath: string, AppComponent: any, RouteComponent: any, outputDir: string, title?: string, routePatternPath?: string) {
   const element = React.createElement(
     ThemeProvider,
     { theme: skyOSTheme },
-    createRouterElementForPath(AppComponent, RouteComponent, normalizedPath)
+    createRouterElementForPath(AppComponent, RouteComponent, normalizedPath, routePatternPath)
   )
   const content = renderToStaticMarkup(element)
   const fullPath = normalizedPath === '/'
@@ -372,6 +372,14 @@ async function renderRouteToFile(normalizedPath: string, AppComponent: any, Rout
   }
   writeFileSync(fullPath, createHTMLDocument(content, title))
   console.log(`✅ Generated: ${fullPath}`)
+}
+
+function derivePatternFromConcretePath(concretePath: string): string | undefined {
+  if (/^\/posts\/.+/.test(concretePath)) return '/posts/:slug'
+  if (/^\/category\/.+/.test(concretePath)) return '/category/:slug'
+  if (/^\/tag\/.+/.test(concretePath)) return '/tag/:slug'
+  if (/^\/author\/.+/.test(concretePath)) return '/author/:slug'
+  return undefined
 }
 
 
