@@ -72,7 +72,7 @@ export const posts: PostsCollection = {
         { id: 1, name: 'frontend', slug: 'frontend' },
         { id: 2, name: 'architecture', slug: 'architecture' }
       ],
-      author: { id: 1, name: 'John Doe', slug: 'john-doe' },
+      author: { id: 13, name: 'John Doe', slug: 'john-doe' },
       date: {
         formatted: '2024-01-15T10:30:00Z',
         display: 'January 15, 2024',
@@ -139,7 +139,7 @@ export const posts: PostsCollection = {
         { id: 3, name: 'clean-code', slug: 'clean-code' },
         { id: 4, name: 'typescript', slug: 'typescript' }
       ],
-      author: { id: 2, name: 'Jane Smith', slug: 'jane-smith' },
+      author: { id: 24, name: 'Jane Smith', slug: 'jane-smith' },
       date: {
         formatted: '2024-01-20T15:45:00Z',
         display: 'January 20, 2024',
@@ -208,7 +208,7 @@ export const posts: PostsCollection = {
         { id: 5, name: 'tailwind', slug: 'tailwind' },
         { id: 6, name: 'cva', slug: 'cva' }
       ],
-      author: { id: 1, name: 'John Doe', slug: 'john-doe' },
+      author: { id: 13, name: 'John Doe', slug: 'john-doe' },
       date: {
         formatted: '2024-01-25T12:15:00Z',
         display: 'January 25, 2024',

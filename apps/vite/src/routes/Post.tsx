@@ -49,7 +49,7 @@ export default function Post() {
                 ))}
               </Group>
             ) : null}
-            <AuthorBio author={{ name: post.author?.name || 'John Doe', slug: post.author?.slug, role: 'Editor', avatar: { url: 'https://i.pravatar.cc/128', alt: 'Author' }, bio: 'Writer and frontend engineer. Passionate about semantic HTML and design systems.' }} />
+            <AuthorBio author={{ name: post.author?.name || 'John Doe', slug: post.author?.slug, role: 'Editor', avatar: { url: 'https://i.pravatar.cc/128?img=' + post.author?.id, alt: 'Author' }, bio: 'Writer and frontend engineer. Passionate about semantic HTML and design systems.' }} />
           </Stack>
 
           <RelatedPosts currentId={post.id} posts={renderContext.posts.posts as any} />

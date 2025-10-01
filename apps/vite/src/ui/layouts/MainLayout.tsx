@@ -10,7 +10,7 @@ import { RecentPosts } from '@/ui/RecentPosts'
 import { Menu, Sun, Moon } from 'lucide-react'
 import { renderContext } from '@/data'
 
-export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: { children: ReactNode; sidebar?: 'left' | 'right' }) {
+export function MainLayout({ children, sidebar = 'right' as 'left' | 'right' | 'none' }: { children: ReactNode; sidebar?: 'left' | 'right' | 'none' }) {
   const isMobile = useMobile()
   const { toggleDarkMode, isDarkMode } = useTheme()
   const { menu } = renderContext
@@ -65,14 +65,16 @@ export function SiteLayout({ children, sidebar = 'right' as 'left' | 'right' }: 
       <Block component="main" py="lg" data-class="main-page">
         <Container size="lg">
           <Grid cols="1-4" gap={defaultGap}>
-            <Grid.Col span={3} data-class="main-content" order={sidebar === 'left' ? 3 : 1}>
+            <Grid.Col span={sidebar === 'none' ? 4 : 3} data-class="main-content" order={sidebar === 'left' ? 3 : 1}>
               <Stack gap="lg">
                 {children}
               </Stack>
             </Grid.Col>
-            <Grid.Col span={1} data-class="sidebar" order={sidebar === 'left' ? 1 : 3}>
-              <Aside />
-            </Grid.Col>
+            {sidebar !== 'none' && (
+              <Grid.Col span={1} data-class="sidebar" order={sidebar === 'left' ? 1 : 3}>
+                <Aside />
+              </Grid.Col>
+            )}
           </Grid>
         </Container>
       </Block>

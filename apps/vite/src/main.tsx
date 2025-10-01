@@ -2,9 +2,10 @@ import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
-import App from '@/routes/App'
-import NotFound from '@/routes/NotFound'
-import ErrorBoundary from '@/routes/ErrorBoundary'
+import App from '@/App'
+import NotFound from '@/exceptions/NotFound'
+import ErrorBoundary from '@/exceptions/ErrorBoundary'
+// routes
 import Home from '@/routes/Home'
 import About from '@/routes/About'
 import Blog from '@/routes/Blog'
@@ -16,6 +17,7 @@ import Categories from '@/routes/Categories'
 import Tags from '@/routes/Tags'
 import Authors from '@/routes/Authors'
 import Search from '@/routes/Search'
+// styles
 import './assets/css/index.css'
 
 const router = createBrowserRouter([

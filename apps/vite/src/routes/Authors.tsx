@@ -6,7 +6,7 @@ import { AuthorCard } from '@/ui/cards/AuthorCard'
 
 export default function Authors() {
   const { authors } = renderContext
-  const items = authors.map(a => ({ ...a, avatarUrl: 'https://i.pravatar.cc/96' }))
+  const items = authors.map(a => ({ ...a, avatarUrl: 'https://i.pravatar.cc/96?img=' + a.id }))
   return (
     <Block component="main" py="lg">
       <Stack gap="lg">

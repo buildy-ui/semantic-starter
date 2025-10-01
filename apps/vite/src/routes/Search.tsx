@@ -60,7 +60,7 @@ export default function Search() {
           <Title order={2} size="xl">Authors ({authorHits.length})</Title>
           {authorHits.length ? (
             <Grid cols="1-2-3" gap="lg">
-              {authorHits.map(a => <AuthorCard key={a.id} item={{ ...(a as any), avatarUrl: 'https://i.pravatar.cc/96' }} />)}
+              {authorHits.map(a => <AuthorCard key={a.id} item={{ ...(a as any), avatarUrl: 'https://i.pravatar.cc/96?img=' + a.id }} />)}
             </Grid>
           ) : <Text c="secondary-foreground">No authors found.</Text>}
         </Stack>
