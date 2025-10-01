@@ -235,7 +235,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'clean-code-principles-semantic-html5-components',
       url: '/posts/clean-code-principles-semantic-html5-components',
-      id: 2,
+      id: 4,
       excerpt: 'Learn how to write clean, maintainable frontend code using semantic HTML5 elements, BEM methodology, and component composition patterns.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
@@ -313,7 +313,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'three-pillars-modern-frontend-architecture',
       url: '/posts/three-pillars-modern-frontend-architecture',
-      id: 1,
+      id: 5,
       excerpt: 'Discover the three foundational pillars that define modern frontend architecture: semantic HTML5, component-driven development, and utility-to-semantic transformation.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
@@ -382,7 +382,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'tailwind-utilities-production-semantic-classes',
       url: '/posts/tailwind-utilities-production-semantic-classes',
-      id: 3,
+      id: 6,
       excerpt: 'Transform Tailwind utility classes into production-ready semantic HTML5 with automated extraction, CVA patterns, and framework-agnostic output.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=600&fit=crop',
@@ -460,7 +460,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'three-pillars-modern-frontend-architecture',
       url: '/posts/three-pillars-modern-frontend-architecture',
-      id: 1,
+      id: 7,
       excerpt: 'Discover the three foundational pillars that define modern frontend architecture: semantic HTML5, component-driven development, and utility-to-semantic transformation.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
@@ -527,7 +527,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'clean-code-principles-semantic-html5-components',
       url: '/posts/clean-code-principles-semantic-html5-components',
-      id: 2,
+      id: 8,
       excerpt: 'Learn how to write clean, maintainable frontend code using semantic HTML5 elements, BEM methodology, and component composition patterns.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
@@ -596,7 +596,7 @@ export const posts: PostsCollection = {
       `,
       slug: 'tailwind-utilities-production-semantic-classes',
       url: '/posts/tailwind-utilities-production-semantic-classes',
-      id: 3,
+      id: 9,
       excerpt: 'Transform Tailwind utility classes into production-ready semantic HTML5 with automated extraction, CVA patterns, and framework-agnostic output.',
       featuredImage: {
         url: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=600&fit=crop',

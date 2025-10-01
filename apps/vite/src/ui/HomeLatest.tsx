@@ -10,7 +10,7 @@ export function HomeLatest() {
       <Title order={2} size="2xl">Latest Posts</Title>
       <Text c="secondary-foreground">Fresh insights from the blog</Text>
       <Grid cols="1-2-4" gap="lg">
-        {latest.map(p => <PostCard key={p.id} post={p as any} />)}
+        {latest.map(p => <PostCard key={p.id} post={p as any} media="top" />)}
       </Grid>
     </Stack>
   )

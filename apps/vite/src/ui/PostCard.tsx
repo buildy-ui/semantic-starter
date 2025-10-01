@@ -12,20 +12,28 @@ type Post = {
   media?: string
 }
 
-export function PostCard({ post, media = 'top' }: { post: Post, media?: 'top' | 'default' }) {
+export function PostCard({ post, media = 'default' }: { post: Post, media?: 'top' | 'default' }) {
   return (
-    <Card p={media === 'top' ? 'lg' : 'none'} rounded="xl" shadow="md" bg="card" data-class="post-card">
-      <Stack gap="lg">
+    <Card p={media === 'top' ? 'none' : 'lg'} rounded="xl" shadow="md" bg="card" data-class="post-card">
+      <Stack gap={media === 'top' ? 'none' : 'lg'}>
         {post.thumbnail?.url && (
           <Link to={postPath(post.slug)}>
-            <Image src={post.thumbnail.url} alt={post.thumbnail.alt} rounded="lg" roundedTop={media === 'top' ? 'lg' : 'none'} w="full" h="auto" fit="cover" />
+            <Image 
+              src={post.thumbnail.url} 
+              alt={post.thumbnail.alt} 
+              rounded={media === 'top' ? 'none' : 'lg'} 
+              roundedTop={media === 'top' ? 'xl' : undefined}
+              w="full" 
+              h="auto" 
+              fit="cover" 
+            />
           </Link>
         )}
-        <Stack p={media === 'top' ? 'lg' : 'none'} gap="md">
+        <Stack p={media === 'top' ? 'md' : 'none'} gap="md">
           <Link to={postPath(post.slug)}>
             <Title order={3} size="xl" fw="semibold" c="foreground">{post.title}</Title>
           </Link>
-          <Text size="sm" c="secondary-foreground" leading="relaxed">{post.excerpt}</Text>
+          <Text size="xs" c="secondary-foreground" leading="relaxed">{post.excerpt}</Text>
           {post.categories?.length ? (
             <Group gap="sm" align="center">
               {post.categories.slice(0, 2).map(cat => (
@@ -33,6 +41,8 @@ export function PostCard({ post, media = 'top' }: { post: Post, media?: 'top' | 
               ))}
             </Group>
           ) : null}
+        </Stack>
+        <Stack p={media === 'top' ? 'md' : 'none'} align="end">
           <Link to={postPath(post.slug)}>
             <Button size="sm" variant="secondary">Read more</Button>
           </Link>
