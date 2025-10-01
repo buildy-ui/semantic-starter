@@ -191,6 +191,29 @@ body {
   }
 }
       </style>
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('darkmode');
+        var prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = stored === 'dark' || (stored === null && prefers);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.querySelector('button[aria-label="Toggle dark mode"]');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var nowDark = document.documentElement.classList.toggle('dark');
+          try { localStorage.setItem('darkmode', nowDark ? 'dark' : 'light'); } catch (e) {}
+        });
+      });
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGJiYTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib3gtaWNvbiBsdWNpZGUtYm94Ij48cGF0aCBkPSJNMjEgOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczbDcgNGEyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZaIi8+PHBhdGggZD0ibTMuMyA3IDguNyA1IDguNy01Ii8+PHBhdGggZD0iTTEyIDIyVjEyIi8+PC9zdmc+" />
 </head>
 <body class="bg-background text-foreground">
@@ -249,7 +272,15 @@ export async function generateHtml(options: GenerateOptions) {
     EntryComponent = await resolveRouteComponentFromEntry(absEntryPath, path)
     AppComponent = await resolveRootAppComponentFromEntry(absEntryPath)
   } else {
-    EntryComponent = (await import(pathToFileURL(absEntryPath).href)).default
+    // No specific path provided: generate the entire site from the router
+    await generateAllRoutes(absEntryPath, outputDir, title)
+    if (cssSources && cssSources.length > 0) {
+      console.log('📁 Copying CSS...')
+      copyCssToAssets(outputDir, cssSources)
+    } else {
+      console.log('ℹ️  Skipping CSS copy (no cssSources configured)')
+    }
+    return
   }
 
   if (!EntryComponent) {
@@ -424,6 +455,84 @@ function createRouterElementForPath(AppComponent: any, RouteComponent: any, norm
   })
 
   return React.createElement(RouterProvider, { router })
+}
+
+
+async function generateAllRoutes(absEntryPath: string, outputDir: string, title?: string) {
+  const entryDir = dirname(absEntryPath)
+  const fileContent = readFileSync(absEntryPath, 'utf8')
+  const importsMap = parseDefaultImports(fileContent)
+  const routeToComponent = parseChildrenRoutes(fileContent)
+  const AppComponent = await resolveRootAppComponentFromEntry(absEntryPath)
+
+  // Data for dynamic routes
+  const dataModulePath = join(process.cwd(), 'apps/vite/src/data/index.ts')
+  const dataModule = await import(pathToFileURL(dataModulePath).href)
+  const renderContext = dataModule.renderContext
+
+  for (const [routePath, componentName] of routeToComponent.entries()) {
+    // Skip wildcard catch-all
+    if (componentName === 'NotFound' || routePath.includes('*')) continue
+
+    const importSpecifier = importsMap.get(componentName)
+    if (!importSpecifier) {
+      console.warn(`⚠️  Skipping route ${routePath}: no import for ${componentName}`)
+      continue
+    }
+
+    const absModulePath = resolveImportPath(entryDir, importSpecifier)
+    const moduleUrl = pathToFileURL(absModulePath).href
+    const mod = await import(moduleUrl)
+    const RouteComponent = mod.default
+    if (!RouteComponent) {
+      console.warn(`⚠️  Skipping route ${routePath}: default export missing in ${absModulePath}`)
+      continue
+    }
+
+    if (routePath.includes('/:')) {
+      const slugs = getDynamicSlugsForRoute(routePath, renderContext)
+      for (const slug of slugs) {
+        const concretePath = routePath.replace('/:slug', `/${slug}`)
+        await renderRouteToFile(normalizeRoutePath(concretePath), AppComponent, RouteComponent, outputDir, title)
+      }
+    } else {
+      await renderRouteToFile(normalizeRoutePath(routePath), AppComponent, RouteComponent, outputDir, title)
+    }
+  }
+}
+
+function getDynamicSlugsForRoute(routePath: string, renderContext: any): string[] {
+  if (routePath.includes('/posts/:slug')) {
+    return (renderContext.posts?.posts || []).map((p: any) => p.slug)
+  }
+  if (routePath.includes('/category/:slug')) {
+    return (renderContext.categories || []).map((c: any) => c.slug)
+  }
+  if (routePath.includes('/tag/:slug')) {
+    return (renderContext.tags || []).map((t: any) => t.slug)
+  }
+  if (routePath.includes('/author/:slug')) {
+    return (renderContext.authors || []).map((a: any) => a.slug)
+  }
+  return []
+}
+
+async function renderRouteToFile(normalizedPath: string, AppComponent: any, RouteComponent: any, outputDir: string, title?: string) {
+  const element = React.createElement(
+    ThemeProvider,
+    { theme: skyOSTheme },
+    createRouterElementForPath(AppComponent, RouteComponent, normalizedPath)
+  )
+  const content = renderToStaticMarkup(element)
+  const fullPath = normalizedPath === '/'
+    ? join(outputDir, 'index.html')
+    : join(outputDir, normalizedPath.replace(/^\//, ''), 'index.html')
+  const dirPath = dirname(fullPath)
+  if (!existsSync(dirPath)) {
+    mkdirSync(dirPath, { recursive: true })
+  }
+  writeFileSync(fullPath, createHTMLDocument(content, title))
+  console.log(`✅ Generated: ${fullPath}`)
 }
 
 

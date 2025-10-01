@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react'
+import { ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Block, Container, Group, Stack, Title, Text, Sheet, Button, Icon, useMobile, useTheme, Grid } from '@ui8kit/core'
 import { SearchBar } from '@/ui/SearchBar'
@@ -6,7 +6,6 @@ import { CategoryList } from '@/ui/CategoryList'
 import { TagList } from '@/ui/TagList'
 import { PopularPosts } from '@/ui/PopularPosts'
 import { NewsletterSignup } from '@/ui/NewsletterSignup'
-import { RecentPosts } from '@/ui/RecentPosts'
 import { Menu, Sun, Moon } from 'lucide-react'
 import { renderContext } from '@/data'
 

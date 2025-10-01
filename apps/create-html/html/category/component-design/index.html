@@ -189,7 +189,6 @@ body {
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGJiYTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib3gtaWNvbiBsdWNpZGUtYm94Ij48cGF0aCBkPSJNMjEgOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczbDcgNGEyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZaIi8+PHBhdGggZD0ibTMuMyA3IDguNyA1IDguNy01Ii8+PHBhdGggZD0iTTEyIDIyVjEyIi8+PC9zdmc+" />
   </head>
   <body class="bg-background text-foreground">
-    <link rel="preload" as="image" href="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" />
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" />
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&amp;h=200&amp;fit=crop" />
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" />
@@ -212,7 +211,7 @@ body {
     <main class="py-16 w-full" data-class="main-page">
       <div class="max-w-screen-xl mx-auto text-left px-4" data-class="container">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch justify-start" data-class="grid">
-          <div class="col-span-3 order-2" component="div" data-class="main-content">
+          <div class="col-span-3 order-1" component="div" data-class="main-content">
             <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
               <main class="py-16 w-full" data-class="block">
                 <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
@@ -220,8 +219,11 @@ body {
                     <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><a href="/" data-discover="true">
                         <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Home</p>
                       </a></div>
+                    <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><span class="flex items-center justify-center w-4 h-4 text-muted-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 text-muted-foreground"><path d="m9 18 6-6-6-6"></path></svg></span></span><a href="/blog" data-discover="true">
+                        <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Blog</p>
+                      </a></div>
                     <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><span class="flex items-center justify-center w-4 h-4 text-muted-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 text-muted-foreground"><path d="m9 18 6-6-6-6"></path></svg></span></span>
-                      <p class="text-sm font-normal text-left leading-normal text-foreground" data-class="text">About</p>
+                      <p class="text-sm font-normal text-left leading-normal text-foreground" data-class="text">Category</p>
                     </div>
                   </div>
                   <script type="application/ld+json">
@@ -236,47 +238,27 @@ body {
                       }, {
                         "@type": "ListItem",
                         "position": 2,
-                        "name": "About"
+                        "name": "Blog",
+                        "item": "/blog"
+                      }, {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Category"
                       }]
                     }
                   </script>
-                  <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
-                    <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
-                      <h2 class="tracking-tight text-3xl font-bold text-left leading-normal text-foreground" data-class="title">Tailwind to Semantic HTML5 Transformation</h2>
-                      <p class="text-base font-normal text-left leading-normal text-secondary-foreground" data-class="text">Revolutionary approach to modern frontend development: Build with utility-first CSS, deploy with semantic HTML5 classes.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-start" data-class="grid">
-                      <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
-                        <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Utility-First to Semantic CSS Architecture" data-class="image" />
-                          <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
-                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Utility-First to Semantic CSS Architecture</h3>
-                            <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Leverage Tailwind CSS for rapid development while maintaining clean, semantic HTML5 output. Our automated extraction process converts utility classes into meaningful, BEM-inspired semantic classes that improve code readability, SEO performance, and maintainability.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
-                        <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Component-Driven Development" data-class="image" />
-                          <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
-                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Component-Driven Development with CVA</h3>
-                            <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Build robust React components using Class Variance Authority (CVA) patterns that automatically generate semantic class variants. Perfect for design systems, atomic design methodology, and TypeScript-first development workflows that scale across enterprise applications.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="card">
-                        <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&amp;w=1934&amp;auto=format&amp;fit=crop" alt="Production-Ready Semantic HTML5" data-class="image" />
-                          <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
-                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Production-Ready Semantic HTML5 Output</h3>
-                            <p class="text-sm font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Generate framework-agnostic, accessible HTML5 markup with semantic class names that follow W3C standards. Ideal for headless CMS integration, server-side rendering, progressive web apps, and cross-platform compatibility with improved Core Web Vitals scores.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                    <h1 class="tracking-tight text-2xl font-semibold text-left leading-normal text-foreground" data-class="title">Category</h1>
+                    <p class="text-base font-normal text-left leading-normal text-secondary-foreground" data-class="text">Posts categorized under “Category”.</p>
+                  </div>
+                  <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                    <p class="text-base font-normal text-left leading-normal text-foreground" data-class="text">No posts found in this category.</p><a href="/blog" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1" data-class="button">Back to blog</button></a>
                   </div>
                 </div>
               </main>
             </div>
           </div>
-          <div class="col-span-1 order-1" component="div" data-class="sidebar">
+          <div class="col-span-1 order-2" component="div" data-class="sidebar">
             <aside class="w-full" data-class="block">
               <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
                 <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><input placeholder="input text..." aria-label="Search" data-class="search-input" class="p-2 text-sm text-foreground rounded-lg border border-input bg-input focus:outline-none focus:ring focus:ring-primary" value="" /><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1" data-class="button">Search</button></div>

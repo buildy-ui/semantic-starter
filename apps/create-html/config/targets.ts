@@ -26,7 +26,7 @@ export const targets: HtmlTargetConfig[] = [
     cssSources: [],
     title: 'Pure HTML5 based on Tailwind CSS',
     // Set to '/' for home page or 'about' for the About route
-    path: 'about',
+    // path: 'about',
   },
 ]
 
