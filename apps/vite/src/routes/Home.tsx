@@ -1,5 +1,4 @@
-import { Block, Container, Stack, Title, Text, Button, Grid, Card, Group, Image } from '@ui8kit/core'
-import { Breadcrumbs } from '@/ui/Breadcrumbs'
+import { Block, Stack, Title, Text, Button, Grid, Card, Group, Image } from '@ui8kit/core'
 import { SEO } from '@/ui/SEO'
 import { HomeLatest } from '@/ui/HomeLatest'
 import { renderContext } from '@/data'
@@ -7,13 +6,12 @@ import { renderContext } from '@/data'
 export default function Home() {
   const { home } = renderContext
   return (
-    <>
+    <Block component="main" py="lg">
       <SEO title={home.page.title} description={home.page.excerpt} />
-      <Breadcrumbs items={[{ label: 'Home' }]} />
-      
-      <Stack gap="lg" align="center" ta="center" py="lg" data-class="hero-section">
-        <Stack gap="lg">
-          <Title order={1} size="5xl" fw="bold" c="foreground">{home.page.title}</Title>
+
+      <Stack gap="2xl" py="lg" data-class="hero-section">
+        <Stack gap="md" align="center" ta="center">
+          <Title order={1} size="4xl" fw="bold" c="foreground">{home.page.title}</Title>
           <Text size="lg" c="secondary-foreground" leading="relaxed">{home.page.excerpt}</Text>
         </Stack>
         <Group gap="md" justify="center">
@@ -23,8 +21,8 @@ export default function Home() {
       </Stack>
 
       <Stack gap="lg">
-        <Stack gap="lg" align="center" ta="center">
-          <Title order={2} size="3xl" fw="bold">Features</Title>
+        <Stack gap="lg">
+          <Title order={2} size="3xl" fw="bold">Features Posts</Title>
           <Text size="md" c="secondary-foreground">Discover what makes our approach unique</Text>
         </Stack>
         <Grid cols="1-2-3" gap="lg">
@@ -42,10 +40,10 @@ export default function Home() {
             </Card>
           ))}
         </Grid>
-      </Stack>
 
-      <HomeLatest />
-    </>
+        <HomeLatest />
+      </Stack>
+    </Block>
   )
 }
 

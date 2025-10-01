@@ -56,3 +56,4 @@ export const roundedSideVariants = cva("", {
 
 // Type for rounded props
 export interface RoundedProps extends VariantProps<typeof roundedVariants> {} 
+export interface RoundedSideProps extends VariantProps<typeof roundedSideVariants> {} 

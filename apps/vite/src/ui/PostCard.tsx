@@ -9,18 +9,19 @@ type Post = {
   slug: string
   thumbnail?: { url: string; alt: string }
   categories?: { id: number; name: string; slug: string }[]
+  media?: string
 }
 
-export function PostCard({ post }: { post: Post }) {
+export function PostCard({ post, media = 'top' }: { post: Post, media?: 'top' | 'default' }) {
   return (
-    <Card p="lg" rounded="xl" shadow="md" bg="card" data-class="post-card">
+    <Card p={media === 'top' ? 'lg' : 'none'} rounded="xl" shadow="md" bg="card" data-class="post-card">
       <Stack gap="lg">
         {post.thumbnail?.url && (
           <Link to={postPath(post.slug)}>
-            <Image src={post.thumbnail.url} alt={post.thumbnail.alt} rounded="lg" w="full" h="auto" fit="cover" />
+            <Image src={post.thumbnail.url} alt={post.thumbnail.alt} rounded="lg" roundedTop={media === 'top' ? 'lg' : 'none'} w="full" h="auto" fit="cover" />
           </Link>
         )}
-        <Stack gap="md">
+        <Stack p={media === 'top' ? 'lg' : 'none'} gap="md">
           <Link to={postPath(post.slug)}>
             <Title order={3} size="xl" fw="semibold" c="foreground">{post.title}</Title>
           </Link>

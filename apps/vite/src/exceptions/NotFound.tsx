@@ -2,6 +2,7 @@ import { Block, Container, Stack, Title, Text } from '@ui8kit/core'
 import { Breadcrumbs } from '@/ui/Breadcrumbs'
 import { SEO } from '@/ui/SEO'
 import { SearchBar } from '@/ui/SearchBar'
+import { RecentPosts } from '@/ui/RecentPosts'
 
 export default function NotFound() {
   return (
@@ -15,6 +16,8 @@ export default function NotFound() {
           <SearchBar />
         </Stack>
       </Stack>
+      
+      <RecentPosts />
     </Block>
   )
 }

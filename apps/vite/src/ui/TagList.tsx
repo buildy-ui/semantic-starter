@@ -1,4 +1,4 @@
-import { Stack, Title, Text } from '@ui8kit/core'
+import { Stack, Title, Text, Badge } from '@ui8kit/core'
 import { Link } from 'react-router-dom'
 
 type Tag = { id: number; name: string; slug: string; count?: number }
@@ -10,7 +10,7 @@ export function TagList({ items }: { items: Tag[] }) {
       <Stack gap="sm">
         {items.map(t => (
           <Link key={t.id} to={`/tag/${t.slug}`}>
-            <Text size="sm" c="secondary-foreground">{t.name}{typeof t.count === 'number' ? ` (${t.count})` : ''}</Text>
+            <Badge variant="secondary" rounded="full" size="sm">{t.name}{typeof t.count === 'number' ? ` (${t.count})` : ''}</Badge>
           </Link>
         ))}
       </Stack>

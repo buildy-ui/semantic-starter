@@ -9,7 +9,7 @@ import { renderContext } from '@/data'
 export default function Blog() {
   const { blog, posts } = renderContext
   const [page, setPage] = useState(1)
-  const perPage = 6
+  const perPage = 3
   const total = Math.max(1, Math.ceil(posts.posts.length / perPage))
   const pageItems = useMemo(() => posts.posts.slice((page - 1) * perPage, page * perPage), [page])
   return (

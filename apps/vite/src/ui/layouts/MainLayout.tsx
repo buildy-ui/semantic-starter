@@ -64,18 +64,22 @@ export function MainLayout({ children, sidebar = 'right' as 'left' | 'right' | '
 
       <Block component="main" py="lg" data-class="main-page">
         <Container size="lg">
-          <Grid cols="1-4" gap={defaultGap}>
-            <Grid.Col span={sidebar === 'none' ? 4 : 3} data-class="main-content" order={sidebar === 'left' ? 3 : 1}>
-              <Stack gap="lg">
-                {children}
-              </Stack>
-            </Grid.Col>
-            {sidebar !== 'none' && (
-              <Grid.Col span={1} data-class="sidebar" order={sidebar === 'left' ? 1 : 3}>
+          {sidebar === 'none' ? (
+            <Stack gap="lg">
+              {children}
+            </Stack>
+          ) : (
+            <Grid cols="1-4" gap={defaultGap}>
+              <Grid.Col span={3} data-class="main-content" order={sidebar === 'left' ? 2 : 1}>
+                <Stack gap="lg">
+                  {children}
+                </Stack>
+              </Grid.Col>
+              <Grid.Col span={1} data-class="sidebar" order={sidebar === 'left' ? 1 : 2}>
                 <Aside />
               </Grid.Col>
-            )}
-          </Grid>
+            </Grid>
+          )}
         </Container>
       </Block>
 
@@ -106,7 +110,6 @@ const Aside = () => (
       <Link to="/authors"><Text size="sm" c="secondary-foreground">View all authors</Text></Link>
       <PopularPosts />
       <NewsletterSignup />
-      <RecentPosts />
     </Stack>
   </Block>
 
