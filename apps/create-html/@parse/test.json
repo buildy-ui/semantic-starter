@@ -1,32 +1,53 @@
 [
   {
+    "path": "root.html[0]",
+    "tag": "html",
+    "dataClass": "html"
+  },
+  {
+    "path": "root.html[0].head[0]",
+    "tag": "head",
+    "dataClass": "head"
+  },
+  {
+    "path": "root.html[0].body[1]",
+    "tag": "body",
+    "dataClass": "body"
+  },
+  {
     "path": "root.html[0].body[1].main[0]",
     "tag": "main",
-    "dataClass": "block",
+    "dataClass": "block-wkrcmn",
     "className": "py-16 w-full"
   },
   {
     "path": "root.html[0].body[1].main[0].div[0]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-1amsftj",
     "className": "flex flex-col items-stretch justify-start gap-6 text-left"
   },
   {
     "path": "root.html[0].body[1].main[0].div[0].h1[0]",
     "tag": "h1",
-    "dataClass": "title",
+    "dataClass": "title-vjy8ic",
     "className": "tracking-tight text-2xl font-semibold text-left leading-normal text-foreground"
   },
   {
-    "path": "root.html[0].body[1].main[0].div[1]",
+    "path": "root.html[0].body[1].main[0].div[1].h2[0]",
+    "tag": "h2",
+    "dataClass": "subtitle-1o9ucpm",
+    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[0].div[2]",
     "tag": "div",
     "dataClass": "stack-button",
     "className": "flex flex-col items-center justify-center gap-4 text-left"
   },
   {
-    "path": "root.html[0].body[1].main[0].div[1].button[0]",
+    "path": "root.html[0].body[1].main[0].div[2].button[0]",
     "tag": "button",
-    "dataClass": "button",
+    "dataClass": "button-1lo0yr4",
     "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1"
   }
 ]

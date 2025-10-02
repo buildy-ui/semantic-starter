@@ -11,6 +11,8 @@ export type AnalyzeDomConfig = {
   outputDir: string
   // When true, analyze with full App layout; when false, render route directly
   useLayout: boolean
+  // Infer a semantic data-class for nodes without explicit data-class
+  inferMissingDataClass: boolean
 }
 
 export const analyzeDomConfig: AnalyzeDomConfig = {
@@ -19,6 +21,7 @@ export const analyzeDomConfig: AnalyzeDomConfig = {
   aliasAtRoot: 'apps/vite/src',
   outputDir: 'apps/create-html/@parse',
   useLayout: false,
+  inferMissingDataClass: true,
 }
 
 
