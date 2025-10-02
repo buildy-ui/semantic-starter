@@ -7,6 +7,7 @@ import { pathToFileURL } from 'url'
 import { parse } from 'parse5'
 import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
+import { analyzeDomConfig } from '../config/analyze.config'
 
 function normalizeRoutePath(routePath?: string) {
   if (!routePath || routePath === '/') return '/'
@@ -55,9 +56,10 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   const appName = appNameMatch[1]
 
   const resolve = (spec: string) => {
-    const base = spec.startsWith('@/')
-      ? join(process.cwd(), 'apps/vite/src', spec.slice(2))
-      : join(process.cwd(), 'apps/vite/src', spec)
+    const { aliasAtPrefix, aliasAtRoot } = analyzeDomConfig
+    const base = spec.startsWith(aliasAtPrefix)
+      ? join(process.cwd(), aliasAtRoot, spec.slice(aliasAtPrefix.length))
+      : join(process.cwd(), aliasAtRoot, spec)
     const candidates = [`${base}.tsx`, `${base}.ts`, `${base}.jsx`, `${base}.js`, join(base, 'index.tsx'), join(base, 'index.ts')]
     const { existsSync } = require('fs')
     const found = candidates.find((p) => existsSync(p))
@@ -91,14 +93,15 @@ async function main() {
   const rawArg = process.argv[2] || 'about'
   const routeArg = sanitizeRouteArg(rawArg)
   const normalized = normalizeRoutePath(routeArg)
-  const { App, Route } = await loadRouteComponents('apps/vite/src/main.tsx', normalized)
+  const { routerEntryPath, outputDir } = analyzeDomConfig
+  const { App, Route } = await loadRouteComponents(routerEntryPath, normalized)
   const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement(App, Route, normalized) })
   const html = renderToStaticMarkup(element)
   const doc = parse(html) as any
   const report: any[] = []
   collectNodes(doc, report)
   // Write to @parse/<name>.json under apps/create-html
-  const outDir = join(process.cwd(), 'apps/create-html', '@parse')
+  const outDir = join(process.cwd(), outputDir)
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
   const fileBase = normalized === '/' ? 'index' : normalized.replace(/^\//, '').replace(/\//g, '-')
   const outPath = join(outDir, `${fileBase}.json`)
