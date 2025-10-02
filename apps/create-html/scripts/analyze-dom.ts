@@ -14,10 +14,10 @@ function normalizeRoutePath(routePath?: string) {
   return routePath.startsWith('/') ? routePath : `/${routePath}`
 }
 
-function createRouterElement(AppComponent: any, RouteComponent: any, normalizedPath: string) {
+function createRouterElement(AppComponent: any, RouteComponent: any, normalizedPath: string, routePatternPath?: string) {
   const childRoute = normalizedPath === '/'
     ? { index: true, element: React.createElement(RouteComponent) }
-    : { path: normalizedPath.replace(/^\//, ''), element: React.createElement(RouteComponent) }
+    : { path: (routePatternPath || normalizedPath).replace(/^\//, ''), element: React.createElement(RouteComponent) }
   const router = createMemoryRouter([
     { path: '/', element: React.createElement(AppComponent), children: [childRoute] },
   ], { initialEntries: [normalizedPath] })
@@ -55,6 +55,28 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
       compName = idxMatch[1]
     }
   }
+  // Try dynamic pattern resolution (e.g., /posts/:slug)
+  let routePatternPath: string | undefined
+  if (!compName) {
+    // 1) Derive by known prefix patterns
+    routePatternPath = derivePatternFromConcretePath(normalized)
+    if (routePatternPath) {
+      compName = map.get(routePatternPath)
+    }
+  }
+  if (!compName) {
+    // 2) Fallback: scan map for keys with ":" param and prefix-match
+    for (const [key, val] of map.entries()) {
+      if (key.includes('/:')) {
+        const base = key.replace('/:slug', '/')
+        if (normalized.startsWith(base)) {
+          compName = val
+          routePatternPath = key
+          break
+        }
+      }
+    }
+  }
   if (!compName) {
     const available = Array.from(map.keys()).join(', ')
     throw new Error(`Route not found: ${normalized}. Available: ${available || '(none found)'}`)
@@ -80,7 +102,7 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   const routeSpec = imports.get(compName)!
   const App = (await import(pathToFileURL(resolve(appSpec)).href)).default
   const Route = (await import(pathToFileURL(resolve(routeSpec)).href)).default
-  return { App, Route }
+  return { App, Route, routePatternPath }
 }
 
 function collectNodes(node: any, out: any[], idxPath = 'root') {
@@ -103,8 +125,8 @@ async function main() {
   const routeArg = sanitizeRouteArg(rawArg)
   const normalized = normalizeRoutePath(routeArg)
   const { routerEntryPath, outputDir } = analyzeDomConfig
-  const { App, Route } = await loadRouteComponents(routerEntryPath, normalized)
-  const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement(App, Route, normalized) })
+  const { App, Route, routePatternPath } = await loadRouteComponents(routerEntryPath, normalized)
+  const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement(App, Route, normalized, routePatternPath) })
   const html = renderToStaticMarkup(element)
   const doc = parse(html) as any
   const report: any[] = []
@@ -130,19 +152,36 @@ function sanitizeRouteArg(arg: string): string {
   // Handle Git Bash on Windows path rewrite like "/C:/Program Files/Git/about"
   if (/^\/[A-Za-z]:\//.test(arg)) {
     const parts = arg.split(/[\\/]+/).filter(Boolean)
+    const gitIdx = parts.findIndex(p => p.toLowerCase() === 'git')
+    if (gitIdx !== -1) {
+      const tail = parts.slice(gitIdx + 1)
+      if (tail.length === 0) return '/'
+      return tail.join('/')
+    }
     const last = parts[parts.length - 1]
-    // If ends at Git (e.g., "/C:/Program Files/Git/"), it was originally root
-    if ((last || '').toLowerCase() === 'git') return '/'
     return last || '/'
   }
   // Handle Windows style paths like "C:\\...\\about" or "C:/.../about"
   if (/^[A-Za-z]:[\\/]/.test(arg)) {
     const parts = arg.split(/[\\/]+/).filter(Boolean)
+    const gitIdx = parts.findIndex(p => p.toLowerCase() === 'git')
+    if (gitIdx !== -1) {
+      const tail = parts.slice(gitIdx + 1)
+      if (tail.length === 0) return '/'
+      return tail.join('/')
+    }
     const last = parts[parts.length - 1]
-    if ((last || '').toLowerCase() === 'git') return '/'
     return last || '/'
   }
   return arg
+}
+
+function derivePatternFromConcretePath(concretePath: string): string | undefined {
+  if (/^\/posts\/.+/.test(concretePath)) return '/posts/:slug'
+  if (/^\/category\/.+/.test(concretePath)) return '/category/:slug'
+  if (/^\/tag\/.+/.test(concretePath)) return '/tag/:slug'
+  if (/^\/author\/.+/.test(concretePath)) return '/author/:slug'
+  return undefined
 }
 
 
