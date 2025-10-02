@@ -1,0 +1,5 @@
+@import "./shadcn-rgb.css";
+@import "./input.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -20,7 +20,7 @@ export const analyzeDomConfig: AnalyzeDomConfig = {
   aliasAtPrefix: '@/',
   aliasAtRoot: 'apps/vite/src',
   outputDir: 'apps/create-html/@parse',
-  useLayout: false,
+  useLayout: true,
   inferMissingDataClass: true,
 }
 
