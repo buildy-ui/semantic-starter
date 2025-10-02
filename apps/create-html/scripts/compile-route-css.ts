@@ -51,17 +51,38 @@ async function main() {
   }
   if (!pageDir) throw new Error(`Page not found for ${normalized}. Run generator first.`)
 
-  // Compile Tailwind v4 CSS for this route
-  const inputCssTW4 = join(pageDir, 'input-tw4.css')
-  const inputCssTW3 = join(pageDir, 'input-tw3.css')
-  const configJs = join(pageDir, 'tailwind.config.js')
+  // Compile Tailwind v4/v3 CSS for this route
+  const inputCssTW4 = existsSync(join(pageDir, 'input-tw4.css'))
+    ? join(pageDir, 'input-tw4.css')
+    : join(pageDir, 'input.css')
+  const inputCssTW3 = existsSync(join(pageDir, 'input-tw3.css'))
+    ? join(pageDir, 'input-tw3.css')
+    : join(pageDir, 'input.css')
+  const configJs = existsSync(join(pageDir, 'tailwind.config.js'))
+    ? join(pageDir, 'tailwind.config.js')
+    : join(process.cwd(), 'apps/create-html/config/tailwind.config.js')
   const stylesCss = join(pageDir, 'styles.css')
   const legacyCss = join(pageDir, 'styles.legacy.css')
 
-  // Tailwind v4
-  await Bun.$`bun x @tailwindcss/cli -i ${inputCssTW4} -o ${stylesCss} --minify`
-  // Tailwind v3 legacy
-  await Bun.$`bun x -p tailwindcss@3 tailwindcss -i ${inputCssTW3} -o ${legacyCss} --minify -c ${configJs}`
+  // Run in route directory to make relative content globs resolve correctly
+  const tw4 = Bun.spawn({
+    cmd: ['bun', 'x', '@tailwindcss/cli', '-i', inputCssTW4, '-o', stylesCss, '--minify'],
+    cwd: pageDir,
+    stdout: 'inherit',
+    stderr: 'inherit',
+  })
+  const tw4Code = await tw4.exited
+  if (tw4Code !== 0) throw new Error('Tailwind v4 build failed')
+
+  // Use the vendored alias tailwindcss3 (npm:tailwindcss@3.4.14) to ensure modern v3 with @apply variants
+  const tw3 = Bun.spawn({
+    cmd: ['bun', 'x', 'tailwindcss@3', '-i', inputCssTW3, '-o', legacyCss, '--minify', '-c', configJs],
+    cwd: pageDir,
+    stdout: 'inherit',
+    stderr: 'inherit',
+  })
+  const tw3Code = await tw3.exited
+  if (tw3Code !== 0) throw new Error('Tailwind v3 build failed')
   console.log(`\n✅ Compiled: ${stylesCss}\n✅ Compiled: ${legacyCss}`)
 }
 

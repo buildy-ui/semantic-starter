@@ -15,6 +15,7 @@
   "scripts": {
     "tw4:html": "bun x @tailwindcss/cli -i ./assets/input-tw4.css -o ./html/styles.css --minify",
     "tw3:html": "bun x -p tailwindcss@3 tailwindcss -i ./assets/input-tw3.css -o ./html/styles.legacy.css --minify -c ./config/tailwind.config.js",
+    "tw3:shadcn": "bun x -p tailwindcss@3 tailwindcss -i ./html/about/input-tw3.css -o ./html/about/styles.legacy.css --minify -c ./html/about/tailwind.config.js",
     "html": "bun run tw4:html && bun run tw3:html",
     "analyze:dom": "bun run --bun scripts/analyze-dom.ts",
     "rewrite:semantic": "bun run --bun scripts/rewrite-semantic.ts",
