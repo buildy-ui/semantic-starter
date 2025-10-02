@@ -15,13 +15,15 @@
   "scripts": {
     "tw4:html": "bun x @tailwindcss/cli -i ./assets/input-tw4.css -o ./html/styles.css --minify",
     "tw3:html": "bun x -p tailwindcss@3 tailwindcss -i ./assets/input-tw3.css -o ./html/styles.legacy.css --minify -c ./config/tailwind.config.js",
-    "html": "bun run tw4:html && bun run tw3:html"
+    "html": "bun run tw4:html && bun run tw3:html",
+    "analyze:dom": "bun run --bun scripts/analyze-dom.ts"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "glob": "^11.0.3",
+    "parse5": "^7.2.0",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3",
     "sharp": "^0.33.0",
