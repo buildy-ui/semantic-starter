@@ -48,8 +48,17 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   }
 
   const normalized = normalizeRoutePath(routePath)
-  const compName = map.get(normalized)
-  if (!compName) throw new Error(`Route not found: ${normalized}`)
+  let compName = map.get(normalized)
+  if (!compName && normalized === '/') {
+    const idxMatch = /index\s*:\s*true[\s\S]*?element\s*:\s*<\s*([A-Za-z0-9_]+)\s*\/>/m.exec(block)
+    if (idxMatch) {
+      compName = idxMatch[1]
+    }
+  }
+  if (!compName) {
+    const available = Array.from(map.keys()).join(', ')
+    throw new Error(`Route not found: ${normalized}. Available: ${available || '(none found)'}`)
+  }
 
   const appNameMatch = /element:\s*<\s*([A-Za-z0-9_]+)\s*\/>[\s\S]*?children\s*:\s*\[/m.exec(source)
   if (!appNameMatch) throw new Error('Root App element not found')
@@ -116,16 +125,21 @@ main().catch((e) => {
 
 function sanitizeRouteArg(arg: string): string {
   if (!arg) return '/'
+  // Direct root indicators
+  if (arg === '/' || arg === '\\') return '/'
   // Handle Git Bash on Windows path rewrite like "/C:/Program Files/Git/about"
   if (/^\/[A-Za-z]:\//.test(arg)) {
     const parts = arg.split(/[\\/]+/).filter(Boolean)
     const last = parts[parts.length - 1]
+    // If ends at Git (e.g., "/C:/Program Files/Git/"), it was originally root
+    if ((last || '').toLowerCase() === 'git') return '/'
     return last || '/'
   }
   // Handle Windows style paths like "C:\\...\\about" or "C:/.../about"
   if (/^[A-Za-z]:[\\/]/.test(arg)) {
     const parts = arg.split(/[\\/]+/).filter(Boolean)
     const last = parts[parts.length - 1]
+    if ((last || '').toLowerCase() === 'git') return '/'
     return last || '/'
   }
   return arg

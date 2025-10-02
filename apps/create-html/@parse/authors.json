@@ -1,0 +1,713 @@
+[
+  {
+    "path": "root.html[0].body[1].nav[0]",
+    "tag": "nav",
+    "dataClass": "nav-bar",
+    "className": "py-2 bg-background border-border w-full shadow-lg border-b"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0]",
+    "tag": "div",
+    "dataClass": "container",
+    "className": "max-w-screen-xl mx-auto text-left px-4"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-between flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0].a[0].h2[0]",
+    "tag": "h2",
+    "dataClass": "title",
+    "className": "tracking-tight text-2xl font-bold text-left leading-normal text-primary"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0]",
+    "tag": "div",
+    "dataClass": "nav",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[0]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[1]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[2]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0]",
+    "tag": "span",
+    "dataClass": "icon",
+    "className": "flex items-center justify-center w-4 h-4 text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0].span[0].svg[0]",
+    "tag": "svg",
+    "className": "lucide lucide-moon w-4 h-4 text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1]",
+    "tag": "main",
+    "dataClass": "main-page",
+    "className": "py-16 w-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0]",
+    "tag": "div",
+    "dataClass": "container",
+    "className": "max-w-screen-xl mx-auto text-left px-4"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "grid",
+    "className": "grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch justify-start"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "main-content",
+    "className": "col-span-3 order-1"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0]",
+    "tag": "main",
+    "dataClass": "block",
+    "className": "py-16 w-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[0].a[0].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[1].span[0]",
+    "tag": "span",
+    "dataClass": "icon",
+    "className": "flex items-center justify-center w-4 h-4 text-muted-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[1].span[0].span[0].svg[0]",
+    "tag": "svg",
+    "className": "lucide lucide-chevron-right w-4 h-4 text-muted-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[2]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[2].h1[0]",
+    "tag": "h1",
+    "dataClass": "title",
+    "className": "tracking-tight text-2xl font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[2].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-base font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3]",
+    "tag": "div",
+    "dataClass": "grid",
+    "className": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-start"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0]",
+    "tag": "div",
+    "dataClass": "card",
+    "className": "text-card-foreground transition-colors p-6 rounded-lg shadow-sm bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].div[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center w-auto rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].div[0].div[1].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-lg font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[0].a[1].button[0]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 m-2 rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1]",
+    "tag": "div",
+    "dataClass": "card",
+    "className": "text-card-foreground transition-colors p-6 rounded-lg shadow-sm bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].div[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center w-auto rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].div[0].div[1].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-lg font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].main[0].div[0].div[3].div[1].a[1].button[0]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 m-2 rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "sidebar",
+    "className": "col-span-1 order-2"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0]",
+    "tag": "aside",
+    "dataClass": "block",
+    "className": "w-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[0].input[0]",
+    "tag": "input",
+    "dataClass": "search-input",
+    "className": "p-2 text-sm text-foreground rounded-lg border border-input bg-input focus:outline-none focus:ring focus:ring-primary"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[0].button[1]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-lg font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1].a[0].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1].a[1].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1].a[2].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1].a[3].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[1].div[1].a[4].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].a[2].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-lg font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[0].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[1].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[2].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[3].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[4].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[3].div[1].a[5].div[0]",
+    "tag": "div",
+    "dataClass": "badge",
+    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].a[4].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].a[5].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-lg font-semibold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0]",
+    "tag": "div",
+    "dataClass": "small-media-card",
+    "className": "text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-start justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0].div[0].a[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center aspect-square rounded-md"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0].div[0].div[1].a[0].h4[0]",
+    "tag": "h4",
+    "dataClass": "title",
+    "className": "tracking-tight text-sm font-bold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[0].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1]",
+    "tag": "div",
+    "dataClass": "small-media-card",
+    "className": "text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-start justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1].div[0].a[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center aspect-square rounded-md"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1].div[0].div[1].a[0].h4[0]",
+    "tag": "h4",
+    "dataClass": "title",
+    "className": "tracking-tight text-sm font-bold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[1].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2]",
+    "tag": "div",
+    "dataClass": "small-media-card",
+    "className": "text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-start justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2].div[0].a[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center aspect-square rounded-md"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2].div[0].div[1].a[0].h4[0]",
+    "tag": "h4",
+    "dataClass": "title",
+    "className": "tracking-tight text-sm font-bold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[2].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3]",
+    "tag": "div",
+    "dataClass": "small-media-card",
+    "className": "text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-start justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3].div[0].a[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center aspect-square rounded-md"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3].div[0].div[1].a[0].h4[0]",
+    "tag": "h4",
+    "dataClass": "title",
+    "className": "tracking-tight text-sm font-bold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[3].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4]",
+    "tag": "div",
+    "dataClass": "small-media-card",
+    "className": "text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4].div[0]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-start justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4].div[0].a[0].img[0]",
+    "tag": "img",
+    "dataClass": "image",
+    "className": "block object-cover object-center aspect-square rounded-md"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-2 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4].div[0].div[1].a[0].h4[0]",
+    "tag": "h4",
+    "dataClass": "title",
+    "className": "tracking-tight text-sm font-bold text-left leading-normal text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[6].div[1].div[4].div[0].div[1].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7]",
+    "tag": "div",
+    "dataClass": "newsletter-signup",
+    "className": "text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-primary border border-border"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7].div[0]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7].div[0].h3[0]",
+    "tag": "h3",
+    "dataClass": "title",
+    "className": "tracking-tight text-xl font-bold text-left leading-normal text-primary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7].div[0].p[1]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-left leading-relaxed text-primary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7].div[0].input[2]",
+    "tag": "input",
+    "dataClass": "newsletter-input"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[1].aside[0].div[0].div[7].div[0].button[3]",
+    "tag": "button",
+    "dataClass": "button",
+    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg w-full mr-1"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2]",
+    "tag": "footer",
+    "dataClass": "site-footer",
+    "className": "py-8 bg-card border-border w-full border-t"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0]",
+    "tag": "div",
+    "dataClass": "container",
+    "className": "max-w-screen-xl mx-auto text-left px-4"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0]",
+    "tag": "div",
+    "dataClass": "stack",
+    "className": "flex flex-col items-center justify-start gap-6 text-left"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-sm font-normal text-center leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1]",
+    "tag": "div",
+    "dataClass": "group",
+    "className": "flex items-center justify-center flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[0].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[1].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[2].p[0]",
+    "tag": "p",
+    "dataClass": "text",
+    "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
+  }
+]
