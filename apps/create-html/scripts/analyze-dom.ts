@@ -98,7 +98,7 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
 
   let compName = map.get(normalized)
   if (!compName && normalized === '/') {
-    const idxMatch = /index\s*:\s*true[\s\S]*?element\s*:\s*<\s*([A-Za-z0-9_]+)\s*\/>/m.exec(block)
+    const idxMatch = /index\s*:\s*true[\s\S]*?element\s*:\s*<\s*([A-Za-z0-9_]+)\s*\/>/m.exec(childrenBlock)
     if (idxMatch) {
       compName = idxMatch[1]
     }
