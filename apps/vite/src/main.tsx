@@ -17,6 +17,7 @@ import Categories from '@/routes/Categories'
 import Tags from '@/routes/Tags'
 import Authors from '@/routes/Authors'
 import Search from '@/routes/Search'
+import Test from '@/routes/Test'
 // styles
 import './assets/css/index.css'
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       { path: 'posts/:slug', element: <Post /> },
       { path: '*', element: <NotFound /> }
     ]
+  },
+  {
+    path: '/test',
+    element: <Test />
   }
 ])
 

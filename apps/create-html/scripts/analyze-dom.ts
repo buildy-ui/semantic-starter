@@ -14,12 +14,27 @@ function normalizeRoutePath(routePath?: string) {
   return routePath.startsWith('/') ? routePath : `/${routePath}`
 }
 
-function createRouterElement(AppComponent: any, RouteComponent: any, normalizedPath: string, routePatternPath?: string) {
-  const childRoute = normalizedPath === '/'
-    ? { index: true, element: React.createElement(RouteComponent) }
-    : { path: (routePatternPath || normalizedPath).replace(/^\//, ''), element: React.createElement(RouteComponent) }
+function createRouterElement(options: {
+  AppComponent?: any,
+  RouteComponent: any,
+  normalizedPath: string,
+  routePatternPath?: string,
+  useLayout: boolean,
+}) {
+  const { AppComponent, RouteComponent, normalizedPath, routePatternPath, useLayout } = options
+  if (useLayout && AppComponent) {
+    const childRoute = normalizedPath === '/'
+      ? { index: true, element: React.createElement(RouteComponent) }
+      : { path: (routePatternPath || normalizedPath).replace(/^\//, ''), element: React.createElement(RouteComponent) }
+    const router = createMemoryRouter([
+      { path: '/', element: React.createElement(AppComponent), children: [childRoute] },
+    ], { initialEntries: [normalizedPath] })
+    return React.createElement(RouterProvider, { router })
+  }
+  // Direct route rendering without App layout
+  const directPath = normalizedPath === '/' ? '/' : (routePatternPath || normalizedPath)
   const router = createMemoryRouter([
-    { path: '/', element: React.createElement(AppComponent), children: [childRoute] },
+    { path: directPath, element: React.createElement(RouteComponent) },
   ], { initialEntries: [normalizedPath] })
   return React.createElement(RouterProvider, { router })
 }
@@ -34,20 +49,52 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   let m: RegExpExecArray | null
   while ((m = importRegex.exec(source)) !== null) imports.set(m[1], m[2])
 
+  // Extract router array content
+  const routerArrayRegex = /createBrowserRouter\(\s*\[([\s\S]*?)\]\s*\)/m
+  const arrayMatch = routerArrayRegex.exec(source)
+  if (!arrayMatch) throw new Error('Router array not found in entry file')
+  const arrayBlock = arrayMatch[1]
+
+  // Parse children routes from the first route object
   const childrenBlockRegex = /children:\s*\[([\s\S]*?)\]/m
   const blockMatch = childrenBlockRegex.exec(source)
-  if (!blockMatch) throw new Error('No children routes found')
-  const block = blockMatch[1]
+  const childrenBlock = blockMatch ? blockMatch[1] : ''
   const routeEntryRegex = /\{\s*(index:\s*true|path:\s*['"]([^'\"]+)['"])\s*,\s*element:\s*<\s*([A-Za-z0-9_]+)\s*\/>/g
-  const map = new Map<string, string>()
+
+  const childrenMap = new Map<string, string>()
   let r: RegExpExecArray | null
-  while ((r = routeEntryRegex.exec(block)) !== null) {
+  if (childrenBlock) {
+    while ((r = routeEntryRegex.exec(childrenBlock)) !== null) {
+      const isIndex = r[1] && r[1].includes('index')
+      const raw = r[2]
+      const p = isIndex ? '/' : (raw && raw.startsWith('/') ? raw : `/${raw}`)
+      childrenMap.set(p, r[3])
+    }
+  }
+
+  // Parse top-level routes by removing children blocks
+  const topBlock = arrayBlock.replace(/children:\s*\[(?:[\s\S]*?)\]/g, '')
+  const topMap = new Map<string, string>()
+  while ((r = routeEntryRegex.exec(topBlock)) !== null) {
     const isIndex = r[1] && r[1].includes('index')
-    const p = isIndex ? '/' : `/${r[2]}`
-    map.set(p, r[3])
+    const raw = r[2]
+    const p = isIndex ? '/' : (raw && raw.startsWith('/') ? raw : `/${raw}`)
+    topMap.set(p, r[3])
   }
 
   const normalized = normalizeRoutePath(routePath)
+  // Identify App component name to avoid mapping '/' -> App
+  const appNameMatch = /element:\s*<\s*([A-Za-z0-9_]+)\s*\/>[\s\S]*?children\s*:\s*\[/m.exec(source)
+  if (!appNameMatch) throw new Error('Root App element not found')
+  const appName = appNameMatch[1]
+
+  // Build final route map: top-level (excluding root App) + children (override)
+  if (topMap.get('/') === appName) {
+    topMap.delete('/')
+  }
+  const map = new Map<string, string>(topMap)
+  for (const [k, v] of childrenMap) map.set(k, v)
+
   let compName = map.get(normalized)
   if (!compName && normalized === '/') {
     const idxMatch = /index\s*:\s*true[\s\S]*?element\s*:\s*<\s*([A-Za-z0-9_]+)\s*\/>/m.exec(block)
@@ -81,10 +128,6 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
     const available = Array.from(map.keys()).join(', ')
     throw new Error(`Route not found: ${normalized}. Available: ${available || '(none found)'}`)
   }
-
-  const appNameMatch = /element:\s*<\s*([A-Za-z0-9_]+)\s*\/>[\s\S]*?children\s*:\s*\[/m.exec(source)
-  if (!appNameMatch) throw new Error('Root App element not found')
-  const appName = appNameMatch[1]
 
   const resolve = (spec: string) => {
     const { aliasAtPrefix, aliasAtRoot } = analyzeDomConfig
@@ -126,7 +169,7 @@ async function main() {
   const normalized = normalizeRoutePath(routeArg)
   const { routerEntryPath, outputDir } = analyzeDomConfig
   const { App, Route, routePatternPath } = await loadRouteComponents(routerEntryPath, normalized)
-  const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement(App, Route, normalized, routePatternPath) })
+  const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement({ AppComponent: App, RouteComponent: Route, normalizedPath: normalized, routePatternPath, useLayout: analyzeDomConfig.useLayout }) })
   const html = renderToStaticMarkup(element)
   const doc = parse(html) as any
   const report: any[] = []

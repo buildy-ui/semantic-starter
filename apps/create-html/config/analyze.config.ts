@@ -9,6 +9,8 @@ export type AnalyzeDomConfig = {
   aliasAtRoot: string
   // Output directory for parsed JSON reports (relative to repo root)
   outputDir: string
+  // When true, analyze with full App layout; when false, render route directly
+  useLayout: boolean
 }
 
 export const analyzeDomConfig: AnalyzeDomConfig = {
@@ -16,6 +18,7 @@ export const analyzeDomConfig: AnalyzeDomConfig = {
   aliasAtPrefix: '@/',
   aliasAtRoot: 'apps/vite/src',
   outputDir: 'apps/create-html/@parse',
+  useLayout: false,
 }
 
 
