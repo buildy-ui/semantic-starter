@@ -2,3 +2,6 @@
 	path = packages/@ui8kit/core
 	url = https://github.com/ui8kit/core.git
 	branch = main
+[submodule "packages/@ui8kit/chat"]
+	path = packages/@ui8kit/chat
+	url = https://github.com/ui8kit/chat.git
