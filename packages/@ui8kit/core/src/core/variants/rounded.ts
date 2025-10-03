@@ -55,5 +55,9 @@ export const roundedSideVariants = cva("", {
 });
 
 // Type for rounded props
+<<<<<<< HEAD
+export interface RoundedProps extends VariantProps<typeof roundedVariants> {} 
+=======
 export interface RoundedProps extends VariantProps<typeof roundedVariants> {} 
 export interface RoundedSideProps extends VariantProps<typeof roundedSideVariants> {} 
+>>>>>>> 29c4955 (Add DashLayout component and update dependencies)

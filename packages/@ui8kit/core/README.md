@@ -166,6 +166,10 @@ Create `apps/web/package.json` (aligned with the provided example):
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+<<<<<<< HEAD
+    "@types/node": "^24.5.2",
+=======
+>>>>>>> 29c4955 (Add DashLayout component and update dependencies)
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.18",
     "class-variance-authority": "^0.7.0",
@@ -212,6 +216,24 @@ Create `apps/web/tsconfig.json`:
 }
 ```
 
+<<<<<<< HEAD
+Create `tsconfig.node.json`:
+
+```json
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+```
+
+=======
+>>>>>>> 29c4955 (Add DashLayout component and update dependencies)
 Create `apps/web/vite.config.ts`:
 
 ```ts
