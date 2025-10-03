@@ -1,0 +1,81 @@
+@layer components {
+  .nav-bar { @apply bg-background border-b border-border py-2 shadow-lg w-full; }
+  .container-n5g622 { @apply max-w-screen-xl mx-auto px-4 text-left; }
+  .group-1na4zcc { @apply flex flex-nowrap gap-4 items-center justify-between min-w-0; }
+  .group-rvpbiw { @apply flex flex-nowrap gap-4 items-center justify-start min-w-0; }
+  .title-1mrwc8p { @apply font-bold leading-normal text-2xl text-left text-primary tracking-tight; }
+  .text-1e54r7p { @apply font-normal leading-normal text-left text-secondary-foreground text-sm; }
+  .group-1g29ad2 { @apply flex flex-nowrap gap-2 items-center justify-start min-w-0; }
+  .nav-1g29ad2 { @apply flex flex-nowrap gap-2 items-center justify-start min-w-0; }
+  .button-1ql3wgj { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-9 hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center mr-1 outline-none px-3 rounded-lg shrink-0 text-sm transition-all whitespace-nowrap; }
+  .icon-19b8p1g { @apply flex h-4 items-center justify-center text-foreground w-4; }
+  .svg-1ux8aqv { @apply h-4 lucide lucide-moon text-foreground w-4; }
+  .main-page { @apply py-16 w-full; }
+  .grid-vi752v { @apply gap-6 grid grid-cols-1 items-stretch justify-start lg:grid-cols-4; }
+  .main-content { @apply col-span-3 order-2; }
+  .stack-1amsftj { @apply flex flex-col gap-6 items-stretch justify-start text-left; }
+  .block-wkrcmn { @apply py-16 w-full; }
+  .icon-fu5ji { @apply flex h-4 items-center justify-center text-muted-foreground w-4; }
+  .svg-1s2ys62 { @apply h-4 lucide lucide-chevron-right text-muted-foreground w-4; }
+  .text-poukik { @apply font-normal leading-normal text-foreground text-left text-sm; }
+  .title-1jwu9zr { @apply font-bold leading-normal text-3xl text-foreground text-left tracking-tight; }
+  .text-1dz02s4 { @apply font-normal leading-normal text-base text-left text-secondary-foreground; }
+  .grid-ag6dji { @apply gap-6 grid grid-cols-1 items-stretch justify-start lg:grid-cols-3 md:grid-cols-2; }
+  .card-rjgb6p { @apply bg-card border border-border p-6 rounded-xl shadow-md text-card-foreground transition-colors; }
+  .image-o09w24 { @apply block h-auto object-center object-cover rounded-lg w-full; }
+  .stack-1i9jue1 { @apply flex flex-col gap-4 items-stretch justify-start text-left; }
+  .title-1o9ucpm { @apply font-semibold leading-normal text-foreground text-left text-xl tracking-tight; }
+  .text-vyw1dr { @apply font-normal leading-relaxed text-left text-secondary-foreground text-sm; }
+  .sidebar-1xjaabg { @apply col-span-1 order-1; }
+  .block-1gzz0fc { @apply w-full; }
+  .search-input { @apply bg-input border border-input focus:outline-none focus:ring focus:ring-primary p-2 rounded-lg text-foreground text-sm; }
+  .button-3s4wur { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-primary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-9 hover:bg-primary/90 inline-flex items-center justify-center mr-1 outline-none px-3 rounded-lg shrink-0 text-primary-foreground text-sm transition-all whitespace-nowrap; }
+  .title-xf62h9 { @apply font-semibold leading-normal text-foreground text-left text-lg tracking-tight; }
+  .stack-qm1g5v { @apply flex flex-col gap-2 items-stretch justify-start text-left; }
+  .badge-uqafxq { @apply bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring font-semibold hover:bg-secondary/80 inline-flex items-center px-2 py-0.5 rounded-full text-secondary-foreground text-xs transition-colors; }
+  .small-media-card { @apply bg-card border border-border p-4 rounded-lg shadow-none text-card-foreground transition-colors; }
+  .group-zdku3z { @apply flex flex-nowrap gap-4 items-start justify-start min-w-0; }
+  .image-1l2kf9r { @apply aspect-square block object-center object-cover rounded-md; }
+  .title-3h03kc { @apply font-bold leading-normal text-foreground text-left text-sm tracking-tight; }
+  .text-1225bji { @apply font-normal leading-relaxed text-left text-secondary-foreground text-xs; }
+  .newsletter-signup { @apply bg-primary border border-border p-6 rounded-xl shadow-md text-card-foreground transition-colors; }
+  .title-1m8dirb { @apply font-bold leading-normal text-left text-primary-foreground text-xl tracking-tight; }
+  .text-c8gwtb { @apply font-normal leading-relaxed text-left text-primary-foreground text-sm; }
+  .button-hdhltd { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-secondary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-9 hover:bg-secondary/80 inline-flex items-center justify-center mr-1 outline-none px-3 rounded-lg shrink-0 text-secondary-foreground text-sm transition-all w-full whitespace-nowrap; }
+  .site-footer { @apply bg-card border-border border-t py-8 w-full; }
+  .stack-1rsbidv { @apply flex flex-col gap-6 items-center justify-start text-left; }
+  .text-1s3stbx { @apply font-normal leading-normal text-center text-secondary-foreground text-sm; }
+  .group-wbifqn { @apply flex flex-nowrap gap-4 items-center justify-center min-w-0; }
+  .text-1lbxmjo { @apply font-normal leading-normal text-left text-secondary-foreground text-xs; }
+  .title-vjy8ic { @apply font-semibold leading-normal text-2xl text-foreground text-left tracking-tight; }
+  .post-card { @apply bg-card border border-border p-6 rounded-xl shadow-md text-card-foreground transition-colors; }
+  .stack-1bzjph0 { @apply flex flex-col gap-4 items-stretch justify-start p-0 text-left; }
+  .stack-ryrsv8 { @apply flex flex-col gap-4 items-end justify-start p-0 text-left; }
+  .button-1oc5njq { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-secondary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-9 hover:bg-secondary/80 inline-flex items-center justify-center mr-1 outline-none px-3 rounded-lg shrink-0 text-secondary-foreground text-sm transition-all whitespace-nowrap; }
+  .sidebar-1yd93ed { @apply col-span-1 order-2; }
+  .card-1hktqsp { @apply bg-card border border-border p-6 rounded-lg shadow-sm text-card-foreground transition-colors; }
+  .image-1yfrbg6 { @apply block object-center object-cover rounded-full w-auto; }
+  .button-193wynb { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-primary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-9 hover:bg-primary/90 inline-flex items-center justify-center m-2 mr-1 outline-none px-3 rounded-lg shrink-0 text-primary-foreground text-sm transition-all whitespace-nowrap; }
+  .hero-section { @apply flex flex-col gap-10 items-stretch justify-start py-16 text-left; }
+  .stack-gnmspl { @apply flex flex-col gap-4 items-center justify-start text-center; }
+  .title-1d088io { @apply font-bold leading-normal text-4xl text-foreground text-left tracking-tight; }
+  .text-13b77d2 { @apply font-normal leading-relaxed text-left text-lg text-secondary-foreground; }
+  .button-hb6moh { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-primary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-11 hover:bg-primary/90 inline-flex items-center justify-center mr-1 outline-none px-8 rounded-lg shrink-0 text-primary-foreground text-sm transition-all whitespace-nowrap; }
+  .button-1pn38vg { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-secondary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-11 hover:bg-secondary/80 inline-flex items-center justify-center mr-1 outline-none px-8 rounded-lg shrink-0 text-secondary-foreground text-sm transition-all whitespace-nowrap; }
+  .grid-1yozxz5 { @apply gap-6 grid grid-cols-1 items-stretch justify-start lg:grid-cols-4 md:grid-cols-2; }
+  .stack-a34b9h { @apply flex flex-col gap-0 items-stretch justify-start text-left; }
+  .image-6xnfew { @apply block h-auto object-center object-cover rounded-none rounded-t-xl w-full; }
+  .stack-149fd3s { @apply flex flex-col gap-4 items-stretch justify-start p-4 text-left; }
+  .stack-1b26yo8 { @apply flex flex-col gap-4 items-end justify-start p-4 text-left; }
+  .title-i0vzod { @apply font-semibold leading-normal text-3xl text-foreground text-left tracking-tight; }
+  .svg-xdlpfy { @apply h-4 lucide lucide-calendar text-muted-foreground w-4; }
+  .svg-szk2aa { @apply h-4 lucide lucide-tag text-muted-foreground w-4; }
+  .div-127v64c { @apply prose; }
+  .grid-18fwuw1 { @apply gap-6 grid grid-cols-1 items-stretch justify-start md:grid-cols-2; }
+  .badge-1s7nk9z { @apply bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring font-semibold hover:bg-secondary/80 inline-flex items-center px-2.5 py-0.5 rounded-full text-secondary-foreground text-xs transition-colors; }
+  .image-bgzftv { @apply block object-center object-cover rounded-full; }
+  .text-2nt0g4 { @apply font-bold leading-normal text-left text-secondary-foreground text-xs; }
+  .subtitle-1o9ucpm { @apply font-semibold leading-normal text-foreground text-left text-xl tracking-tight; }
+  .stack-button { @apply flex flex-col gap-4 items-center justify-center text-left; }
+  .button-1lo0yr4 { @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-primary disabled:opacity-50 disabled:pointer-events-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 font-medium gap-2 h-10 hover:bg-primary/90 inline-flex items-center justify-center mr-1 outline-none px-4 py-2 rounded-lg shrink-0 text-primary-foreground text-sm transition-all whitespace-nowrap; }
+}

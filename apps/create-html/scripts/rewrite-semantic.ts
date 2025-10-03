@@ -1,5 +1,5 @@
 // bun apps/create-html/scripts/rewrite-semantic.ts /about
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import { parse, serialize } from 'parse5'
 import { targets } from '../config/targets'
@@ -101,7 +101,8 @@ async function main() {
   const jsonDir = analyzeDomConfig.outputDir
   const jsonPath = join(process.cwd(), jsonDir, `${fileBase}.json`)
   if (!existsSync(jsonPath)) {
-    throw new Error(`JSON not found: ${jsonPath}. Run analyze-dom first.`)
+    console.warn(`⚠️  JSON not found for route ${normalized}: ${jsonPath}. Skipping.`)
+    return
   }
   const json: JsonEntry[] = JSON.parse(readFileSync(jsonPath, 'utf8'))
   const classToToken = new Map<string, string>()
@@ -111,32 +112,77 @@ async function main() {
     if (!classToToken.has(sig)) classToToken.set(sig, e.dataClass)
   }
 
-  // Find the first target where HTML exists
-  let htmlPath: string | null = null
-  let pageDir: string | null = null
-  for (const t of targets) {
-    const dir = normalized === '/' ? t.outputDir : join(t.outputDir, normalized.replace(/^\//, ''))
-    const candidate = join(process.cwd(), dir, 'index.html')
-    if (existsSync(candidate)) {
-      htmlPath = candidate
-      pageDir = join(process.cwd(), dir)
-      break
+  // If route is provided → process only that route directory
+  if (process.argv[2] && normalized !== '/') {
+    // Find the first target where HTML exists
+    let htmlPath: string | null = null
+    let pageDir: string | null = null
+    for (const t of targets) {
+      const dir = join(t.outputDir, normalized.replace(/^\//, ''))
+      const candidate = join(process.cwd(), dir, 'index.html')
+      if (existsSync(candidate)) {
+        htmlPath = candidate
+        pageDir = join(process.cwd(), dir)
+        break
+      }
+    }
+    if (!htmlPath || !pageDir) throw new Error(`index.html not found for route ${normalized}`)
+    const html = readFileSync(htmlPath, 'utf8')
+    const rewritten = rewriteHtmlWithTokens(html, classToToken)
+    writeFileSync(htmlPath, rewritten)
+    const cssPath = join(pageDir, 'input.css')
+    writeFileSync(cssPath, buildApplyCss(json))
+    console.log(`\n✅ Rewrote: ${htmlPath}`)
+    console.log(`✅ CSS: ${cssPath}`)
+    return
+  }
+
+  // No route or '/' → process whole site: rewrite all pages and emit one shared input.css at site root
+  // 1) Aggregate all tokens and classes from every JSON in @parse
+  const parseDir = join(process.cwd(), analyzeDomConfig.outputDir)
+  const aggregateEntries: JsonEntry[] = []
+  if (existsSync(parseDir)) {
+    const files = readdirSync(parseDir)
+    for (const f of files) {
+      if (!f.endsWith('.json')) continue
+      try {
+        const arr: JsonEntry[] = JSON.parse(readFileSync(join(parseDir, f), 'utf8'))
+        aggregateEntries.push(...arr)
+      } catch {}
     }
   }
-  if (!htmlPath || !pageDir) {
-    throw new Error(`index.html not found for route ${normalized} in any configured target`)
+  const aggregateMap = new Map<string, string>()
+  for (const e of aggregateEntries) {
+    if (!e.dataClass || !e.className) continue
+    const sig = normalizeClasses(e.className)
+    if (!aggregateMap.has(sig)) aggregateMap.set(sig, e.dataClass)
   }
 
-  const html = readFileSync(htmlPath, 'utf8')
-  const rewritten = rewriteHtmlWithTokens(html, classToToken)
-  writeFileSync(htmlPath, rewritten)
+  for (const t of targets) {
+    const rootDir = join(process.cwd(), t.outputDir)
+    const siteCssPath = join(rootDir, 'input.css')
+    writeFileSync(siteCssPath, buildApplyCss(aggregateEntries))
 
-  // Write input.css next to html
-  if (!existsSync(pageDir)) mkdirSync(pageDir, { recursive: true })
-  const cssPath = join(pageDir, 'input.css')
-  writeFileSync(cssPath, buildApplyCss(json))
-  console.log(`\n✅ Rewrote: ${htmlPath}`)
-  console.log(`✅ CSS: ${cssPath}`)
+    // 2) Recursively rewrite every index.html under outputDir
+    const htmlPaths: string[] = []
+    const walk = (dir: string) => {
+      const items = readdirSync(dir)
+      for (const name of items) {
+        const p = join(dir, name)
+        const st = statSync(p)
+        if (st.isDirectory()) walk(p)
+        else if (st.isFile() && name === 'index.html') htmlPaths.push(p)
+      }
+    }
+    if (existsSync(rootDir)) walk(rootDir)
+
+    for (const htmlPath of htmlPaths) {
+      const html = readFileSync(htmlPath, 'utf8')
+      const rewritten = rewriteHtmlWithTokens(html, aggregateMap)
+      writeFileSync(htmlPath, rewritten)
+      console.log(`✅ Rewrote: ${htmlPath}`)
+    }
+  }
 }
 
 main().catch((e) => {

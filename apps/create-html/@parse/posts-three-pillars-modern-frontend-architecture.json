@@ -210,19 +210,49 @@
     "dataClass": "p"
   },
   {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[1].strong[1]",
-    "tag": "strong",
-    "dataClass": "strong"
-  },
-  {
     "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].h2[3]",
     "tag": "h2",
     "dataClass": "h2"
   },
   {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[9].code[1]",
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[5].strong[0]",
+    "tag": "strong",
+    "dataClass": "strong"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[5].code[2]",
     "tag": "code",
     "dataClass": "code"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].blockquote[7]",
+    "tag": "blockquote",
+    "dataClass": "blockquote"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[11].em[1]",
+    "tag": "em",
+    "dataClass": "em"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].ul[13]",
+    "tag": "ul",
+    "dataClass": "ul"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].ul[13].li[1]",
+    "tag": "li",
+    "dataClass": "li"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].pre[19]",
+    "tag": "pre",
+    "dataClass": "pre"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].hr[21]",
+    "tag": "hr",
+    "dataClass": "hr"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[5]",

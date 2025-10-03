@@ -149,6 +149,72 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   return { App, Route, routePatternPath }
 }
 
+async function listAllRoutes(entryPath: string): Promise<string[]> {
+  const absEntryPath = join(process.cwd(), entryPath)
+  const source = await (await import('fs')).promises.readFile(absEntryPath, 'utf8')
+
+  const routerArrayRegex = /createBrowserRouter\(\s*\[([\s\S]*?)\]\s*\)/m
+  const arrayMatch = routerArrayRegex.exec(source)
+  if (!arrayMatch) return ['/']
+  const arrayBlock = arrayMatch[1]
+
+  const childrenBlockRegex = /children:\s*\[([\s\S]*?)\]/m
+  const blockMatch = childrenBlockRegex.exec(source)
+  const childrenBlock = blockMatch ? blockMatch[1] : ''
+  const routeEntryRegex = /\{\s*(index:\s*true|path:\s*['"]([^'\"]+)['"])\s*,\s*element:\s*<\s*([A-Za-z0-9_]+)\s*\/>/g
+
+  const childrenPaths: string[] = []
+  let r: RegExpExecArray | null
+  if (childrenBlock) {
+    while ((r = routeEntryRegex.exec(childrenBlock)) !== null) {
+      const isIndex = r[1] && r[1].includes('index')
+      const raw = r[2]
+      const p = isIndex ? '/' : (raw && raw.startsWith('/') ? raw : `/${raw}`)
+      childrenPaths.push(p)
+    }
+  }
+
+  const topBlock = arrayBlock.replace(/children:\s*\[(?:[\s\S]*?)\]/g, '')
+  const topPaths: string[] = []
+  while ((r = routeEntryRegex.exec(topBlock)) !== null) {
+    const isIndex = r[1] && r[1].includes('index')
+    const raw = r[2]
+    const p = isIndex ? '/' : (raw && raw.startsWith('/') ? raw : `/${raw}`)
+    topPaths.push(p)
+  }
+
+  // Remove root that maps to App
+  const appNameMatch = /element:\s*<\s*([A-Za-z0-9_]+)\s*\/>[\s\S]*?children\s*:\s*\[/m.exec(source)
+  const appName = appNameMatch ? appNameMatch[1] : undefined
+  // Not resolving components here; keep '/' anyway
+  const all = new Set<string>([...topPaths, ...childrenPaths])
+
+  // Expand dynamics using data
+  const dataModulePath = join(process.cwd(), 'apps/vite/src/data/index.ts')
+  try {
+    const dataModule = await import(pathToFileURL(dataModulePath).href)
+    const renderContext = dataModule.renderContext
+    const expanded: string[] = []
+    for (const p of all) {
+      if (p.includes('/:')) {
+        const base = p.replace('/:slug', '')
+        const derived = derivePatternFromConcretePath(base + 'dummy') // use base to decide category
+        let slugs: string[] = []
+        if (p.includes('/posts/:slug')) slugs = (renderContext.posts?.posts || []).map((x: any) => x.slug)
+        else if (p.includes('/category/:slug')) slugs = (renderContext.categories || []).map((x: any) => x.slug)
+        else if (p.includes('/tag/:slug')) slugs = (renderContext.tags || []).map((x: any) => x.slug)
+        else if (p.includes('/author/:slug')) slugs = (renderContext.authors || []).map((x: any) => x.slug)
+        for (const s of slugs) expanded.push(p.replace('/:slug', `/${s}`))
+      } else {
+        expanded.push(p)
+      }
+    }
+    return Array.from(new Set(expanded))
+  } catch {
+    return Array.from(all)
+  }
+}
+
 const baseTokenHyphenRule = (token?: string) => !!token && !token.includes('-')
 
 function normalizeClasses(str?: string) {
@@ -191,28 +257,44 @@ async function main() {
   const routeArg = sanitizeRouteArg(rawArg)
   const normalized = normalizeRoutePath(routeArg)
   const { routerEntryPath, outputDir } = analyzeDomConfig
-  const { App, Route, routePatternPath } = await loadRouteComponents(routerEntryPath, normalized)
-  const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement({ AppComponent: App, RouteComponent: Route, normalizedPath: normalized, routePatternPath, useLayout: analyzeDomConfig.useLayout }) })
-  const html = renderToStaticMarkup(element)
-  const doc = parse(html) as any
-  const report: any[] = []
-  collectNodes(doc, report)
-  // Dedupe by (dataClass || tag) signature + className
-  const seen = new Set<string>()
-  const unique: any[] = []
-  for (const rec of report) {
-    const key = `${rec.dataClass || rec.tag}|${normalizeClasses(rec.className)}`
-    if (seen.has(key)) continue
-    seen.add(key)
-    unique.push(rec)
+  const routes = (!process.argv[2] || normalized === '/')
+    ? await listAllRoutes(routerEntryPath)
+    : [normalized]
+
+  for (const routePath of routes) {
+    // Skip wildcard catch-all routes
+    if (routePath.includes('*')) {
+      console.warn(`⏭️  Skipping wildcard route: ${routePath}`)
+      continue
+    }
+    try {
+      const { App, Route, routePatternPath } = await loadRouteComponents(routerEntryPath, routePath)
+      const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement({ AppComponent: App, RouteComponent: Route, normalizedPath: routePath, routePatternPath, useLayout: analyzeDomConfig.useLayout }) })
+      const html = renderToStaticMarkup(element)
+      const doc = parse(html) as any
+      const report: any[] = []
+      collectNodes(doc, report)
+      // Dedupe by (dataClass || tag) signature + className
+      const seen = new Set<string>()
+      const unique: any[] = []
+      for (const rec of report) {
+        const key = `${rec.dataClass || rec.tag}|${normalizeClasses(rec.className)}`
+        if (seen.has(key)) continue
+        seen.add(key)
+        unique.push(rec)
+      }
+      // Write to @parse/<name>.json under apps/create-html
+      const outDir = join(process.cwd(), outputDir)
+      if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
+      const fileBase = toSafeFileBase(routePath)
+      const outPath = join(outDir, `${fileBase}.json`)
+      writeFileSync(outPath, JSON.stringify(unique, null, 2))
+      console.log(`✅ Wrote report: ${outPath}`)
+    } catch (err) {
+      console.warn(`⚠️  Failed analyzing route ${routePath}:`, (err as any).message || err)
+      continue
+    }
   }
-  // Write to @parse/<name>.json under apps/create-html
-  const outDir = join(process.cwd(), outputDir)
-  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
-  const fileBase = normalized === '/' ? 'index' : normalized.replace(/^\//, '').replace(/\//g, '-')
-  const outPath = join(outDir, `${fileBase}.json`)
-  writeFileSync(outPath, JSON.stringify(unique, null, 2))
-  console.log(`\n✅ Wrote report: ${outPath}`)
 }
 
 main().catch((e) => {
@@ -267,6 +349,13 @@ function shortHash(str: string): string {
     h = Math.imul(h, 0x01000193) >>> 0
   }
   return (h.toString(36)).slice(0, 7)
+}
+
+function toSafeFileBase(routePath: string): string {
+  if (routePath === '/') return 'index'
+  // remove leading slash, replace slashes with dashes, strip wildcard and illegal filename chars
+  const base = routePath.replace(/^\//, '').replace(/\//g, '-')
+  return base.replace(/[<>:"/\\|?*]+/g, '-')
 }
 
 

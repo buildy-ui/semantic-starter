@@ -19,6 +19,14 @@
     "html": {
       "dependsOn": ["build"],
       "outputs": ["examples/**"]
+    },
+    "html:tw4": {
+      "dependsOn": [],
+      "outputs": []
+    },
+    "tw4:html": {
+      "dependsOn": [],
+      "outputs": []
     }
   }
 }

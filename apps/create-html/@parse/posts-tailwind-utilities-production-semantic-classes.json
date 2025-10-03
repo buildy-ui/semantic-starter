@@ -210,11 +210,6 @@
     "dataClass": "p"
   },
   {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[1].strong[1]",
-    "tag": "strong",
-    "dataClass": "strong"
-  },
-  {
     "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].h2[3]",
     "tag": "h2",
     "dataClass": "h2"
@@ -223,6 +218,21 @@
     "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].p[9].code[1]",
     "tag": "code",
     "dataClass": "code"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].figure[15]",
+    "tag": "figure",
+    "dataClass": "figure"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].figure[15].img[1]",
+    "tag": "img",
+    "dataClass": "img"
+  },
+  {
+    "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[4].figure[15].figcaption[3]",
+    "tag": "figcaption",
+    "dataClass": "figcaption"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].div[0].div[0].article[0].div[0].div[5]",

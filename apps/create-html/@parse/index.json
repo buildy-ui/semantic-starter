@@ -1,5 +1,25 @@
 [
   {
+    "path": "root.html[0]",
+    "tag": "html",
+    "dataClass": "html"
+  },
+  {
+    "path": "root.html[0].head[0]",
+    "tag": "head",
+    "dataClass": "head"
+  },
+  {
+    "path": "root.html[0].head[0].link[0]",
+    "tag": "link",
+    "dataClass": "link"
+  },
+  {
+    "path": "root.html[0].body[1]",
+    "tag": "body",
+    "dataClass": "body"
+  },
+  {
     "path": "root.html[0].body[1].nav[0]",
     "tag": "nav",
     "dataClass": "nav-bar",
@@ -8,79 +28,82 @@
   {
     "path": "root.html[0].body[1].nav[0].div[0]",
     "tag": "div",
-    "dataClass": "container",
+    "dataClass": "container-n5g622",
     "className": "max-w-screen-xl mx-auto text-left px-4"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0]",
     "tag": "div",
-    "dataClass": "group",
+    "dataClass": "group-1na4zcc",
     "className": "flex items-center justify-between flex-nowrap gap-4 min-w-0"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0]",
     "tag": "div",
-    "dataClass": "group",
+    "dataClass": "group-rvpbiw",
     "className": "flex items-center justify-start flex-nowrap gap-4 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0].a[0]",
+    "tag": "a",
+    "dataClass": "a"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0].a[0].h2[0]",
     "tag": "h2",
-    "dataClass": "title",
+    "dataClass": "title-1mrwc8p",
     "className": "tracking-tight text-2xl font-bold text-left leading-normal text-primary"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[0].p[1]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-1e54r7p",
     "className": "text-sm font-normal text-left leading-normal text-secondary-foreground"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1]",
     "tag": "div",
-    "dataClass": "group",
+    "dataClass": "group-1g29ad2",
     "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0]",
+    "tag": "nav",
+    "dataClass": "nav"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0]",
     "tag": "div",
-    "dataClass": "nav",
+    "dataClass": "nav-1g29ad2",
     "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[0]",
     "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[1]",
-    "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].nav[0].div[0].button[2]",
-    "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1]",
-    "tag": "button",
-    "dataClass": "button",
+    "dataClass": "button-1ql3wgj",
     "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0]",
     "tag": "span",
-    "dataClass": "icon",
+    "dataClass": "icon-19b8p1g",
     "className": "flex items-center justify-center w-4 h-4 text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0].span[0]",
+    "tag": "span",
+    "dataClass": "span"
   },
   {
     "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0].span[0].svg[0]",
     "tag": "svg",
+    "dataClass": "svg-1ux8aqv",
     "className": "lucide lucide-moon w-4 h-4 text-foreground"
+  },
+  {
+    "path": "root.html[0].body[1].nav[0].div[0].div[0].div[1].button[1].span[0].span[0].svg[0].path[0]",
+    "tag": "path",
+    "dataClass": "path"
   },
   {
     "path": "root.html[0].body[1].main[1]",
@@ -89,21 +112,15 @@
     "className": "py-16 w-full"
   },
   {
-    "path": "root.html[0].body[1].main[1].div[0]",
-    "tag": "div",
-    "dataClass": "container",
-    "className": "max-w-screen-xl mx-auto text-left px-4"
-  },
-  {
     "path": "root.html[0].body[1].main[1].div[0].div[0]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-1amsftj",
     "className": "flex flex-col items-stretch justify-start gap-6 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0]",
     "tag": "main",
-    "dataClass": "block",
+    "dataClass": "block-wkrcmn",
     "className": "py-16 w-full"
   },
   {
@@ -115,199 +132,97 @@
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[0]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-gnmspl",
     "className": "flex flex-col items-center justify-start gap-4 text-center"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[0].h1[0]",
     "tag": "h1",
-    "dataClass": "title",
+    "dataClass": "title-1d088io",
     "className": "tracking-tight text-4xl font-bold text-left leading-normal text-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[0].p[1]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-13b77d2",
     "className": "text-lg font-normal text-left leading-relaxed text-secondary-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[1]",
     "tag": "div",
-    "dataClass": "group",
+    "dataClass": "group-wbifqn",
     "className": "flex items-center justify-center flex-nowrap gap-4 min-w-0"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[1].button[0]",
     "tag": "button",
-    "dataClass": "button",
+    "dataClass": "button-hb6moh",
     "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[0].div[1].button[1]",
     "tag": "button",
-    "dataClass": "button",
+    "dataClass": "button-1pn38vg",
     "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-11 px-8 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[0].h2[0]",
     "tag": "h2",
-    "dataClass": "title",
+    "dataClass": "title-1jwu9zr",
     "className": "tracking-tight text-3xl font-bold text-left leading-normal text-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[0].p[1]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-1dz02s4",
     "className": "text-base font-normal text-left leading-normal text-secondary-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1]",
     "tag": "div",
-    "dataClass": "grid",
+    "dataClass": "grid-ag6dji",
     "className": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-start"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0]",
     "tag": "div",
-    "dataClass": "card",
+    "dataClass": "card-rjgb6p",
     "className": "text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0].div[0].img[0]",
     "tag": "img",
-    "dataClass": "image",
+    "dataClass": "image-o09w24",
     "className": "block object-cover object-center w-full h-auto rounded-lg"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0].div[0].div[1]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-1i9jue1",
     "className": "flex flex-col items-stretch justify-start gap-4 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0].div[0].div[1].h3[0]",
     "tag": "h3",
-    "dataClass": "title",
+    "dataClass": "title-1o9ucpm",
     "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[0].div[0].div[1].p[1]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-vyw1dr",
     "className": "text-sm font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1]",
-    "tag": "div",
-    "dataClass": "card",
-    "className": "text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1].div[0].img[0]",
-    "tag": "img",
-    "dataClass": "image",
-    "className": "block object-cover object-center w-full h-auto rounded-lg"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1].div[0].div[1].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[1].div[0].div[1].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-sm font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "card",
-    "className": "text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-6 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2].div[0].img[0]",
-    "tag": "img",
-    "dataClass": "image",
-    "className": "block object-cover object-center w-full h-auto rounded-lg"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2].div[0].div[1].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[1].div[2].div[0].div[1].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-sm font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].h2[0]",
     "tag": "h2",
-    "dataClass": "title",
+    "dataClass": "title-vjy8ic",
     "className": "tracking-tight text-2xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-base font-normal text-left leading-normal text-secondary-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2]",
     "tag": "div",
-    "dataClass": "grid",
+    "dataClass": "grid-1yozxz5",
     "className": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch justify-start"
   },
   {
@@ -319,259 +234,43 @@
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-a34b9h",
     "className": "flex flex-col items-stretch justify-start gap-0 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].a[0].img[0]",
     "tag": "img",
-    "dataClass": "image",
+    "dataClass": "image-6xnfew",
     "className": "block object-cover object-center w-full h-auto rounded-none rounded-t-xl"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-149fd3s",
     "className": "flex flex-col items-stretch justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1].a[0].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1].p[1]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-1225bji",
     "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "group",
-    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1].div[2].div[0]",
     "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[1].div[2].div[1]",
-    "tag": "div",
-    "dataClass": "badge",
+    "dataClass": "badge-uqafxq",
     "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[2]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-1b26yo8",
     "className": "flex flex-col items-end justify-start gap-4 p-4 text-left"
   },
   {
     "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[0].div[0].div[2].a[0].button[0]",
     "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1]",
-    "tag": "div",
-    "dataClass": "post-card",
-    "className": "text-card-foreground transition-colors p-0 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-0 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].a[0].img[0]",
-    "tag": "img",
-    "dataClass": "image",
-    "className": "block object-cover object-center w-full h-auto rounded-none rounded-t-xl"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1].a[0].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "group",
-    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1].div[2].div[0]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[1].div[2].div[1]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[2]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-end justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[1].div[0].div[2].a[0].button[0]",
-    "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2]",
-    "tag": "div",
-    "dataClass": "post-card",
-    "className": "text-card-foreground transition-colors p-0 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-0 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].a[0].img[0]",
-    "tag": "img",
-    "dataClass": "image",
-    "className": "block object-cover object-center w-full h-auto rounded-none rounded-t-xl"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1].a[0].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "group",
-    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1].div[2].div[0]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[1].div[2].div[1]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[2]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-end justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[2].div[0].div[2].a[0].button[0]",
-    "tag": "button",
-    "dataClass": "button",
-    "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3]",
-    "tag": "div",
-    "dataClass": "post-card",
-    "className": "text-card-foreground transition-colors p-0 rounded-xl shadow-md bg-card border border-border"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-0 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].a[0].img[0]",
-    "tag": "img",
-    "dataClass": "image",
-    "className": "block object-cover object-center w-full h-auto rounded-none rounded-t-xl"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-stretch justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1].a[0].h3[0]",
-    "tag": "h3",
-    "dataClass": "title",
-    "className": "tracking-tight text-xl font-semibold text-left leading-normal text-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1].p[1]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-xs font-normal text-left leading-relaxed text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1].div[2]",
-    "tag": "div",
-    "dataClass": "group",
-    "className": "flex items-center justify-start flex-nowrap gap-2 min-w-0"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1].div[2].div[0]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[1].div[2].div[1]",
-    "tag": "div",
-    "dataClass": "badge",
-    "className": "inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[2]",
-    "tag": "div",
-    "dataClass": "stack",
-    "className": "flex flex-col items-end justify-start gap-4 p-4 text-left"
-  },
-  {
-    "path": "root.html[0].body[1].main[1].div[0].div[0].main[0].div[1].div[2].div[2].div[3].div[0].div[2].a[0].button[0]",
-    "tag": "button",
-    "dataClass": "button",
+    "dataClass": "button-1oc5njq",
     "className": "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1"
   },
   {
@@ -581,45 +280,21 @@
     "className": "py-8 bg-card border-border w-full border-t"
   },
   {
-    "path": "root.html[0].body[1].footer[2].div[0]",
-    "tag": "div",
-    "dataClass": "container",
-    "className": "max-w-screen-xl mx-auto text-left px-4"
-  },
-  {
     "path": "root.html[0].body[1].footer[2].div[0].div[0]",
     "tag": "div",
-    "dataClass": "stack",
+    "dataClass": "stack-1rsbidv",
     "className": "flex flex-col items-center justify-start gap-6 text-left"
   },
   {
     "path": "root.html[0].body[1].footer[2].div[0].div[0].p[0]",
     "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-1s3stbx",
     "className": "text-sm font-normal text-center leading-normal text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1]",
-    "tag": "div",
-    "dataClass": "group",
-    "className": "flex items-center justify-center flex-nowrap gap-4 min-w-0"
   },
   {
     "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[0].p[0]",
     "tag": "p",
-    "dataClass": "text",
-    "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[1].p[0]",
-    "tag": "p",
-    "dataClass": "text",
-    "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
-  },
-  {
-    "path": "root.html[0].body[1].footer[2].div[0].div[0].div[1].a[2].p[0]",
-    "tag": "p",
-    "dataClass": "text",
+    "dataClass": "text-1lbxmjo",
     "className": "text-xs font-normal text-left leading-normal text-secondary-foreground"
   }
 ]

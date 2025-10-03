@@ -1,5 +1,4 @@
 @import "tailwindcss";
 @import "./shadcn-hsl.css";
+@import "./input.css";
 @source "./html/**/*.html";
-
-

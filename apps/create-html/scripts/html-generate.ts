@@ -8,6 +8,7 @@ import { writeFileSync, mkdirSync, existsSync, cpSync, readdirSync, readFileSync
 import { join, dirname } from 'path'
 import { pathToFileURL } from 'url'
 import pretty from 'pretty'
+import { parse } from 'parse5'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
 
@@ -21,14 +22,65 @@ type GenerateOptions = {
   path?: string
 }
 
+function encodeAttr(val?: string) {
+  if (!val) return ''
+  return val.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+function extractSeoFromContent(content: string): { title?: string; description?: string } {
+  try {
+    const doc: any = parse(`<body>${content}</body>`)
+    let foundTitle: string | undefined
+    let foundDesc: string | undefined
+
+    function getText(n: any): string {
+      if (!n) return ''
+      if (n.nodeName === '#text') return String(n.value || '').trim()
+      const children = n.childNodes || []
+      let out = ''
+      for (const c of children) {
+        const t = getText(c)
+        if (t) out += (out ? ' ' : '') + t
+      }
+      return out.trim()
+    }
+
+    function walk(n: any) {
+      if (!n || (foundTitle && foundDesc)) return
+      const tag = n.tagName
+      if (!foundTitle && (tag === 'h1' || tag === 'h2' || tag === 'h3')) {
+        const t = getText(n)
+        if (t) foundTitle = t
+      }
+      if (!foundDesc && tag === 'p') {
+        const t = getText(n)
+        if (t && t.length >= 40) foundDesc = t
+      }
+      const children = n.childNodes || []
+      for (const c of children) walk(c)
+    }
+
+    walk(doc)
+    return { title: foundTitle, description: foundDesc }
+  } catch {
+    return {}
+  }
+}
+
 function createHTMLDocument(content: string, title = 'App') {
+  const seo = extractSeoFromContent(content)
+  const pageTitle = seo.title || title
+  const pageDesc = seo.description
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title}</title>
-  <link rel="stylesheet" href="/styles.legacy.css">
+  <title>${encodeAttr(pageTitle)}</title>
+  ${pageDesc ? `<meta name=\"description\" content=\"${encodeAttr(pageDesc)}\">` : ''}
+  <meta property="og:title" content="${encodeAttr(pageTitle)}">
+  ${pageDesc ? `<meta property=\"og:description\" content=\"${encodeAttr(pageDesc)}\">` : ''}
+  
   <link rel="stylesheet" href="/styles.css">
   <script>
     (function() {
