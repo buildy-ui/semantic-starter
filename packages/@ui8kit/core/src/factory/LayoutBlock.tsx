@@ -152,11 +152,7 @@ const DefaultItemRenderers = {
           </Box>
         )}
 
-<<<<<<< HEAD
         <Stack gap="xs">
-=======
-        <Stack gap="sm">
->>>>>>> 29c4955 (Add DashLayout component and update dependencies)
           <Title order={3} size="lg" fw="semibold">
             {item.title}
           </Title>
@@ -187,11 +183,7 @@ const DefaultItemRenderers = {
         </Box>
       )}
 
-<<<<<<< HEAD
       <Stack gap="xs">
-=======
-      <Stack gap="sm">
->>>>>>> 29c4955 (Add DashLayout component and update dependencies)
         <Title order={3} size="lg" fw="semibold">
           {item.title}
         </Title>
@@ -221,11 +213,7 @@ const DefaultItemRenderers = {
         </Box>
       )}
 
-<<<<<<< HEAD
       <Stack gap="xs">
-=======
-      <Stack gap="sm">
->>>>>>> 29c4955 (Add DashLayout component and update dependencies)
         <Title order={3} size="lg" fw="semibold">
           {item.title}
         </Title>
@@ -366,11 +354,7 @@ export const LayoutBlock = forwardRef<HTMLElement, LayoutBlockProps>(
 
     // Main content
     const mainContent = (
-<<<<<<< HEAD
       <Stack gap="3xl" align={headerAlign}>
-=======
-      <Stack gap="lg" align={headerAlign}>
->>>>>>> 29c4955 (Add DashLayout component and update dependencies)
         {renderHeader()}
         {renderItems()}
       </Stack>
