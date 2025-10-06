@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @import "./shadcn.css";
-@import "./prose.css";
 
-@source "../../../../../apps/admin/node_modules/.vite/deps/@ui8kit_core.js";
+@source "./core-classes.json";
 
 @layer base {
   button {
