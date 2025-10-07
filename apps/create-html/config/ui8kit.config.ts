@@ -19,7 +19,7 @@ export const ui8kitAnalyzeConfig: Ui8kitAnalyzeConfig = {
   routerEntryPath: 'apps/admin/src/main.tsx',
   aliasAtPrefix: '@/',
   aliasAtRoot: 'apps/admin/src',
-  outputDir: 'apps/admin/src/assets/css/json/.ui8kit',
+  outputDir: 'apps/admin/src/assets/json/.ui8kit',
   useLayout: true,
   trackNamespaces: 'auto',
 }

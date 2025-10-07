@@ -44,10 +44,22 @@ async function loadRouteComponents(entryPath: string, routePath: string) {
   const absEntryPath = join(process.cwd(), entryPath)
   const source = await (await import('fs')).promises.readFile(absEntryPath, 'utf8')
 
-  const importRegex = /import\s+([A-Za-z0-9_]+)\s+from\s+['"]([^'\"]+)['"];?/g
   const imports = new Map<string, string>()
+  // default imports: import Name from 'spec'
+  const importDefaultRegex = /import\s+([A-Za-z0-9_]+)\s+from\s+['"]([^'\"]+)['"];?/g
   let m: RegExpExecArray | null
-  while ((m = importRegex.exec(source)) !== null) imports.set(m[1], m[2])
+  while ((m = importDefaultRegex.exec(source)) !== null) imports.set(m[1], m[2])
+  // named imports: import { A, B as C } from 'spec'
+  const importNamedRegex = /import\s+\{([^}]+)\}\s+from\s+['"]([^'\"]+)['"];?/g
+  while ((m = importNamedRegex.exec(source)) !== null) {
+    const list = m[1]
+    const spec = m[2]
+    list.split(',').map(s => s.trim()).filter(Boolean).forEach(item => {
+      const parts = item.split(/\s+as\s+/i).map(x => x.trim())
+      const local = parts[1] || parts[0]
+      if (local) imports.set(local, spec)
+    })
+  }
 
   const routerArrayRegex = /createBrowserRouter\(\s*\[([\s\S]*?)\]\s*\)/m
   const arrayMatch = routerArrayRegex.exec(source)
@@ -164,38 +176,35 @@ function collectNodes(node: any, out: any[]) {
   children.forEach((c: any) => collectNodes(c, out))
 }
 
-async function determineNamespacesFromEntry(entryPath: string): Promise<Set<NamespaceKey>> {
-  const absEntryPath = join(process.cwd(), entryPath)
-  const source = await (await import('fs')).promises.readFile(absEntryPath, 'utf8')
-  const ns = new Set<NamespaceKey>()
-  const importRegex = /from\s+['"]@ui8kit\/([^'\"/]+)(?:\/[^'\"]*)?['"]/g
-  let m: RegExpExecArray | null
-  while ((m = importRegex.exec(source)) !== null) ns.add(m[1])
-  return ns
-}
+// No per-namespace analysis anymore
 
 async function main() {
   const cfg = ui8kitAnalyzeConfig
-  const namespaces = cfg.trackNamespaces === 'auto'
-    ? await determineNamespacesFromEntry(cfg.routerEntryPath)
-    : new Set<NamespaceKey>(cfg.trackNamespaces)
-
   const routes = await listAllRoutes(cfg.routerEntryPath)
-  const perNsSets = new Map<NamespaceKey, Set<string>>()
-  for (const ns of namespaces) perNsSets.set(ns, new Set<string>())
+  const routeToClasses = new Map<string, Set<string>>()
 
   for (const routePath of routes) {
     try {
+      if (routePath.includes('*')) {
+        console.warn(`⏭️  Skipping wildcard route: ${routePath}`)
+        continue
+      }
       const { imports, appName, compName } = await loadRouteComponents(cfg.routerEntryPath, routePath)
       if (!compName) continue
       const appSpec = imports.get(appName)!
       const routeSpec = imports.get(compName)!
-      // Determine namespace by import path of route component if it comes from @ui8kit/*
-      const routeNsMatch = /@ui8kit\/([^/]+)/.exec(routeSpec)
-      const targetNamespaces = routeNsMatch ? [routeNsMatch[1]] : Array.from(namespaces)
-
-      const App = (await import(pathToFileURL(await resolveImportToFile(appSpec)).href)).default
-      const Route = (await import(pathToFileURL(await resolveImportToFile(routeSpec)).href)).default
+      if (!appSpec || !routeSpec) {
+        console.warn(`⚠️  Skipping route ${routePath}: unable to resolve imports for App or Route`)
+        continue
+      }
+      const AppModule = await import(pathToFileURL(await resolveImportToFile(appSpec)).href)
+      const RouteModule = await import(pathToFileURL(await resolveImportToFile(routeSpec)).href)
+      const App = (AppModule as any)[appName] || (AppModule as any).default
+      const Route = (RouteModule as any)[compName] || (RouteModule as any).default
+      if (!App || !Route) {
+        console.warn(`⚠️  Skipping route ${routePath}: unresolved component export App=${!!App} Route=${!!Route}`)
+        continue
+      }
 
       const element = React.createElement(ThemeProvider as any, { theme: skyOSTheme, children: createRouterElement({ AppComponent: App, RouteComponent: Route, normalizedPath: routePath, useLayout: cfg.useLayout }) })
       const html = renderToStaticMarkup(element)
@@ -203,11 +212,7 @@ async function main() {
       const bucket: string[] = []
       collectNodes(doc, bucket)
       const unique = Array.from(new Set(bucket.flatMap(s => s.split(' ')).filter(Boolean)))
-      for (const ns of targetNamespaces) {
-        const set = perNsSets.get(ns)
-        if (!set) continue
-        unique.forEach(c => set.add(c))
-      }
+      routeToClasses.set(routePath === '/' ? 'index' : routePath.replace(/^\//,'').replace(/\//g,'-'), new Set(unique))
     } catch (err) {
       console.warn(`⚠️  Failed analyzing route ${routePath}:`, (err as any).message || err)
       continue
@@ -216,10 +221,10 @@ async function main() {
 
   const outDir = join(process.cwd(), cfg.outputDir)
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
-  for (const [ns, set] of perNsSets.entries()) {
-    const outPath = join(outDir, `${ns}.json`)
+  for (const [routeName, set] of routeToClasses.entries()) {
+    const outPath = join(outDir, `${routeName}.json`)
     writeFileSync(outPath, JSON.stringify(Array.from(set).sort(), null, 2))
-    console.log(`✅ Wrote ${ns} classes: ${outPath} (${set.size})`)
+    console.log(`✅ Wrote ${routeName}: ${outPath} (${set.size})`)
   }
 }
 
