@@ -2,10 +2,8 @@
 
 @import "./shadcn.css";
 
-/* @import "../../Blank.tsx"; */
-
-@source "../json";
-@source "../../**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+@source "../../packages/**/*.ts";
 
 @layer base {
   button {
