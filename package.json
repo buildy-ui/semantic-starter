@@ -10,25 +10,16 @@
   },
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "packages/@ui8kit/*"
+    "packages/*"
   ],
   "scripts": {
     "dev": "bunx turbo run dev",
     "build": "bunx turbo run build",
     "test": "bunx turbo run test",
-    "lint": "bunx turbo run lint",
-    "html": "bunx turbo run apps/create-html && bunx turbo run html --filter=./apps/create-html",
-    "analyze:dom": "bun apps/create-html/scripts/analyze-dom.ts",
-    "rewrite:semantic": "bun apps/create-html/scripts/rewrite-semantic.ts",
-    "compile:route": "bun apps/create-html/scripts/compile-route-css.ts",
-    "semantic:build": "bun run analyze:dom && bun run rewrite:semantic && bun run compile:route && npx serve -p 8080 -c serve.json apps/create-html/html"
+    "lint": "bunx turbo run lint"
   },
   "packageManager": "bun@1.1.30",
   "devDependencies": {
     "turbo": "^2.5.6"
-  },
-  "dependencies": {
-    "@ui8kit/core": "^0.1.7-b"
   }
 }

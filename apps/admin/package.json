@@ -9,14 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ui8kit/chat": "workspace:*",
+    "@ui8kit/core": "^0.1.7-b",
     "lucide-react": "^0.460.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.9",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",

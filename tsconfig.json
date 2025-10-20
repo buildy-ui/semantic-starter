@@ -19,10 +19,6 @@
     "composite": true,
     "incremental": true,
     "baseUrl": ".",
-    "paths": {
-      "@ui8kit/core": ["./packages/@ui8kit/core/src"],
-      "@ui8kit/core/*": ["./packages/@ui8kit/core/src/*"]
-    }
   },
   "exclude": ["node_modules", "dist", "build"]
 }

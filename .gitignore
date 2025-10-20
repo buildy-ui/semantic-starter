@@ -14,5 +14,3 @@ tsconfig.node.tsbuildinfo
 .manual/
 .project/
 .cursorignore
-.helper/
-app-old
