@@ -9,10 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ui8kit/chat": "workspace:*",
+    "@ui8kit/core": "^0.1.8",
     "lucide-react": "^0.460.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-resizable-panels": "^3.0.6",
     "react-router-dom": "^7.0.1"
   },
   "devDependencies": {

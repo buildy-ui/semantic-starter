@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ThemeProvider, skyOSTheme } from '@ui8kit/core'
+import { ThemeProvider, lesseUITheme } from '@ui8kit/core'
 import App from '@/App'
 import NotFound from '@/exceptions/NotFound'
 import ErrorBoundary from '@/exceptions/ErrorBoundary'
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Blank /> },
+      { path: 'about', element: <Blank /> },
       { path: '*', element: <NotFound /> }
     ]
   }
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('app')!).render(
   <StrictMode>
-    <ThemeProvider theme={skyOSTheme}>
+    <ThemeProvider theme={lesseUITheme}>
       <RouterProvider router={router} />
     </ThemeProvider>
   </StrictMode>

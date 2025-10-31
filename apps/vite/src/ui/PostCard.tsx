@@ -21,8 +21,7 @@ export function PostCard({ post, media = 'default' }: { post: Post, media?: 'top
             <Image 
               src={post.thumbnail.url} 
               alt={post.thumbnail.alt} 
-              rounded={media === 'top' ? 'none' : 'lg'} 
-              roundedTop={media === 'top' ? 'xl' : undefined}
+              rounded={media === 'top' ? 'none' : 'lg'}
               w="full" 
               h="auto" 
               fit="cover" 

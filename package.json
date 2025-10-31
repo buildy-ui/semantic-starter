@@ -10,8 +10,7 @@
   },
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "packages/@ui8kit/*"
+    "packages/*"
   ],
   "scripts": {
     "dev": "bunx turbo run dev",
@@ -27,8 +26,5 @@
   "packageManager": "bun@1.1.30",
   "devDependencies": {
     "turbo": "^2.5.6"
-  },
-  "dependencies": {
-    "@ui8kit/core": "^0.1.7-b"
   }
 }

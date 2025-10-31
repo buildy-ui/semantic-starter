@@ -1,15 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { DashLayout } from '@ui8kit/core'
+import { DashLayout } from './DashLayout'
 import {
   useTheme,
-  Card,
   Button,
-  Badge,
   Stack,
-  Grid,
-  Text,
-  Title,
-  Group
+  Title
 } from '@ui8kit/core'
 
 // Sidebar Navigation Component
