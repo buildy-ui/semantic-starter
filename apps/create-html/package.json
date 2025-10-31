@@ -20,8 +20,7 @@
     "html:tw4": "bun run tw4:html",
     "html:analyze": "bun run analyze:dom",
     "html:rewrite": "bun run rewrite:semantic",
-    "html:compile": "bun run compile:route",
-    "ui8kit:analyze": "bun run --bun scripts/ui8kit-analyze.ts"
+    "html:compile": "bun run compile:route"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
