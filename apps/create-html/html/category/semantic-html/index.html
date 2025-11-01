@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI8Kit</title>
+    <meta name="description" content="Posts categorized under “Semantic HTML”.">
+    <meta property="og:title" content="UI8Kit">
+    <meta property="og:description" content="Posts categorized under “Semantic HTML”.">
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('darkmode');
+          var prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (stored === null && prefers);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+        document.addEventListener('DOMContentLoaded', function() {
+          var btn = document.querySelector('button[aria-label="Toggle dark mode"]');
+          if (!btn) return;
+          btn.addEventListener('click', function() {
+            var nowDark = document.documentElement.classList.toggle('dark');
+            try {
+              localStorage.setItem('darkmode', nowDark ? 'dark' : 'light');
+            } catch (e) {}
+          });
+        });
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGJiYTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib3gtaWNvbiBsdWNpZGUtYm94Ij48cGF0aCBkPSJNMjEgOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczbDcgNGEyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZaIi8+PHBhdGggZD0ibTMuMyA3IDguNyA1IDguNy01Ii8+PHBhdGggZD0iTTEyIDIyVjEyIi8+PC9zdmc+" />
+  </head>
+  <body class="bg-background text-foreground">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&amp;h=200&amp;fit=crop" />
+    <nav class="py-2 bg-background border-border w-full shadow-lg border-b" data-class="nav-bar">
+      <div class="max-w-screen-xl mx-auto text-left px-4" data-class="container">
+        <div class="flex items-center justify-between flex-nowrap gap-4 min-w-0" data-class="group">
+          <div class="flex items-center justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/" data-discover="true">
+              <h2 class="tracking-tight text-2xl font-bold text-left leading-normal text-primary" data-class="title">UI8Kit</h2>
+            </a>
+            <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Design System</p>
+          </div>
+          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+            <nav>
+              <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="nav"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1" data-class="button">Home</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1" data-class="button">Blog</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm hover:bg-accent hover:text-accent-foreground rounded-lg mr-1" data-class="button">About</button></div>
+            </nav><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-10 px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-lg mr-1" data-class="button" title="Toggle dark mode" data-theme-toggle="true"><span class="flex items-center justify-center w-4 h-4 text-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon w-4 h-4 text-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></span></span></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="py-16 w-full" data-class="main-page">
+      <div class="max-w-screen-xl mx-auto text-left px-4" data-class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch justify-start" data-class="grid">
+          <div class="col-span-3 order-1" component="div" data-class="main-content">
+            <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+              <main class="py-16 w-full" data-class="block">
+                <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+                  <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group" aria-label="Breadcrumb">
+                    <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><a href="/" data-discover="true">
+                        <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Home</p>
+                      </a></div>
+                    <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><span class="flex items-center justify-center w-4 h-4 text-muted-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 text-muted-foreground"><path d="m9 18 6-6-6-6"></path></svg></span></span><a href="/blog" data-discover="true">
+                        <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Blog</p>
+                      </a></div>
+                    <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><span class="flex items-center justify-center w-4 h-4 text-muted-foreground" data-class="icon"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 text-muted-foreground"><path d="m9 18 6-6-6-6"></path></svg></span></span>
+                      <p class="text-sm font-normal text-left leading-normal text-foreground" data-class="text">Semantic HTML</p>
+                    </div>
+                  </div>
+                  <script type="application/ld+json">
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "BreadcrumbList",
+                      "itemListElement": [{
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "/"
+                      }, {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "/blog"
+                      }, {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Semantic HTML"
+                      }]
+                    }
+                  </script>
+                  <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                    <h1 class="tracking-tight text-2xl font-semibold text-left leading-normal text-foreground" data-class="title">Semantic HTML</h1>
+                    <p class="text-base font-normal text-left leading-normal text-secondary-foreground" data-class="text">Posts categorized under “Semantic HTML”.</p>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-start" data-class="grid">
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" alt="Three pillars architecture thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Three Pillars of Modern Frontend Architecture</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Discover the three foundational pillars that define modern frontend architecture: semantic HTML5, component-driven development, and utility-to-semantic transformation.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Architecture</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" alt="Tailwind transformation thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">From Tailwind Utilities to Production-Ready Semantic Classes</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Transform Tailwind utility classes into production-ready semantic HTML5 with automated extraction, CVA patterns, and framework-agnostic output.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Tailwind CSS</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" alt="Three pillars architecture thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Three Pillars of Modern Frontend Architecture</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Discover the three foundational pillars that define modern frontend architecture: semantic HTML5, component-driven development, and utility-to-semantic transformation.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Architecture</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" alt="Tailwind transformation thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">From Tailwind Utilities to Production-Ready Semantic Classes</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Transform Tailwind utility classes into production-ready semantic HTML5 with automated extraction, CVA patterns, and framework-agnostic output.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Tailwind CSS</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" alt="Three pillars architecture thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">Three Pillars of Modern Frontend Architecture</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Discover the three foundational pillars that define modern frontend architecture: semantic HTML5, component-driven development, and utility-to-semantic transformation.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Architecture</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-card border border-border" data-class="post-card">
+                      <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><img class="block object-cover object-center w-full h-auto rounded-lg" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" alt="Tailwind transformation thumbnail" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true">
+                            <h3 class="tracking-tight text-xl font-semibold text-left leading-normal text-foreground" data-class="title">From Tailwind Utilities to Production-Ready Semantic Classes</h3>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Transform Tailwind utility classes into production-ready semantic HTML5 with automated extraction, CVA patterns, and framework-agnostic output.</p>
+                          <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group">
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Tailwind CSS</div>
+                            <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">Semantic HTML</div>
+                          </div>
+                        </div>
+                        <div class="flex flex-col items-end justify-start gap-4 p-0 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg mr-1" data-class="button">Read more</button></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </div>
+          <div class="col-span-1 order-2" component="div" data-class="sidebar">
+            <aside class="w-full" data-class="block">
+              <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+                <div class="flex items-center justify-start flex-nowrap gap-2 min-w-0" data-class="group"><input placeholder="input text..." aria-label="Search" data-class="search-input" class="p-2 text-sm text-foreground rounded-lg border border-input bg-input focus:outline-none focus:ring focus:ring-primary" value="" /><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg mr-1" data-class="button">Search</button></div>
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-lg font-semibold text-left leading-normal text-foreground" data-class="title">Categories</h3>
+                  <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/category/architecture" data-discover="true">
+                      <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Architecture (3)</p>
+                    </a><a href="/category/clean-code" data-discover="true">
+                      <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Clean Code (3)</p>
+                    </a><a href="/category/component-design" data-discover="true">
+                      <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Component Design (3)</p>
+                    </a><a href="/category/semantic-html" data-discover="true">
+                      <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Semantic HTML (6)</p>
+                    </a><a href="/category/tailwind-css" data-discover="true">
+                      <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">Tailwind CSS (3)</p>
+                    </a></div>
+                </div><a href="/categories" data-discover="true">
+                  <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">View all categories</p>
+                </a>
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-lg font-semibold text-left leading-normal text-foreground" data-class="title">Tags</h3>
+                  <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/tag/architecture" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">architecture (3)</div>
+                    </a><a href="/tag/clean-code" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">clean-code (3)</div>
+                    </a><a href="/tag/cva" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">cva (3)</div>
+                    </a><a href="/tag/frontend" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">frontend (3)</div>
+                    </a><a href="/tag/tailwind" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">tailwind (3)</div>
+                    </a><a href="/tag/typescript" data-discover="true">
+                      <div class="inline-flex items-center font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 px-2 py-0.5 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full" data-class="badge">typescript (3)</div>
+                    </a></div>
+                </div><a href="/tags" data-discover="true">
+                  <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">View all tags</p>
+                </a><a href="/authors" data-discover="true">
+                  <p class="text-sm font-normal text-left leading-normal text-secondary-foreground" data-class="text">View all authors</p>
+                </a>
+                <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                  <h3 class="tracking-tight text-lg font-semibold text-left leading-normal text-foreground" data-class="title">Popular Posts</h3>
+                  <div class="flex flex-col items-stretch justify-start gap-6 text-left" data-class="stack">
+                    <div class="text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border" data-class="small-media-card">
+                      <div class="flex items-start justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><img class="block object-cover object-center aspect-square rounded-md" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" alt="Three Pillars of Modern Frontend Architecture" width="72" height="72" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true">
+                            <h4 class="tracking-tight text-sm font-bold text-left leading-normal text-foreground" data-class="title">Three Pillars of Modern Frontend Architecture</h4>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Discover the three foundational pillars that define modern frontend architecture...</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border" data-class="small-media-card">
+                      <div class="flex items-start justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/posts/clean-code-principles-semantic-html5-components" data-discover="true"><img class="block object-cover object-center aspect-square rounded-md" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&amp;h=200&amp;fit=crop" alt="Clean Code Principles for Semantic HTML5 Components" width="72" height="72" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/posts/clean-code-principles-semantic-html5-components" data-discover="true">
+                            <h4 class="tracking-tight text-sm font-bold text-left leading-normal text-foreground" data-class="title">Clean Code Principles for Semantic HTML5 Components</h4>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Learn how to write clean, maintainable frontend code using semantic HTML5 elemen...</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border" data-class="small-media-card">
+                      <div class="flex items-start justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true"><img class="block object-cover object-center aspect-square rounded-md" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=300&amp;h=200&amp;fit=crop" alt="From Tailwind Utilities to Production-Ready Semantic Classes" width="72" height="72" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/posts/tailwind-utilities-production-semantic-classes" data-discover="true">
+                            <h4 class="tracking-tight text-sm font-bold text-left leading-normal text-foreground" data-class="title">From Tailwind Utilities to Production-Ready Semantic Classes</h4>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Transform Tailwind utility classes into production-ready semantic HTML5 with aut...</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border" data-class="small-media-card">
+                      <div class="flex items-start justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/posts/clean-code-principles-semantic-html5-components" data-discover="true"><img class="block object-cover object-center aspect-square rounded-md" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&amp;h=200&amp;fit=crop" alt="Clean Code Principles for Semantic HTML5 Components" width="72" height="72" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/posts/clean-code-principles-semantic-html5-components" data-discover="true">
+                            <h4 class="tracking-tight text-sm font-bold text-left leading-normal text-foreground" data-class="title">Clean Code Principles for Semantic HTML5 Components</h4>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Learn how to write clean, maintainable frontend code using semantic HTML5 elemen...</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-card-foreground transition-colors p-4 rounded-lg shadow-none bg-card border border-border" data-class="small-media-card">
+                      <div class="flex items-start justify-start flex-nowrap gap-4 min-w-0" data-class="group"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true"><img class="block object-cover object-center aspect-square rounded-md" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&amp;h=200&amp;fit=crop" alt="Three Pillars of Modern Frontend Architecture" width="72" height="72" data-class="image" /></a>
+                        <div class="flex flex-col items-stretch justify-start gap-2 text-left" data-class="stack"><a href="/posts/three-pillars-modern-frontend-architecture" data-discover="true">
+                            <h4 class="tracking-tight text-sm font-bold text-left leading-normal text-foreground" data-class="title">Three Pillars of Modern Frontend Architecture</h4>
+                          </a>
+                          <p class="text-xs font-normal text-left leading-relaxed text-secondary-foreground" data-class="text">Discover the three foundational pillars that define modern frontend architecture...</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-card-foreground transition-colors p-6 rounded-xl shadow-md bg-primary border border-border" data-class="newsletter-signup">
+                  <div class="flex flex-col items-stretch justify-start gap-4 text-left" data-class="stack">
+                    <h3 class="tracking-tight text-xl font-bold text-left leading-normal text-primary-foreground" data-class="title">Subscribe</h3>
+                    <p class="text-sm font-normal text-left leading-relaxed text-primary-foreground" data-class="text">Get the latest posts delivered to your inbox.</p><input type="email" placeholder="you@example.com" data-class="newsletter-input" style="padding:12px;border-radius:8px;border:none;background:white" /><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] h-9 px-3 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg w-full mr-1" data-class="button">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-8 bg-card border-border w-full border-t" data-class="site-footer">
+      <div class="max-w-screen-xl mx-auto text-left px-4" data-class="container">
+        <div class="flex flex-col items-center justify-start gap-6 text-left" data-class="stack">
+          <p class="text-sm font-normal text-center leading-normal text-secondary-foreground" data-class="text">© 2025 UI8Kit Design System</p>
+          <div class="flex items-center justify-center flex-nowrap gap-4 min-w-0" data-class="group"><a href="/" data-discover="true">
+              <p class="text-xs font-normal text-left leading-normal text-secondary-foreground" data-class="text">Home</p>
+            </a><a href="/blog" data-discover="true">
+              <p class="text-xs font-normal text-left leading-normal text-secondary-foreground" data-class="text">Blog</p>
+            </a><a href="/about" data-discover="true">
+              <p class="text-xs font-normal text-left leading-normal text-secondary-foreground" data-class="text">About</p>
+            </a></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

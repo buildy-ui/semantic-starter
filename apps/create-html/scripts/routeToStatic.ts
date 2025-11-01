@@ -339,19 +339,13 @@ class RouteToStatic {
   ${pageDesc ? `<meta name=\"description\" content=\"${this.encodeAttr(pageDesc)}\">` : ''}
   <meta property="og:title" content="${this.encodeAttr(pageTitle)}">
   ${pageDesc ? `<meta property=\"og:description\" content=\"${this.encodeAttr(pageDesc)}\">` : ''}
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <!-- script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script -->
   <script>
     // Initialize dark mode before React loads to prevent flash
     (function() {
       const stored = localStorage.getItem('ui:dark');
-      let isDark = false;
-      
-      if (stored !== null) {
-        isDark = stored === '1';
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        isDark = true;
-      }
+      let isDark = stored === '1' || (stored === null && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
       
       if (isDark) {
         document.documentElement.classList.add('dark');
@@ -360,53 +354,19 @@ class RouteToStatic {
         document.documentElement.classList.remove('dark');
         document.documentElement.style.colorScheme = 'light';
       }
+      
+      // Add click handler for dark mode toggle button
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.querySelector('[data-theme-toggle]');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+            try { localStorage.setItem('ui:dark', isDark ? '1' : '0'); } catch (e) {}
+          });
+        }
+      });
     })();
-  </script>
-  <script>
-    // Add click handler for dark mode toggle button (for static HTML)
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleButton = document.querySelector('button[title="Toggle dark mode"]');
-      if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
-          const isDark = document.documentElement.classList.contains('dark');
-          const newIsDark = !isDark;
-          
-          // Update DOM
-          if (newIsDark) {
-            document.documentElement.classList.add('dark');
-            document.documentElement.style.colorScheme = 'dark';
-          } else {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.style.colorScheme = 'light';
-          }
-          
-          // Update localStorage (matches ui8kit useTheme hook)
-          try {
-            localStorage.setItem('ui:dark', newIsDark ? '1' : '0');
-          } catch (e) {
-            console.warn('Failed to save theme preference:', e);
-          }
-          
-          // Update button icon (Moon/Sun)
-          // Moon icon: M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z
-          // Sun icon: M12 3V1m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z
-          const svg = toggleButton.querySelector('svg');
-          if (svg) {
-            const path = svg.querySelector('path');
-            if (path) {
-              // Swap between Moon and Sun icons
-              if (newIsDark) {
-                // Dark mode: show Sun icon
-                path.setAttribute('d', 'M12 3V1m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z');
-              } else {
-                // Light mode: show Moon icon
-                path.setAttribute('d', 'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z');
-              }
-            }
-          }
-        });
-      }
-    });
   </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGJiYTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib3gtaWNvbiBsdWNpZGUtYm94Ij48cGF0aCBkPSJNMjEgOGEyIDIgMCAwIDAtMS0xLjczbC03LTRhMiAyIDAgMCAwLTIgMGwtNyA0QTIgMiAwIDAgMCAzIDh2OGEyIDIgMCAwIDAgMSAxLjczbDcgNGEyIDIgMCAwIDAgMiAwbDctNEEyIDIgMCAwIDAgMjEgMTZaIi8+PHBhdGggZD0ibTMuMyA3IDguNyA1IDguNy01Ii8+PHBhdGggZD0iTTEyIDIyVjEyIi8+PC9zdmc+" />
 </head>

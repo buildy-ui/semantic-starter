@@ -42,9 +42,9 @@ export function MainLayout({ children, sidebar = 'right' as 'left' | 'right' | '
                 </nav>
               )}
 
-              <Button variant="ghost" size="sm" aria-label="Toggle dark mode" onClick={toggleDarkMode}>
-                <Icon lucideIcon={isDarkMode ? Sun : Moon} />
-              </Button>
+            <Button variant="ghost" title="Toggle dark mode" onClick={toggleDarkMode} data-theme-toggle>
+              <Icon component="span" lucideIcon={isDarkMode ? Sun : Moon} />
+            </Button>
 
               {isMobile && (
                 <Sheet id="site-sheet" side="left" title="Menu" showTrigger triggerIcon={Menu}>
