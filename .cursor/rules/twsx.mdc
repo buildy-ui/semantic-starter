@@ -1,0 +1,247 @@
+---
+description: При создании макетов и блоков с использованием React Strict DOM и Tailwind-синтаксиса
+alwaysApply: false
+---
+
+# TWSX — Tailwind Syntax for React Strict DOM
+
+**Goal:** Write Tailwind-like classes, get StyleX performance. Zero CSS files.
+
+---
+
+## Core Concept
+
+```tsx
+// ❌ Standard Tailwind (not RSD compatible)
+<div className="flex flex-col gap-4 p-6" />
+
+// ✅ TWSX for RSD
+import { html } from 'react-strict-dom';
+import { twsx } from '@/lib/twsx';
+
+<html.div style={twsx('flex flex-col gap-4 p-6')} />
+```
+
+---
+
+## Usage Patterns
+
+### Basic
+```tsx
+<html.div style={twsx('min-h-screen flex flex-col')}>
+  <html.header style={twsx('w-full py-4 px-6 bg-background')} />
+  <html.main style={twsx('flex-1 p-6')} />
+</html.div>
+```
+
+### Conditional Styles
+```tsx
+<html.button 
+  style={[
+    twsx('px-4 py-2 rounded-lg font-medium'),
+    isActive && twsx('bg-primary text-primary-foreground'),
+    !isActive && twsx('bg-secondary text-secondary-foreground')
+  ]}
+/>
+```
+
+### Reusable Styles (Module Level)
+```tsx
+import { twsxCreate } from '@/lib/twsx';
+
+const styles = twsxCreate({
+  container: 'min-h-screen flex flex-col',
+  header: 'w-full py-4 px-6 bg-background border-b border-border',
+  main: 'flex-1 p-6 max-w-7xl mx-auto w-full',
+  footer: 'w-full py-4 px-6 bg-muted mt-auto',
+});
+
+function PageLayout({ children }) {
+  return (
+    <html.div style={styles.container}>
+      <html.header style={styles.header} />
+      <html.main style={styles.main}>{children}</html.main>
+      <html.footer style={styles.footer} />
+    </html.div>
+  );
+}
+```
+
+---
+
+## Available Classes
+
+### Layout
+| Category | Classes |
+|----------|---------|
+| Display | `block`, `flex`, `grid`, `hidden`, `inline-flex`, `contents` |
+| Flex Direction | `flex-row`, `flex-col`, `flex-row-reverse`, `flex-col-reverse` |
+| Flex Wrap | `flex-wrap`, `flex-nowrap`, `flex-wrap-reverse` |
+| Align Items | `items-start`, `items-center`, `items-end`, `items-stretch`, `items-baseline` |
+| Justify Content | `justify-start`, `justify-center`, `justify-end`, `justify-between`, `justify-around`, `justify-evenly` |
+| Gap | `gap-0` → `gap-32`, `gap-x-*`, `gap-y-*` |
+
+### Sizing
+| Category | Classes |
+|----------|---------|
+| Width | `w-0` → `w-96`, `w-full`, `w-screen`, `w-auto`, `w-1/2`, `w-1/3`, etc. |
+| Max Width | `max-w-xs` → `max-w-7xl`, `max-w-screen-sm` → `max-w-screen-2xl`, `max-w-prose` |
+| Height | `h-0` → `h-96`, `h-full`, `h-screen`, `h-auto` |
+| Min Height | `min-h-0`, `min-h-full`, `min-h-screen` |
+
+### Spacing
+| Category | Classes |
+|----------|---------|
+| Padding | `p-0` → `p-32`, `px-*`, `py-*`, `pt-*`, `pr-*`, `pb-*`, `pl-*` |
+| Margin | `m-0` → `m-8`, `mx-*`, `my-*`, `mt-*`, `mr-*`, `mb-*`, `ml-*`, `m-auto`, `mx-auto` |
+
+### Position
+| Category | Classes |
+|----------|---------|
+| Position | `static`, `relative`, `absolute`, `fixed`, `sticky` |
+| Inset | `inset-0`, `top-0` → `top-4`, `right-*`, `bottom-*`, `left-*` |
+| Z-Index | `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto` |
+
+### Typography
+| Category | Classes |
+|----------|---------|
+| Font Size | `text-xs` → `text-9xl` |
+| Font Weight | `font-thin` → `font-black` |
+| Text Align | `text-left`, `text-center`, `text-right`, `text-justify` |
+| Line Height | `leading-none`, `leading-tight`, `leading-normal`, `leading-relaxed`, `leading-loose` |
+| Letter Spacing | `tracking-tighter` → `tracking-widest` |
+| Decoration | `underline`, `line-through`, `no-underline` |
+| Transform | `uppercase`, `lowercase`, `capitalize`, `normal-case` |
+| Overflow | `truncate`, `text-ellipsis` |
+
+### Colors (shadcn tokens)
+| Category | Classes |
+|----------|---------|
+| Background | `bg-background`, `bg-foreground`, `bg-card`, `bg-popover`, `bg-primary`, `bg-secondary`, `bg-muted`, `bg-accent`, `bg-destructive`, `bg-transparent` |
+| Text | `text-foreground`, `text-primary`, `text-secondary`, `text-muted-foreground`, `text-accent-foreground`, `text-destructive` |
+| Border | `border-border`, `border-input`, `border-primary`, `border-secondary`, `border-destructive`, `border-muted`, `border-transparent` |
+
+### Border & Radius
+| Category | Classes |
+|----------|---------|
+| Border Width | `border`, `border-0`, `border-2`, `border-4`, `border-t`, `border-b`, `border-l`, `border-r` |
+| Border Radius | `rounded-none`, `rounded-sm`, `rounded`, `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`, `rounded-3xl`, `rounded-full` |
+| Border Style | `border-solid`, `border-dashed`, `border-dotted`, `border-none` |
+
+### Effects
+| Category | Classes |
+|----------|---------|
+| Shadow | `shadow-none`, `shadow-sm`, `shadow`, `shadow-md`, `shadow-lg`, `shadow-xl`, `shadow-2xl`, `shadow-inner` |
+| Opacity | `opacity-0` → `opacity-100` |
+
+### Interactivity
+| Category | Classes |
+|----------|---------|
+| Cursor | `cursor-pointer`, `cursor-default`, `cursor-not-allowed`, `cursor-wait`, `cursor-grab` |
+| Pointer Events | `pointer-events-none`, `pointer-events-auto` |
+| User Select | `select-none`, `select-text`, `select-all` |
+
+### Grid (web only)
+| Category | Classes |
+|----------|---------|
+| Columns | `grid-cols-1` → `grid-cols-12`, `grid-cols-none` |
+| Rows | `grid-rows-1` → `grid-rows-6` |
+| Span | `col-span-1` → `col-span-6`, `col-span-full`, `row-span-*` |
+
+### Transitions (web only)
+| Category | Classes |
+|----------|---------|
+| Property | `transition`, `transition-all`, `transition-colors`, `transition-opacity`, `transition-transform` |
+| Duration | `duration-75` → `duration-1000` |
+| Timing | `ease-linear`, `ease-in`, `ease-out`, `ease-in-out` |
+
+---
+
+## Cross-Platform Safety
+
+**Safe everywhere (web + native):**
+- `flex`, `flex-col`, `flex-row`
+- `items-*`, `justify-*`
+- `gap-*`
+- `p-*`, `m-*`
+- `w-*`, `h-*`
+- `relative`, `absolute`
+- All colors, typography, borders
+
+**Web only (avoid for cross-platform):**
+- `grid`, `grid-cols-*`
+- `fixed`, `sticky`
+- `transition-*`, `duration-*`
+- `scale-*`, `rotate-*`, `translate-*`
+
+---
+
+## Best Practices
+
+### 1. Define Styles at Module Level
+```tsx
+// ✅ Good - defined once, cached
+const styles = twsxCreate({
+  card: 'bg-card rounded-lg border border-border p-6 shadow-sm',
+  title: 'text-xl font-semibold text-foreground',
+});
+
+// ❌ Bad - recreated on every render
+function Card() {
+  return <html.div style={twsx('bg-card rounded-lg ...')} />;
+}
+```
+
+### 2. Compose with Arrays
+```tsx
+<html.div style={[
+  styles.base,
+  variant === 'primary' && styles.primary,
+  disabled && twsx('opacity-50 pointer-events-none')
+]} />
+```
+
+### 3. Keep Classes Minimal
+```tsx
+// ✅ Good - essential styles only
+twsx('flex flex-col gap-4 p-6')
+
+// ❌ Bad - too many classes
+twsx('flex flex-col gap-4 p-6 bg-white rounded-lg shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg')
+```
+
+### 4. Use shadcn Color Tokens
+```tsx
+// ✅ Good - uses design tokens
+twsx('bg-background text-foreground border-border')
+
+// ❌ Bad - hardcoded colors
+twsx('bg-white text-black border-gray-200')
+```
+
+---
+
+## File Structure
+
+```
+src/
+├── lib/
+│   └── twsx.ts          # TWSX utility
+├── layouts/             # Page layouts (RSD + twsx)
+│   ├── PageLayout.tsx
+│   ├── ArticleLayout.tsx
+│   └── DashboardLayout.tsx
+└── blocks/              # Composite blocks (RSD + twsx)
+    ├── HeroBlock.tsx
+    ├── CardBlock.tsx
+    └── NavigationBlock.tsx
+```
+
+---
+
+## Performance
+
+- **Cached:** Styles are cached after first parse
+- **Atomic:** StyleX generates atomic CSS classes
+- **Zero runtime:** No CSS-in-JS overhead after build
+- **Tree-shakeable:** Unused classes are eliminated
